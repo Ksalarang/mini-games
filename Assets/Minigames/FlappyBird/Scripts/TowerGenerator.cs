@@ -41,6 +41,7 @@ namespace Minigames.FlappyBird.Scripts
             tokenSource.CancelAndDispose();
             tokenSource = new CancellationTokenSource();
             towers.ForEach(t => t.DestroyGameObject());
+            towers.Clear();
             GenerateTowersInLoopAsync(tokenSource.Token).Forget();
         }
 
