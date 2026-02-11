@@ -10,7 +10,7 @@ using Random = UnityEngine.Random;
 
 namespace Minigames.FlappyBird.Scripts
 {
-    public class TowerGenerator : IDisposable
+    public class TowerGenerator : ITowerProvider, IDisposable
     {
         private readonly IAssetService assetService;
         private readonly SceneContainer sceneContainer;
@@ -22,6 +22,8 @@ namespace Minigames.FlappyBird.Scripts
         private Vector3 screenTopRight;
         private float towerGap;
         private float yOffset;
+
+        public IReadOnlyList<Tower> CurrentTowers => towers;
 
         public TowerGenerator(IAssetService assetService, SceneContainer sceneContainer)
         {
@@ -115,6 +117,7 @@ namespace Minigames.FlappyBird.Scripts
 
             tower.transform.rotation = Quaternion.Euler(0f, 0f, isBottom ? 0f : 180f);
             tower.transform.position = position;
+            tower.IsBottom = isBottom;
             
             MoveTowerAsync(tower, token).Forget();
         }

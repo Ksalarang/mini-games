@@ -8,17 +8,20 @@ namespace Minigames.FlappyBird.Scripts
         private readonly InputService inputService;
         private readonly BirdController birdController;
         private readonly TowerGenerator towerGenerator;
+        private readonly PointController pointController;
         private readonly SceneContainer sceneContainer;
 
         public GameFlow(
             InputService inputService,
             BirdController birdController,
             TowerGenerator towerGenerator,
+            PointController pointController,
             SceneContainer sceneContainer)
         {
             this.inputService = inputService;
             this.birdController = birdController;
             this.towerGenerator = towerGenerator;
+            this.pointController = pointController;
             this.sceneContainer = sceneContainer;
         }
 
@@ -36,6 +39,7 @@ namespace Minigames.FlappyBird.Scripts
         {
             sceneContainer.Bird.OnCollisionEnter += OnCollisionEnter;
             towerGenerator.Start();
+            pointController.Reset();
             birdController.Start();
             inputService.Enable();
         }

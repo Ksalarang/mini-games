@@ -15,6 +15,7 @@ namespace Minigames.FlappyBird.Scripts
             builder.Register<InputService>(Lifetime.Singleton).AsSelf().AsImplementedInterfaces();
             builder.Register<BirdController>(Lifetime.Singleton).AsSelf().AsImplementedInterfaces();
             builder.Register<TowerGenerator>(Lifetime.Singleton).AsSelf().AsImplementedInterfaces();
+            builder.Register<PointController>(Lifetime.Singleton).AsSelf().AsImplementedInterfaces();
 
             builder.RegisterEntryPoint<GameFlow>();
             builder.RegisterEntryPoint<SelectionSceneLoadHandler>();
