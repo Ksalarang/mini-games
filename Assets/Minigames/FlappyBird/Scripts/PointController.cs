@@ -4,7 +4,7 @@ using VContainer.Unity;
 
 namespace Minigames.FlappyBird.Scripts
 {
-    public class PointController : ITickable
+    public class PointController : IPointProvider, ITickable
     {
         private readonly ITowerProvider towerProvider;
         private readonly TMP_Text pointLabel;
@@ -12,6 +12,8 @@ namespace Minigames.FlappyBird.Scripts
         private readonly List<Tower> towers;
 
         private int points;
+
+        public int Points => points;
 
         public PointController(ITowerProvider towerProvider, SceneContainer sceneContainer)
         {

@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Core.Services.UnityAppEvents;
+using UnityEngine;
 using VContainer;
 using VContainer.Unity;
 
@@ -16,7 +17,9 @@ namespace Minigames.FlappyBird.Scripts
             builder.Register<BirdController>(Lifetime.Singleton).AsSelf().AsImplementedInterfaces();
             builder.Register<TowerGenerator>(Lifetime.Singleton).AsSelf().AsImplementedInterfaces();
             builder.Register<PointController>(Lifetime.Singleton).AsSelf().AsImplementedInterfaces();
+            builder.Register<PlayerDataStorage>(Lifetime.Singleton).AsSelf().AsImplementedInterfaces();
 
+            builder.RegisterEntryPoint<AppEventDispatchHandler>();
             builder.RegisterEntryPoint<GameFlow>();
             builder.RegisterEntryPoint<SelectionSceneLoadHandler>();
         }

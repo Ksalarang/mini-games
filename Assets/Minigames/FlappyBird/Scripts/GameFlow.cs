@@ -9,6 +9,7 @@ namespace Minigames.FlappyBird.Scripts
         private readonly BirdController birdController;
         private readonly TowerGenerator towerGenerator;
         private readonly PointController pointController;
+        private readonly PlayerDataStorage playerDataStorage;
         private readonly SceneContainer sceneContainer;
 
         public GameFlow(
@@ -16,12 +17,14 @@ namespace Minigames.FlappyBird.Scripts
             BirdController birdController,
             TowerGenerator towerGenerator,
             PointController pointController,
+            PlayerDataStorage playerDataStorage,
             SceneContainer sceneContainer)
         {
             this.inputService = inputService;
             this.birdController = birdController;
             this.towerGenerator = towerGenerator;
             this.pointController = pointController;
+            this.playerDataStorage = playerDataStorage;
             this.sceneContainer = sceneContainer;
         }
 
@@ -54,11 +57,15 @@ namespace Minigames.FlappyBird.Scripts
 
         private void OnCollisionEnter()
         {
-            Stop();
-            
             var loseScreen = sceneContainer.LoseScreen;
+            loseScreen.PreviousPoints.text = playerDataStorage.GetMaxPoints().ToString();
+            loseScreen.Points.text = pointController.Points.ToString();
             loseScreen.FadeIn();
             loseScreen.RetryButton.onClick.AddListener(Retry);
+
+            playerDataStorage.SetMaxPoints();
+            Stop();
+            return;
 
             void Retry()
             {
