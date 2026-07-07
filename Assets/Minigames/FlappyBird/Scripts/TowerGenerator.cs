@@ -22,6 +22,7 @@ namespace Minigames.FlappyBird.Scripts
         private Vector3 screenTopRight;
         private float towerGap;
         private float yOffset;
+        private float towerSpeed;
 
         public IReadOnlyList<Tower> CurrentTowers => towers;
 
@@ -44,12 +45,29 @@ namespace Minigames.FlappyBird.Scripts
             tokenSource = new CancellationTokenSource();
             towers.ForEach(t => t.DestroyGameObject());
             towers.Clear();
+            IncreaseTowerSpeedInLoopAsync(tokenSource.Token).Forget();
             GenerateTowersInLoopAsync(tokenSource.Token).Forget();
+            towerSpeed = config.TowerSpeed;
         }
 
         public void Stop()
         {
             tokenSource.CancelAndDispose();
+        }
+
+        private async UniTask IncreaseTowerSpeedInLoopAsync(CancellationToken token)
+        {
+            while (token.IsCancellationRequested is false)
+            {
+                await UniTask.WaitForSeconds(config.TowerIncreasePeriodSeconds, cancellationToken: token);
+
+                if (token.IsCancellationRequested)
+                {
+                    break;
+                }
+
+                towerSpeed += config.TowerSpeedIncrease;
+            }
         }
 
         private async UniTask GenerateTowersInLoopAsync(CancellationToken token)
@@ -128,7 +146,7 @@ namespace Minigames.FlappyBird.Scripts
                    && tower.transform.position.x + tower.SpriteRenderer.bounds.size.x / 2 > screenBottomLeft.x
                    && token.IsCancellationRequested is false)
             {
-                tower.transform.position += new Vector3(-config.TowerSpeed * Time.deltaTime, 0);
+                tower.transform.position += new Vector3(-towerSpeed * Time.deltaTime, 0);
                 await UniTask.Yield(PlayerLoopTiming.Update, token);
             }
 

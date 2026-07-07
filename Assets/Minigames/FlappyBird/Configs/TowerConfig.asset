@@ -19,3 +19,5 @@ MonoBehaviour:
     Min: 2
     Max: 3
   <TowerSpeed>k__BackingField: 3
+  <TowerIncreasePeriodSeconds>k__BackingField: 1
+  <TowerSpeedIncrease>k__BackingField: 0.016

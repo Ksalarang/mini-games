@@ -9,5 +9,7 @@ namespace Minigames.FlappyBird.Scripts
         [field: SerializeField] public FloatRange GenerationDelay { get; private set; }
         [field: SerializeField] public FloatRange TowerGap { get; private set; }
         [field: SerializeField] public float TowerSpeed { get; private set; }
+        [field: SerializeField] public float TowerIncreasePeriodSeconds { get; private set; }
+        [field: SerializeField] public float TowerSpeedIncrease { get; private set; }
     }
 }
