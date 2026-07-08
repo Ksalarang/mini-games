@@ -1,4 +1,5 @@
 ﻿using Core.Services;
+using Core.Services.Audio;
 using Core.Services.Storage;
 using Core.Services.UnityAppEvents;
 using Core.StartScene;
@@ -13,6 +14,9 @@ namespace Core
         [Space]
         [SerializeField] private AppEventDispatcher appEventDispatcher;
 
+        [SerializeField] private AudioSource sfxSource;
+        [SerializeField] private AudioSource musicSource;
+
         protected override void Awake()
         {
             base.Awake();
@@ -25,7 +29,9 @@ namespace Core
 
             builder.Register<AddressablesSceneService>(Lifetime.Singleton).AsImplementedInterfaces();
             builder.Register<AddressablesAssetService>(Lifetime.Singleton).AsImplementedInterfaces();
-            builder.Register<PlayerPrefsStorage>(Lifetime.Singleton).As<IStorage>();
+            builder.Register<AudioService>(Lifetime.Singleton).AsImplementedInterfaces()
+                .WithParameter("sfxSource", sfxSource).WithParameter("musicSource", musicSource);
+            builder.Register<PlayerPrefsStorage>(Lifetime.Singleton).AsImplementedInterfaces();
 
             builder.RegisterEntryPoint<SelectionSceneLoader>().AsSelf();
         }

@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bede15b3a9c4d1b99ab2e40d5818fcd, type: 3}
   m_Name: BirdConfig
   m_EditorClassIdentifier: 
-  <GravityAcceleration>k__BackingField: {x: 0, y: -5, z: 0}
-  <AscendingSpeed>k__BackingField: 2.5
-  <MaxSpeed>k__BackingField: 5
+  <GravityAcceleration>k__BackingField: {x: 0, y: -15, z: 0}
+  <AscendingSpeed>k__BackingField: 10
+  <MaxSpeed>k__BackingField: 10

@@ -446,6 +446,8 @@ MonoBehaviour:
   <LoseScreen>k__BackingField: {fileID: 484867658}
   <TowerConfig>k__BackingField: {fileID: 11400000, guid: 3ba5991aa60726043b4396e5bf7c2dae, type: 2}
   <BirdConfig>k__BackingField: {fileID: 11400000, guid: 34f4926c83b2f0c4daca8aa594e4a987, type: 2}
+  <BirdSpriteConfig>k__BackingField: {fileID: 11400000, guid: ec0814bbb6f6474419f3f365b2d20868, type: 2}
+  <AudioConfig>k__BackingField: {fileID: 11400000, guid: 0673c9c12e2a1014a932e8ac96612933, type: 2}
 --- !u!114 &1495165933
 MonoBehaviour:
   m_ObjectHideFlags: 0

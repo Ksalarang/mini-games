@@ -15,9 +15,12 @@ namespace Minigames.FlappyBird.Scripts
             inputActions.Gameplay.AddCallbacks(this);
         }
 
-        void InputActions.IGameplayActions.OnTap(InputAction.CallbackContext _)
+        void InputActions.IGameplayActions.OnTap(InputAction.CallbackContext context)
         {
-            OnTapped?.Invoke();
+            if (context.performed)
+            {
+                OnTapped?.Invoke();
+            }
         }
 
         public void Enable()

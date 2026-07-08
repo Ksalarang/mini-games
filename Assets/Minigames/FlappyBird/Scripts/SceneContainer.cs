@@ -19,5 +19,7 @@ namespace Minigames.FlappyBird.Scripts
         
         [field: Space, SerializeField] public TowerConfig TowerConfig { get; private set; }
         [field: SerializeField] public BirdConfig BirdConfig { get; private set; }
+        [field: SerializeField] public BirdSpriteConfig BirdSpriteConfig { get; private set; }
+        [field: SerializeField] public AudioConfig AudioConfig { get; private set; }
     }
 }

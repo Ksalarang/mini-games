@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using TMPro;
 using VContainer.Unity;
 
@@ -13,6 +14,7 @@ namespace Minigames.FlappyBird.Scripts
 
         private int points;
 
+        public event Action<int> PointsChanged;
         public int Points => points;
 
         public PointController(ITowerProvider towerProvider, SceneContainer sceneContainer)
@@ -39,6 +41,7 @@ namespace Minigames.FlappyBird.Scripts
                 {
                     towers.Add(tower);
                     points++;
+                    PointsChanged?.Invoke(points);
                     pointLabel.SetText("{0}", points);
                     break;
                 }
