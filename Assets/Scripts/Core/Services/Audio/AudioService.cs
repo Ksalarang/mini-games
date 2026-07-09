@@ -1,9 +1,8 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Core.Services.Audio
 {
-    public class AudioService : IAudioService, IDisposable
+    public class AudioService : IAudioService
     {
         private readonly AudioSource sfxSource;
         private readonly AudioSource musicSource;
@@ -13,11 +12,6 @@ namespace Core.Services.Audio
         {
             this.sfxSource = sfxSource;
             this.musicSource = musicSource;
-        }
-
-        void IDisposable.Dispose()
-        {
-            StopMusic();
         }
 
         public void PlaySound(AudioClip clip, float volume = 1f)

@@ -13,4 +13,11 @@ MonoBehaviour:
   m_Name: FlappyBirdConfig
   m_EditorClassIdentifier: 
   <Name>k__BackingField: Flappy Bird
-  <SceneKey>k__BackingField: FlappyBirdScene
+  <SceneParams>k__BackingField:
+    Key: FlappyBirdScene
+    OrientationParams:
+      Orientation: 3
+      AutoRotateToPortrait: 0
+      AutoRotateToPortraitUpsideDown: 0
+      AutoRotateToLandscapeLeft: 1
+      AutoRotateToLandscapeRight: 1

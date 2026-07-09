@@ -1,6 +1,8 @@
 ﻿using System.Threading;
+using Core.Scenes;
 using Core.Services;
 using Cysharp.Threading.Tasks;
+using UnityEngine;
 using VContainer.Unity;
 
 namespace Core.StartScene
@@ -23,6 +25,14 @@ namespace Core.StartScene
 
         public async UniTask LoadAsync()
         {
+            await sceneService.LoadSceneAsync(SceneNames.LoadingScene);
+
+            Screen.orientation = ScreenOrientation.AutoRotation;
+            Screen.autorotateToPortrait = true;
+            Screen.autorotateToPortraitUpsideDown = true;
+            Screen.autorotateToLandscapeLeft = true;
+            Screen.autorotateToLandscapeRight = true;
+
             await sceneService.LoadSceneAsync(SelectionSceneKey);
         }
     }

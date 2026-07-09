@@ -36,7 +36,7 @@ namespace Core.MinigameSelectionScene
                 minigameButtonView.Button.onClick.AddListener(() =>
                 {
                     minigameButtonView.Button.onClick.RemoveAllListeners();
-                    sceneService.LoadSceneAsync(minigameConfig.SceneKey);
+                    sceneService.LoadSceneAsync(minigameConfig.SceneParams);
                 });
             }
         }

@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Core.Scenes;
+using UnityEngine;
 
 namespace Core.MinigameSelectionScene
 {
@@ -6,6 +7,6 @@ namespace Core.MinigameSelectionScene
     public class MinigameConfig : ScriptableObject
     {
         [field: SerializeField] public string Name { get; private set; }
-        [field: SerializeField] public string SceneKey { get; private set; }
+        [field: SerializeField] public SceneParams SceneParams { get; private set; }
     }
 }
