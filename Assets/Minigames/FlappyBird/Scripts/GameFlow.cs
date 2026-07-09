@@ -1,9 +1,11 @@
 ﻿using System;
+using System.Threading;
+using Cysharp.Threading.Tasks;
 using VContainer.Unity;
 
 namespace Minigames.FlappyBird.Scripts
 {
-    public class GameFlow : IStartable, IDisposable
+    public class GameFlow : IAsyncStartable, IDisposable
     {
         private readonly InputService inputService;
         private readonly BirdController birdController;
@@ -31,8 +33,11 @@ namespace Minigames.FlappyBird.Scripts
             this.sceneContainer = sceneContainer;
         }
 
-        void IStartable.Start()
+        async UniTask IAsyncStartable.StartAsync(CancellationToken token)
         {
+            await sceneContainer.StartScreen.StartButton.OnClickAsync(token);
+            await sceneContainer.StartScreen.FadeOut();
+
             Start();
         }
 

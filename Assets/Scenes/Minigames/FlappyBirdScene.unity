@@ -477,6 +477,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &484867661 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3010743247701096540, guid: cba430c92375e674a839e560c735dfe7, type: 3}
+  m_PrefabInstance: {fileID: 484867657}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1fd45849ef14fec899217075be68bfe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1132803504
 GameObject:
   m_ObjectHideFlags: 0
@@ -620,6 +631,7 @@ MonoBehaviour:
     m_EditorAssetChanged: 0
   <BackButton>k__BackingField: {fileID: 484867659}
   <PointLabel>k__BackingField: {fileID: 484867660}
+  <StartScreen>k__BackingField: {fileID: 484867661}
   <LoseScreen>k__BackingField: {fileID: 484867658}
   <TowerConfig>k__BackingField: {fileID: 11400000, guid: 3ba5991aa60726043b4396e5bf7c2dae, type: 2}
   <BirdConfig>k__BackingField: {fileID: 11400000, guid: 34f4926c83b2f0c4daca8aa594e4a987, type: 2}
