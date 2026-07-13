@@ -1,6 +1,7 @@
 {
   "dependencies": {
     "com.cysharp.unitask": "2.5.10",
+    "com.leopotam.ecs": "https://github.com/Leopotam/ecs.git",
     "com.unity.addressables": "1.22.3",
     "com.unity.collab-proxy": "2.11.2",
     "com.unity.feature.2d": "2.0.1",
