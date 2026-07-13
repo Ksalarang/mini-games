@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Survivor
+  m_EditorClassIdentifier: 
+  m_GroupName: Survivor
+  m_Data:
+    m_SerializedData: []
+  m_GUID: f87dfe79faf540549bb3cbd57e069d2a
+  m_SerializeEntries:
+  - m_GUID: b36870d0990f657478dc8138f711542e
+    m_Address: SurvivorScene
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 382c1d18bc3470e4892aebdbf826e190, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: e863977fe7528534787fc06083496fcd, type: 2}
+    - {fileID: 11400000, guid: 6c663acb0a00a3d4ea59ccb96f5f7fe0, type: 2}
