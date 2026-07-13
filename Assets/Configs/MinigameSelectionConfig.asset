@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Minigames>k__BackingField:
   - {fileID: 11400000, guid: e25fb43a9e7160b4aa1275f645c9148d, type: 2}
+  - {fileID: 11400000, guid: 2d5cd8b4c7d33e34b9c395ee3b1687ce, type: 2}
   <MinigameButtonViewReference>k__BackingField:
     m_AssetGUID: b8fe5bad1c7668d48b7257567d2da907
     m_SubObjectName: 
