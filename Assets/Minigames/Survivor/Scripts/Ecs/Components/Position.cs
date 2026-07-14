@@ -1,8 +1,9 @@
-﻿namespace Minigames.Survivor.Scripts.Ecs.Components
+﻿using UnityEngine;
+
+namespace Minigames.Survivor.Scripts.Ecs.Components
 {
     public struct Position
     {
-        public float X;
-        public float Y;
+        public Vector2 Value;
     }
 }

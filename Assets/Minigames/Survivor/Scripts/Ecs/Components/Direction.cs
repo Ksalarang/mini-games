@@ -2,7 +2,7 @@
 
 namespace Minigames.Survivor.Scripts.Ecs.Components
 {
-    public struct Velocity
+    public struct Direction
     {
         public Vector2 Value;
     }

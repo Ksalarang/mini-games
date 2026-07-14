@@ -1,5 +1,4 @@
 ﻿using Leopotam.Ecs;
-using Minigames.Survivor.Scripts.Ecs.Components;
 using Minigames.Survivor.Scripts.Ecs.Components.Player;
 using Minigames.Survivor.Scripts.Input;
 using UnityEngine;
@@ -29,9 +28,10 @@ namespace Minigames.Survivor.Scripts.Ecs.Systems.Player
         public void Run()
         {
             var player = playerFilter.GetEntity(0);
-            ref var velocity = ref player.Get<Velocity>();
-            velocity.X = inputVector.x;
-            velocity.Y = inputVector.y;
+            ref var input = ref player.Get<PlayerMoveInput>();
+
+            input.X = inputVector.x;
+            input.Y = inputVector.y;
         }
     }
 }

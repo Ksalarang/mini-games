@@ -13,13 +13,16 @@ namespace Minigames.Survivor.Scripts
         [SerializeField] private PlayerContainer playerContainer;
 
         [Space]
-        [SerializeField] private PlayerMoveConfig playerMoveConfig;
+        [SerializeField] private MoveConfig playerMoveConfig;
 
         protected override void Configure(IContainerBuilder builder)
         {
-            builder.Register<PlayerInitSystem>(Lifetime.Singleton).WithParameter(playerContainer);
+            builder.Register<PlayerInitSystem>(Lifetime.Singleton)
+                .WithParameter(playerContainer).WithParameter(playerMoveConfig);
             builder.Register<PlayerInputSystem>(Lifetime.Singleton);
-            builder.Register<PlayerMoveSystem>(Lifetime.Singleton).WithParameter(playerMoveConfig);
+            builder.Register<PlayerDirectionSystem>(Lifetime.Singleton);
+            builder.Register<VelocitySystem>(Lifetime.Singleton);
+            builder.Register<MoveSystem>(Lifetime.Singleton);
             builder.Register<TransformPositionSyncSystem>(Lifetime.Singleton);
         }
     }
