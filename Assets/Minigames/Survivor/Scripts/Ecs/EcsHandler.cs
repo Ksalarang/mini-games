@@ -8,10 +8,10 @@ namespace Minigames.Survivor.Scripts.Ecs
 {
     public class EcsHandler : MonoBehaviour
     {
+        private IObjectResolver objectResolver;
+
         private EcsWorld world;
         private EcsSystems systems;
-
-        private IObjectResolver objectResolver;
 
         [Inject]
         public void Construct(IObjectResolver objectResolver)
