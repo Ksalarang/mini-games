@@ -34,6 +34,9 @@ namespace Minigames.Survivor.Scripts.Ecs.Systems.Player
 
             ref var spriteRenderer = ref player.Get<SpriteRendererComponent>();
             spriteRenderer.Value = playerContainer.SpriteRenderer;
+
+            player.Get<MoveStateComponent>();
+            player.Get<SpriteAnimation>();
         }
     }
 }

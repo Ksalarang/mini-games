@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90adccda6d454aab8c255f49969ffd3d, type: 3}
+  m_Name: PlayerAnimationConfig
+  m_EditorClassIdentifier: 
+  <Data>k__BackingField:
+  - State: 0
+    Sprites:
+    - {fileID: 21300000, guid: 5ac9f462339f6864ab02629eac708251, type: 3}
+    - {fileID: 21300000, guid: 0b7e77a030960cf4b8259584862e4a2b, type: 3}
+    - {fileID: 21300000, guid: e99eaebe907d48243bd7f54f35cd3ece, type: 3}
+    - {fileID: 21300000, guid: 32baf4b0ba6d969429778808c063918f, type: 3}
+    FramesPerSecond: 8
+  - State: 1
+    Sprites:
+    - {fileID: 21300000, guid: 3771f6234dff8fc4090ebdb9e43d8094, type: 3}
+    - {fileID: 21300000, guid: ec12b1c5fe717b04eb438793a6219149, type: 3}
+    - {fileID: 21300000, guid: 72eb6097d9249224d9ea97fd580a495f, type: 3}
+    - {fileID: 21300000, guid: 63d9832c725aaa842b4975a6cece4167, type: 3}
+    FramesPerSecond: 8

@@ -572,6 +572,7 @@ MonoBehaviour:
   - {fileID: 932716044}
   playerContainer: {fileID: 289123112}
   playerMoveConfig: {fileID: 11400000, guid: db661f446dc40394c8ea3871dafa14b0, type: 2}
+  playerAnimationConfig: {fileID: 11400000, guid: 8ebfaab2830947e4a9ba5c107fd06036, type: 2}
 --- !u!4 &1214174420
 Transform:
   m_ObjectHideFlags: 0
