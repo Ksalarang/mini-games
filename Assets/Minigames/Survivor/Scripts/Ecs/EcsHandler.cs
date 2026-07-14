@@ -4,7 +4,7 @@ using Minigames.Survivor.Scripts.Ecs.Systems.Player;
 using UnityEngine;
 using VContainer;
 
-namespace Minigames.Survivor.Scripts
+namespace Minigames.Survivor.Scripts.Ecs
 {
     public class EcsHandler : MonoBehaviour
     {

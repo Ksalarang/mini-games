@@ -1,7 +1,7 @@
 ﻿using UnityEditor;
 using UnityEditor.SceneManagement;
 
-namespace Minigames.Survivor.Editor
+namespace Core.Editor
 {
     public static class PlayModeSceneSetter
     {
