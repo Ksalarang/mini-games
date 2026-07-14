@@ -24,6 +24,7 @@ namespace Minigames.Survivor.Scripts
             builder.Register<VelocitySystem>(Lifetime.Singleton);
             builder.Register<MoveSystem>(Lifetime.Singleton);
             builder.Register<TransformPositionSyncSystem>(Lifetime.Singleton);
+            builder.Register<SpriteDirectionSystem>(Lifetime.Singleton);
         }
     }
 }

@@ -359,6 +359,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <Transform>k__BackingField: {fileID: 289123109}
+  <SpriteRenderer>k__BackingField: {fileID: 289123111}
 --- !u!1 &315042557
 GameObject:
   m_ObjectHideFlags: 0

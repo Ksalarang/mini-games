@@ -31,6 +31,9 @@ namespace Minigames.Survivor.Scripts.Ecs.Systems.Player
 
             ref var transformComponent = ref player.Get<TransformComponent>();
             transformComponent.Value = playerContainer.Transform;
+
+            ref var spriteRenderer = ref player.Get<SpriteRendererComponent>();
+            spriteRenderer.Value = playerContainer.SpriteRenderer;
         }
     }
 }

@@ -31,6 +31,7 @@ namespace Minigames.Survivor.Scripts.Ecs
                 .Add(objectResolver.Resolve<VelocitySystem>())
                 .Add(objectResolver.Resolve<MoveSystem>())
                 .Add(objectResolver.Resolve<TransformPositionSyncSystem>())
+                .Add(objectResolver.Resolve<SpriteDirectionSystem>())
                 .Init();
         }
 
