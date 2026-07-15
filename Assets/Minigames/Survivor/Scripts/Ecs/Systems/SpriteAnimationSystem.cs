@@ -6,7 +6,7 @@ namespace Minigames.Survivor.Scripts.Ecs.Systems
 {
     public class SpriteAnimationSystem : IEcsRunSystem
     {
-        private readonly EcsFilter<SpriteRendererComponent, SpriteAnimation> filter;
+        private readonly EcsFilter<SpriteRendererComponent, SpriteAnimationComponent> filter;
 
         public void Run()
         {

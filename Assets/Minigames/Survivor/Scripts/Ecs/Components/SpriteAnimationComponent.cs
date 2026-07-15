@@ -2,7 +2,7 @@
 
 namespace Minigames.Survivor.Scripts.Ecs.Components
 {
-    public struct SpriteAnimation
+    public struct SpriteAnimationComponent
     {
         public Sprite[] Sprites;
         public int FramesPerSecond;

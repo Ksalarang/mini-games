@@ -9,7 +9,7 @@ namespace Minigames.Survivor.Scripts.Ecs.Systems
     {
         private readonly SpriteAnimationConfig config;
 
-        private EcsFilter<SpriteAnimation, MoveStateComponent> filter;
+        private EcsFilter<SpriteAnimationComponent, MoveStateComponent> filter;
 
         public AnimationSpriteSystem(SpriteAnimationConfig config)
         {
