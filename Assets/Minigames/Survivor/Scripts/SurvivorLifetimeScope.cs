@@ -1,7 +1,7 @@
 ﻿using Minigames.Survivor.Scripts.Configs;
 using Minigames.Survivor.Scripts.Ecs.Systems;
 using Minigames.Survivor.Scripts.Ecs.Systems.Player;
-using Minigames.Survivor.Scripts.Player;
+using Minigames.Survivor.Scripts.SceneObjects;
 using UnityEngine;
 using VContainer;
 using VContainer.Unity;
@@ -10,7 +10,7 @@ namespace Minigames.Survivor.Scripts
 {
     public class SurvivorLifetimeScope : LifetimeScope
     {
-        [SerializeField] private PlayerContainer playerContainer;
+        [SerializeField] private SurvivorSceneContainer sceneContainer;
 
         [Space]
         [SerializeField] private MoveConfig playerMoveConfig;
@@ -18,8 +18,16 @@ namespace Minigames.Survivor.Scripts
 
         protected override void Configure(IContainerBuilder builder)
         {
-            builder.Register<PlayerInitSystem>(Lifetime.Singleton)
-                .WithParameter(playerContainer).WithParameter(playerMoveConfig);
+            builder.RegisterComponent(sceneContainer);
+            builder.RegisterComponent(sceneContainer.Camera);
+            builder.RegisterComponent(sceneContainer.InfiniteFloor);
+            builder.RegisterComponent(sceneContainer.PlayerContainer);
+
+            builder.RegisterComponent(playerMoveConfig);
+            builder.RegisterComponent(playerAnimationConfig);
+
+            builder.Register<PlayerInitSystem>(Lifetime.Singleton);
+
             builder.Register<PlayerInputSystem>(Lifetime.Singleton);
             builder.Register<PlayerDirectionSystem>(Lifetime.Singleton);
 
@@ -29,8 +37,12 @@ namespace Minigames.Survivor.Scripts
 
             builder.Register<SpriteDirectionSystem>(Lifetime.Singleton);
             builder.Register<MoveStateSystem>(Lifetime.Singleton);
-            builder.Register<AnimationSpriteSystem>(Lifetime.Singleton).WithParameter(playerAnimationConfig);
+            builder.Register<AnimationSpriteSystem>(Lifetime.Singleton);
             builder.Register<SpriteAnimationSystem>(Lifetime.Singleton);
+
+            builder.Register<CameraFollowSystem>(Lifetime.Singleton);
+            builder.Register<CameraPositionSyncSystem>(Lifetime.Singleton);
+            builder.Register<InfiniteFloorSystem>(Lifetime.Singleton);
         }
     }
 }

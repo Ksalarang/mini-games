@@ -12,6 +12,7 @@ namespace Minigames.Survivor.Scripts.Ecs
 
         private EcsWorld world;
         private EcsSystems systems;
+        private EcsSystems lateUpdateSystems;
 
         [Inject]
         public void Construct(IObjectResolver objectResolver)
@@ -22,19 +23,29 @@ namespace Minigames.Survivor.Scripts.Ecs
         private void Start()
         {
             world = new EcsWorld();
-            systems = new EcsSystems(world);
+            systems = new EcsSystems(world, "Systems");
+            lateUpdateSystems = new EcsSystems(world, "LateUpdateSystems");
 
             systems
                 .Add(objectResolver.Resolve<PlayerInitSystem>())
+
                 .Add(objectResolver.Resolve<PlayerInputSystem>())
                 .Add(objectResolver.Resolve<PlayerDirectionSystem>())
+
                 .Add(objectResolver.Resolve<VelocitySystem>())
                 .Add(objectResolver.Resolve<MoveSystem>())
                 .Add(objectResolver.Resolve<TransformPositionSyncSystem>())
+
                 .Add(objectResolver.Resolve<SpriteDirectionSystem>())
                 .Add(objectResolver.Resolve<MoveStateSystem>())
                 .Add(objectResolver.Resolve<AnimationSpriteSystem>())
                 .Add(objectResolver.Resolve<SpriteAnimationSystem>())
+                .Init();
+
+            lateUpdateSystems
+                .Add(objectResolver.Resolve<CameraFollowSystem>())
+                .Add(objectResolver.Resolve<CameraPositionSyncSystem>())
+                .Add(objectResolver.Resolve<InfiniteFloorSystem>())
                 .Init();
         }
 
@@ -43,9 +54,15 @@ namespace Minigames.Survivor.Scripts.Ecs
             systems.Run();
         }
 
+        private void LateUpdate()
+        {
+            lateUpdateSystems.Run();
+        }
+
         private void OnDestroy()
         {
             systems.Destroy();
+            lateUpdateSystems.Destroy();
             world.Destroy();
         }
     }
