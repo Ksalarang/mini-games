@@ -2,7 +2,7 @@
 using Minigames.Survivor.Scripts.Configs;
 using Minigames.Survivor.Scripts.Ecs.Components;
 using Minigames.Survivor.Scripts.Ecs.Components.Player;
-using Minigames.Survivor.Scripts.Player;
+using Minigames.Survivor.Scripts.SceneObjects;
 
 namespace Minigames.Survivor.Scripts.Ecs.Systems.Player
 {

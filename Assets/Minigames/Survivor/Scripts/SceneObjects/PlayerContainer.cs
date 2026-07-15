@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Minigames.Survivor.Scripts.Player
+namespace Minigames.Survivor.Scripts.SceneObjects
 {
     public class PlayerContainer : MonoBehaviour
     {

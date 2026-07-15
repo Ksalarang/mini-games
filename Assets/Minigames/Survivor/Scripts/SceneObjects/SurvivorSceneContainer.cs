@@ -1,5 +1,4 @@
-﻿using Minigames.Survivor.Scripts.Player;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Minigames.Survivor.Scripts.SceneObjects
 {
