@@ -1,4 +1,5 @@
-﻿using Core.Services.UnityAppEvents;
+﻿using Core.Common;
+using Core.Services.UnityAppEvents;
 using UnityEngine;
 using VContainer;
 using VContainer.Unity;
@@ -22,7 +23,7 @@ namespace Minigames.FlappyBird.Scripts
 
             builder.RegisterEntryPoint<AppEventDispatchHandler>();
             builder.RegisterEntryPoint<GameFlow>();
-            builder.RegisterEntryPoint<SelectionSceneLoadHandler>();
+            builder.RegisterEntryPoint<SelectionSceneLoadHandler>().WithParameter(sceneContainer.BackButton.onClick);
             builder.RegisterEntryPoint<AudioController>();
         }
     }

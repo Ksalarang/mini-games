@@ -35,7 +35,13 @@ namespace Minigames.FlappyBird.Scripts
 
         async UniTask IAsyncStartable.StartAsync(CancellationToken token)
         {
-            await sceneContainer.StartScreen.StartButton.OnClickAsync(token);
+            await sceneContainer.StartScreen.StartButton.OnClickAsync(token).SuppressCancellationThrow();
+
+            if (token.IsCancellationRequested)
+            {
+                return;
+            }
+
             await sceneContainer.StartScreen.FadeOut();
 
             Start();

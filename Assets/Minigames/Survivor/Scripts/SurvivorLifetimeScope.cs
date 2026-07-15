@@ -1,7 +1,9 @@
-﻿using Minigames.Survivor.Scripts.Configs;
+﻿using Core.Common;
+using Minigames.Survivor.Scripts.Configs;
 using Minigames.Survivor.Scripts.Ecs.Systems;
 using Minigames.Survivor.Scripts.Ecs.Systems.Player;
 using Minigames.Survivor.Scripts.SceneObjects;
+using Minigames.Survivor.Scripts.UI;
 using UnityEngine;
 using VContainer;
 using VContainer.Unity;
@@ -11,6 +13,7 @@ namespace Minigames.Survivor.Scripts
     public class SurvivorLifetimeScope : LifetimeScope
     {
         [SerializeField] private SurvivorSceneContainer sceneContainer;
+        [SerializeField] private UiContainer uiContainer;
 
         [Space]
         [SerializeField] private MoveConfig playerMoveConfig;
@@ -22,6 +25,7 @@ namespace Minigames.Survivor.Scripts
             builder.RegisterComponent(sceneContainer.Camera);
             builder.RegisterComponent(sceneContainer.InfiniteFloor);
             builder.RegisterComponent(sceneContainer.PlayerContainer);
+            builder.RegisterComponent(uiContainer);
 
             builder.RegisterComponent(playerMoveConfig);
             builder.RegisterComponent(playerAnimationConfig);
@@ -43,6 +47,8 @@ namespace Minigames.Survivor.Scripts
             builder.Register<CameraFollowSystem>(Lifetime.Singleton);
             builder.Register<CameraPositionSyncSystem>(Lifetime.Singleton);
             builder.Register<InfiniteFloorSystem>(Lifetime.Singleton);
+
+            builder.RegisterEntryPoint<SelectionSceneLoadHandler>().WithParameter(uiContainer.BackButton.onClick);
         }
     }
 }
