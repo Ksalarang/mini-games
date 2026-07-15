@@ -721,6 +721,7 @@ MonoBehaviour:
   uiContainer: {fileID: 307285678}
   playerMoveConfig: {fileID: 11400000, guid: db661f446dc40394c8ea3871dafa14b0, type: 2}
   playerAnimationConfig: {fileID: 11400000, guid: 8ebfaab2830947e4a9ba5c107fd06036, type: 2}
+  enemySpawnConfig: {fileID: 11400000, guid: 468ac788c6ef3294f822b039225d999e, type: 2}
 --- !u!4 &1214174420
 Transform:
   m_ObjectHideFlags: 0
@@ -845,6 +846,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <Camera>k__BackingField: {fileID: 53722401}
+  <World>k__BackingField: {fileID: 315042558}
   <InfiniteFloor>k__BackingField: {fileID: 428838993}
   <PlayerContainer>k__BackingField: {fileID: 289123112}
 --- !u!4 &1542022098
