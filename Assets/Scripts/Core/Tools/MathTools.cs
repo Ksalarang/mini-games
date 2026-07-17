@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Minigames.Survivor.Scripts.Tools
+namespace Core.Tools
 {
     public static class MathTools
     {

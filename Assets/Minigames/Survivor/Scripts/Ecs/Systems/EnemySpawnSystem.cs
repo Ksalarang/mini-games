@@ -1,4 +1,5 @@
-﻿using Leopotam.Ecs;
+﻿using Core.Tools;
+using Leopotam.Ecs;
 using Minigames.Survivor.Scripts.Configs;
 using Minigames.Survivor.Scripts.Ecs.Components;
 using Minigames.Survivor.Scripts.Ecs.Components.Player;
