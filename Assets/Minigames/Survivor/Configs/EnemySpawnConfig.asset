@@ -15,6 +15,6 @@ MonoBehaviour:
   <Data>k__BackingField:
   - EnemyType: 0
     Sprite: {fileID: 1515730915, guid: 535d082cb5518d448bd0057c6592dbd9, type: 3}
-    SpawnIntervalSeconds: 5
-    MoveSpeed: 3
+    SpawnIntervalSeconds: 2
+    MoveSpeed: 2
   <EnemyPrefab>k__BackingField: {fileID: 2667757482269012895, guid: 8b5b838151d01254ab746fb82cc8da6d, type: 3}

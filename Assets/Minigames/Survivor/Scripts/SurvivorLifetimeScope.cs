@@ -43,6 +43,7 @@ namespace Minigames.Survivor.Scripts
             builder.Register<EnemySpawnSystem>(Lifetime.Singleton).WithParameter(sceneContainer.World);
             builder.Register<EnemyDirectionSystem>(Lifetime.Singleton);
 
+            builder.Register<CollisionSystem>(Lifetime.Singleton);
             builder.Register<VelocitySystem>(Lifetime.Singleton);
             builder.Register<MoveSystem>(Lifetime.Singleton);
             builder.Register<TransformPositionSyncSystem>(Lifetime.Singleton);
