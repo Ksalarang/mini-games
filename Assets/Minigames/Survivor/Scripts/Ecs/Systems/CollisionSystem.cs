@@ -18,7 +18,7 @@ namespace Minigames.Survivor.Scripts.Ecs.Systems
             new (1, 0)
         };
 
-        private readonly EcsFilter<Position, SpriteRendererComponent> filter;
+        private readonly EcsFilter<Position, BoundsComponent> filter;
         private readonly EcsFilter<PlayerTag> playerFilter;
 
         private readonly Dictionary<Vector2Int, List<int>> spatialGrid = new();
@@ -87,16 +87,14 @@ namespace Minigames.Survivor.Scripts.Ecs.Systems
         private void Resolve(int i, int j)
         {
             ref var position1 = ref filter.Get1(i);
-            var spriteRenderer1 = filter.Get2(i);
-            var halfSize1 = spriteRenderer1.Value.bounds.size * 0.5f;
+            var bounds1 = filter.Get2(i);
 
             ref var position2 = ref filter.Get1(j);
-            var spriteRenderer2 = filter.Get2(j);
-            var halfSize2 = spriteRenderer2.Value.bounds.size * 0.5f;
+            var bounds2 = filter.Get2(j);
 
             var delta = position1.Value - position2.Value;
-            var overlapX = halfSize1.x + halfSize2.x - Mathf.Abs(delta.x);
-            var overlapY = halfSize1.y + halfSize2.y - Mathf.Abs(delta.y);
+            var overlapX = bounds1.HalfSize.x + bounds2.HalfSize.x - Mathf.Abs(delta.x);
+            var overlapY = bounds1.HalfSize.y + bounds2.HalfSize.y - Mathf.Abs(delta.y);
 
             if (overlapX <= 0 || overlapY <= 0)
             {

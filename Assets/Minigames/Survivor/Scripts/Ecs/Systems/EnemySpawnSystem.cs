@@ -73,6 +73,9 @@ namespace Minigames.Survivor.Scripts.Ecs.Systems
 
             ref var spriteRendererComponent = ref entity.Get<SpriteRendererComponent>();
             spriteRendererComponent.Value = enemy.SpriteRenderer;
+
+            ref var bounds = ref entity.Get<BoundsComponent>();
+            bounds.HalfSize = spriteRendererComponent.Value.bounds.size * 0.5f;
         }
 
         private Vector2 GetRandomPositionAroundPlayer(Vector2 playerPosition)
