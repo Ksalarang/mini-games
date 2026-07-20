@@ -1,12 +1,19 @@
 ﻿using Leopotam.Ecs;
 using Minigames.Survivor.Scripts.Ecs.Components;
-using UnityEngine;
+using Minigames.Survivor.Scripts.Tools;
 
 namespace Minigames.Survivor.Scripts.Ecs.Systems
 {
     public class SpriteAnimationSystem : IEcsRunSystem
     {
+        private readonly GameTimeService timeService;
+
         private readonly EcsFilter<SpriteRendererComponent, SpriteAnimationComponent> filter;
+
+        public SpriteAnimationSystem(GameTimeService timeService)
+        {
+            this.timeService = timeService;
+        }
 
         public void Run()
         {
@@ -23,7 +30,7 @@ namespace Minigames.Survivor.Scripts.Ecs.Systems
                     renderer.Value.sprite = animation.Sprites[index];
                 }
 
-                animation.CurrentTimeSeconds -= Time.deltaTime;
+                animation.CurrentTimeSeconds -= timeService.DeltaTime;
             }
         }
     }

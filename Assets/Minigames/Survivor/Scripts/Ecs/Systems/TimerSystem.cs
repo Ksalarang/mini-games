@@ -6,7 +6,7 @@ namespace Minigames.Survivor.Scripts.Ecs.Systems
 {
     public class TimerSystem : IEcsRunSystem
     {
-        private readonly GameTimeService timeService; //todo: use everywhere
+        private readonly GameTimeService timeService;
 
         private readonly EcsFilter<Timer> filter;
 
