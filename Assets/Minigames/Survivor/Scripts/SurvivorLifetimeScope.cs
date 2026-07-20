@@ -15,10 +15,7 @@ namespace Minigames.Survivor.Scripts
     {
         [SerializeField] private SurvivorSceneContainer sceneContainer;
         [SerializeField] private UiContainer uiContainer;
-        [Space]
-        [SerializeField] private MoveConfig playerMoveConfig;
-        [SerializeField] private SpriteAnimationConfig playerAnimationConfig; //todo: add a config container
-        [SerializeField] private EnemySpawnConfig enemySpawnConfig;
+        [SerializeField] private SurvivorGameConfig gameConfig;
 
         protected override void Configure(IContainerBuilder builder)
         {
@@ -28,9 +25,11 @@ namespace Minigames.Survivor.Scripts
             builder.RegisterComponent(sceneContainer.PlayerContainer);
             builder.RegisterComponent(uiContainer);
 
-            builder.RegisterComponent(playerMoveConfig);
-            builder.RegisterComponent(playerAnimationConfig);
-            builder.RegisterComponent(enemySpawnConfig);
+            builder.RegisterComponent(gameConfig);
+            builder.RegisterComponent(gameConfig.PlayerConfig);
+            builder.RegisterComponent(gameConfig.SpriteAnimationConfig);
+            builder.RegisterComponent(gameConfig.EnemySpawnConfig);
+            builder.RegisterComponent(gameConfig.EnemyDamageConfig);
 
             builder.Register<GameTimeService>(Lifetime.Singleton);
 
@@ -47,6 +46,10 @@ namespace Minigames.Survivor.Scripts
             builder.Register<VelocitySystem>(Lifetime.Singleton);
             builder.Register<MoveSystem>(Lifetime.Singleton);
             builder.Register<TransformPositionSyncSystem>(Lifetime.Singleton);
+
+            builder.Register<EnemyContactDamageSystem>(Lifetime.Singleton);
+            builder.Register<DamageSystem>(Lifetime.Singleton);
+            builder.Register<PlayerHealthBarSystem>(Lifetime.Singleton);
 
             builder.Register<SpriteDirectionSystem>(Lifetime.Singleton);
             builder.Register<MoveStateSystem>(Lifetime.Singleton);

@@ -1,4 +1,5 @@
 ﻿using Leopotam.Ecs;
+using Minigames.Survivor.Scripts.Ecs.Components.Events;
 using Minigames.Survivor.Scripts.Ecs.Systems;
 using Minigames.Survivor.Scripts.Ecs.Systems.Player;
 using UnityEngine;
@@ -41,10 +42,18 @@ namespace Minigames.Survivor.Scripts.Ecs
                 .Add(objectResolver.Resolve<MoveSystem>())
                 .Add(objectResolver.Resolve<TransformPositionSyncSystem>())
 
+                .Add(objectResolver.Resolve<EnemyContactDamageSystem>())
+                .Add(objectResolver.Resolve<DamageSystem>())
+                .Add(objectResolver.Resolve<PlayerHealthBarSystem>())
+
                 .Add(objectResolver.Resolve<SpriteDirectionSystem>())
                 .Add(objectResolver.Resolve<MoveStateSystem>())
                 .Add(objectResolver.Resolve<AnimationSpriteSystem>())
                 .Add(objectResolver.Resolve<SpriteAnimationSystem>())
+
+                .OneFrame<CollisionEvent>()
+                .OneFrame<DamageEvent>()
+
                 .Init();
 
             lateUpdateSystems

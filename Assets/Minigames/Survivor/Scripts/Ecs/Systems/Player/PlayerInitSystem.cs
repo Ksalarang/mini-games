@@ -9,14 +9,14 @@ namespace Minigames.Survivor.Scripts.Ecs.Systems.Player
     public class PlayerInitSystem : IEcsInitSystem
     {
         private readonly PlayerContainer playerContainer;
-        private readonly MoveConfig moveConfig;
+        private readonly PlayerConfig playerConfig;
 
         private readonly EcsWorld world;
 
-        public PlayerInitSystem(PlayerContainer playerContainer, MoveConfig moveConfig)
+        public PlayerInitSystem(PlayerContainer playerContainer, PlayerConfig playerConfig)
         {
             this.playerContainer = playerContainer;
-            this.moveConfig = moveConfig;
+            this.playerConfig = playerConfig;
         }
 
         public void Init()
@@ -27,7 +27,7 @@ namespace Minigames.Survivor.Scripts.Ecs.Systems.Player
             player.Get<Position>();
 
             ref var speed = ref player.Get<Speed>();
-            speed.Value = moveConfig.Speed;
+            speed.Value = playerConfig.MoveSpeed;
 
             ref var transformComponent = ref player.Get<TransformComponent>();
             transformComponent.Value = playerContainer.Transform;
@@ -40,6 +40,10 @@ namespace Minigames.Survivor.Scripts.Ecs.Systems.Player
 
             player.Get<MoveStateComponent>();
             player.Get<SpriteAnimationComponent>();
+
+            ref var health = ref player.Get<Health>();
+            health.Value = playerConfig.Health;
+            health.MaxValue = playerConfig.Health;
         }
     }
 }

@@ -9,7 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0277adecf4704526ab1a1ef9259425b8, type: 3}
-  m_Name: PlayerMoveConfig
+  m_Script: {fileID: 11500000, guid: c78b235b3cf24777a27e3e0c17c21e2d, type: 3}
+  m_Name: PlayerConfig
   m_EditorClassIdentifier: 
-  <Speed>k__BackingField: 5
+  <Health>k__BackingField: 100
+  <MoveSpeed>k__BackingField: 5

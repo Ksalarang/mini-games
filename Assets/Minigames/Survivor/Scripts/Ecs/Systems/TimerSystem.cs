@@ -22,6 +22,7 @@ namespace Minigames.Survivor.Scripts.Ecs.Systems
                 ref var timer = ref filter.Get1(i);
                 ref var entity = ref filter.GetEntity(i);
 
+                //todo: mark as one frame
                 if (entity.Has<TimerExpired>())
                 {
                     entity.Del<TimerExpired>();

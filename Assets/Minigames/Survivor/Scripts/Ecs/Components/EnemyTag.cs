@@ -2,6 +2,6 @@
 {
     public struct EnemyTag
     {
-        
+        public EnemyType Type;
     }
 }

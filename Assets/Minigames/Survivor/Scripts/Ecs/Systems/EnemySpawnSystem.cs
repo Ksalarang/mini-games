@@ -4,7 +4,6 @@ using Minigames.Survivor.Scripts.Configs;
 using Minigames.Survivor.Scripts.Ecs.Components;
 using Minigames.Survivor.Scripts.Ecs.Components.Player;
 using Minigames.Survivor.Scripts.SceneObjects;
-using Minigames.Survivor.Scripts.Tools;
 using UnityEngine;
 
 namespace Minigames.Survivor.Scripts.Ecs.Systems
@@ -60,7 +59,8 @@ namespace Minigames.Survivor.Scripts.Ecs.Systems
             enemy.SpriteRenderer.sprite = data.Sprite;
 
             var entity = world.NewEntity();
-            entity.Get<EnemyTag>();
+            ref var tag = ref entity.Get<EnemyTag>();
+            tag.Type = enemyType;
 
             ref var position = ref entity.Get<Position>();
             position.Value = GetRandomPositionAroundPlayer(playerFilter.GetEntity(0).Get<Position>().Value);
@@ -76,6 +76,8 @@ namespace Minigames.Survivor.Scripts.Ecs.Systems
 
             ref var bounds = ref entity.Get<BoundsComponent>();
             bounds.HalfSize = spriteRendererComponent.Value.bounds.size * 0.5f;
+
+            entity.Get<Health>();
         }
 
         private Vector2 GetRandomPositionAroundPlayer(Vector2 playerPosition)

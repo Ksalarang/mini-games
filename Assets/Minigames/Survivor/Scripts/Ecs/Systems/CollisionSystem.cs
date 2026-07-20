@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using Leopotam.Ecs;
 using Minigames.Survivor.Scripts.Ecs.Components;
+using Minigames.Survivor.Scripts.Ecs.Components.Events;
 using Minigames.Survivor.Scripts.Ecs.Components.Player;
 using UnityEngine;
 
@@ -18,6 +19,7 @@ namespace Minigames.Survivor.Scripts.Ecs.Systems
             new (1, 0)
         };
 
+        private readonly EcsWorld world;
         private readonly EcsFilter<Position, BoundsComponent> filter;
         private readonly EcsFilter<PlayerTag> playerFilter;
 
@@ -111,11 +113,14 @@ namespace Minigames.Survivor.Scripts.Ecs.Systems
                 translationVector = new Vector2(0, delta.y < 0 ? -overlapY : overlapY);
             }
 
-            if (player == filter.GetEntity(i))
+            var entity1 = filter.GetEntity(i);
+            var entity2 = filter.GetEntity(j);
+
+            if (player == entity1)
             {
                 position2.Value -= translationVector;
             }
-            else if (player == filter.GetEntity(j))
+            else if (player == entity2)
             {
                 position1.Value += translationVector;
             }
@@ -125,6 +130,12 @@ namespace Minigames.Survivor.Scripts.Ecs.Systems
                 position1.Value += translationVector;
                 position2.Value -= translationVector;
             }
+
+            world.NewEntity().Get<CollisionEvent>() = new CollisionEvent
+            {
+                Entity1 = entity1,
+                Entity2 = entity2,
+            };
         }
     }
 }

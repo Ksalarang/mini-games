@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26f357036c6d486585d7c22db7442734, type: 3}
+  m_Name: GameConfig
+  m_EditorClassIdentifier: 
+  <PlayerConfig>k__BackingField: {fileID: 11400000, guid: 62755bc16ef5d4e4586cb724728fd2f6, type: 2}
+  <SpriteAnimationConfig>k__BackingField: {fileID: 11400000, guid: 8ebfaab2830947e4a9ba5c107fd06036, type: 2}
+  <EnemySpawnConfig>k__BackingField: {fileID: 11400000, guid: 468ac788c6ef3294f822b039225d999e, type: 2}
+  <EnemyDamageConfig>k__BackingField: {fileID: 11400000, guid: e940bb2874e329740a5e72c7a86fac32, type: 2}
