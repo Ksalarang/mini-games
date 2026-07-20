@@ -16,7 +16,7 @@ namespace Minigames.Survivor.Scripts.Ecs.Systems
 
                 if (animation.CurrentTimeSeconds <= 0f)
                 {
-                    animation.CurrentTimeSeconds = 1f / animation.FramesPerSecond;
+                    animation.CurrentTimeSeconds += 1f / animation.FramesPerSecond;
 
                     ref var renderer = ref filter.Get1(i);
                     var index = animation.CurrentIndex++ % animation.Sprites.Length;

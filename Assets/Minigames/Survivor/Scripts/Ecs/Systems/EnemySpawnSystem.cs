@@ -56,7 +56,6 @@ namespace Minigames.Survivor.Scripts.Ecs.Systems
         {
             var data = config.GetData(enemyType)!;
             var enemy = Object.Instantiate(config.EnemyPrefab, worldTransform).GetComponent<Enemy>();
-            enemy.SpriteRenderer.sprite = data.Sprite;
 
             var entity = world.NewEntity();
             ref var tag = ref entity.Get<EnemyTag>();
@@ -73,6 +72,11 @@ namespace Minigames.Survivor.Scripts.Ecs.Systems
 
             ref var spriteRendererComponent = ref entity.Get<SpriteRendererComponent>();
             spriteRendererComponent.Value = enemy.SpriteRenderer;
+            spriteRendererComponent.Value.sprite = data.Sprites[0];
+
+            ref var spriteAnimationComponent = ref entity.Get<SpriteAnimationComponent>();
+            spriteAnimationComponent.Sprites = data.Sprites;
+            spriteAnimationComponent.FramesPerSecond = data.FramesPerSecond;
 
             ref var bounds = ref entity.Get<BoundsComponent>();
             bounds.HalfSize = spriteRendererComponent.Value.bounds.size * 0.5f;

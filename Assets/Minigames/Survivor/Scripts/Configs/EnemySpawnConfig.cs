@@ -1,5 +1,4 @@
 ﻿using System;
-using Core.Tools.Structs;
 using Minigames.Survivor.Scripts.Ecs.Components;
 using UnityEngine;
 
@@ -30,7 +29,8 @@ namespace Minigames.Survivor.Scripts.Configs
     public class EnemySpawnData
     {
         public EnemyType EnemyType;
-        public Sprite Sprite;
+        public Sprite[] Sprites;
+        public int FramesPerSecond;
         public float SpawnIntervalSeconds;
         public float MoveSpeed;
     }
