@@ -51,6 +51,7 @@ namespace Minigames.Survivor.Scripts.Ecs
                 .Add(objectResolver.Resolve<AnimationSpriteSystem>())
                 .Add(objectResolver.Resolve<SpriteAnimationSystem>())
 
+                .OneFrame<TimerExpiredEvent>()
                 .OneFrame<CollisionEvent>()
                 .OneFrame<DamageEvent>()
 

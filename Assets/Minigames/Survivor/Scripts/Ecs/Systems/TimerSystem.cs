@@ -1,5 +1,6 @@
 ﻿using Leopotam.Ecs;
 using Minigames.Survivor.Scripts.Ecs.Components;
+using Minigames.Survivor.Scripts.Ecs.Components.Events;
 using Minigames.Survivor.Scripts.Tools;
 
 namespace Minigames.Survivor.Scripts.Ecs.Systems
@@ -22,12 +23,6 @@ namespace Minigames.Survivor.Scripts.Ecs.Systems
                 ref var timer = ref filter.Get1(i);
                 ref var entity = ref filter.GetEntity(i);
 
-                //todo: mark as one frame
-                if (entity.Has<TimerExpired>())
-                {
-                    entity.Del<TimerExpired>();
-                }
-
                 timer.TimeLeft -= timeService.DeltaTime;
 
                 if (timer.TimeLeft > 0f)
@@ -35,7 +30,7 @@ namespace Minigames.Survivor.Scripts.Ecs.Systems
                     continue;
                 }
 
-                entity.Get<TimerExpired>();
+                entity.Get<TimerExpiredEvent>();
 
                 if (timer.Interval > 0f)
                 {

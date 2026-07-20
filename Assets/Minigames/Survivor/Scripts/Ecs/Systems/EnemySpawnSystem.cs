@@ -2,6 +2,7 @@
 using Leopotam.Ecs;
 using Minigames.Survivor.Scripts.Configs;
 using Minigames.Survivor.Scripts.Ecs.Components;
+using Minigames.Survivor.Scripts.Ecs.Components.Events;
 using Minigames.Survivor.Scripts.Ecs.Components.Player;
 using Minigames.Survivor.Scripts.SceneObjects;
 using UnityEngine;
@@ -15,7 +16,7 @@ namespace Minigames.Survivor.Scripts.Ecs.Systems
         private readonly Transform worldTransform;
 
         private readonly EcsWorld world;
-        private readonly EcsFilter<Timer, EnemySpawnRequest, TimerExpired> spawnRequestFilter;
+        private readonly EcsFilter<Timer, EnemySpawnRequest, TimerExpiredEvent> spawnRequestFilter;
         private readonly EcsFilter<PlayerTag> playerFilter;
 
         public EnemySpawnSystem(EnemySpawnConfig config, SurvivorSceneContainer sceneContainer)
