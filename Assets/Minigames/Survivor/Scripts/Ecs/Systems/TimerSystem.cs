@@ -9,7 +9,7 @@ namespace Minigames.Survivor.Scripts.Ecs.Systems
     {
         private readonly GameTimeService timeService;
 
-        private readonly EcsFilter<Timer> filter;
+        private readonly EcsFilter<TimerComponent> filter;
 
         public TimerSystem(GameTimeService timeService)
         {
@@ -38,7 +38,7 @@ namespace Minigames.Survivor.Scripts.Ecs.Systems
                 }
                 else
                 {
-                    entity.Del<Timer>();
+                    entity.Del<TimerComponent>();
                 }
             }
         }

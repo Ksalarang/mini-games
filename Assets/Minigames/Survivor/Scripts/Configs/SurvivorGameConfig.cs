@@ -9,5 +9,6 @@ namespace Minigames.Survivor.Scripts.Configs
         [field: SerializeField] public SpriteAnimationConfig SpriteAnimationConfig { get; private set; }
         [field: SerializeField] public EnemySpawnConfig EnemySpawnConfig { get; private set; }
         [field: SerializeField] public EnemyDamageConfig EnemyDamageConfig { get; private set; }
+        [field: SerializeField] public WeaponConfig WeaponConfig { get; private set; }
     }
 }

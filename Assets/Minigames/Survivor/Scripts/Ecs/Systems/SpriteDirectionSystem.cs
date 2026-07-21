@@ -5,7 +5,7 @@ namespace Minigames.Survivor.Scripts.Ecs.Systems
 {
     public class SpriteDirectionSystem : IEcsRunSystem
     {
-        private readonly EcsFilter<SpriteRendererComponent, Direction> filter;
+        private readonly EcsFilter<SpriteRendererComponent, DirectionComponent> filter;
 
         public void Run()
         {

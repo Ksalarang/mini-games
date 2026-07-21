@@ -325,7 +325,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 0x72_DungeonTilesetII_v1.7_9
+      name: knife
       rect:
         serializedVersion: 2
         x: 293
@@ -6661,7 +6661,6 @@ TextureImporter:
       0x72_DungeonTilesetII_v1.7_81: 2008008918
       0x72_DungeonTilesetII_v1.7_82: -791332330
       0x72_DungeonTilesetII_v1.7_83: -1855320390
-      0x72_DungeonTilesetII_v1.7_9: 27982289
       0x72_DungeonTilesetII_v1.7_90: -930308446
       0x72_DungeonTilesetII_v1.7_91: -1465769204
       0x72_DungeonTilesetII_v1.7_92: 1807578206
@@ -6685,6 +6684,7 @@ TextureImporter:
       elf_f_run_1: 170250508
       elf_f_run_2: -832275822
       elf_f_run_3: 1456261207
+      knife: 27982289
       knight: -2097686056
       muddy_run_0: -454601969
       muddy_run_1: -1841660232

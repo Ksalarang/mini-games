@@ -34,15 +34,21 @@ namespace Minigames.Survivor.Scripts.Ecs
                 .Add(objectResolver.Resolve<PlayerInputSystem>())
                 .Add(objectResolver.Resolve<PlayerDirectionSystem>())
 
+                .Add(objectResolver.Resolve<ProjectileSpawnSystem>())
+
                 .Add(objectResolver.Resolve<EnemySpawnSystem>())
                 .Add(objectResolver.Resolve<EnemyDirectionSystem>())
 
                 .Add(objectResolver.Resolve<SpatialGridSystem>())
                 .Add(objectResolver.Resolve<AlignedBoxCollisionSystem>())
                 .Add(objectResolver.Resolve<OrientedBoxCollisionSystem>())
+
                 .Add(objectResolver.Resolve<VelocitySystem>())
                 .Add(objectResolver.Resolve<MoveSystem>())
                 .Add(objectResolver.Resolve<TransformPositionSyncSystem>())
+
+                .Add(objectResolver.Resolve<RotateTowardsDirectionSystem>())
+                .Add(objectResolver.Resolve<TransformRotationSyncSystem>())
 
                 .Add(objectResolver.Resolve<EnemyContactDamageSystem>())
                 .Add(objectResolver.Resolve<DamageSystem>())

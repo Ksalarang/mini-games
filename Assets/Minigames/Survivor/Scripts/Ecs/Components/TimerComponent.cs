@@ -1,6 +1,6 @@
 ﻿namespace Minigames.Survivor.Scripts.Ecs.Components
 {
-    public struct Timer
+    public struct TimerComponent
     {
         public float TimeLeft;
         public float Interval;

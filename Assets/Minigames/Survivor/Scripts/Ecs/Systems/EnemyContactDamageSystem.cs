@@ -35,7 +35,7 @@ namespace Minigames.Survivor.Scripts.Ecs.Systems
 
                     if (entity1.Has<EnemyTag>() && entity2.Has<PlayerTag>())
                     {
-                        ref var timer = ref entity1.Get<Timer>();
+                        ref var timer = ref entity1.Get<TimerComponent>();
 
                         if (timer.TimeLeft <= 0f)
                         {

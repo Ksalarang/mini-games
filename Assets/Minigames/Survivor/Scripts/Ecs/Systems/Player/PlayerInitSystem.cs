@@ -2,6 +2,7 @@
 using Minigames.Survivor.Scripts.Configs;
 using Minigames.Survivor.Scripts.Ecs.Components;
 using Minigames.Survivor.Scripts.Ecs.Components.Player;
+using Minigames.Survivor.Scripts.Ecs.Components.Requests;
 using Minigames.Survivor.Scripts.SceneObjects;
 
 namespace Minigames.Survivor.Scripts.Ecs.Systems.Player
@@ -10,13 +11,15 @@ namespace Minigames.Survivor.Scripts.Ecs.Systems.Player
     {
         private readonly PlayerContainer playerContainer;
         private readonly PlayerConfig playerConfig;
+        private readonly WeaponConfig weaponConfig;
 
         private readonly EcsWorld world;
 
-        public PlayerInitSystem(PlayerContainer playerContainer, PlayerConfig playerConfig)
+        public PlayerInitSystem(PlayerContainer playerContainer, PlayerConfig playerConfig, WeaponConfig weaponConfig)
         {
             this.playerContainer = playerContainer;
             this.playerConfig = playerConfig;
+            this.weaponConfig = weaponConfig;
         }
 
         public void Init()
@@ -44,6 +47,20 @@ namespace Minigames.Survivor.Scripts.Ecs.Systems.Player
             ref var health = ref player.Get<Health>();
             health.Value = playerConfig.Health;
             health.MaxValue = playerConfig.Health;
+
+            AddSpawnRequest(weaponConfig.Projectiles[0]);
+        }
+
+        private void AddSpawnRequest(ProjectileData data)
+        {
+            var entity = world.NewEntity();
+
+            ref var timer = ref entity.Get<TimerComponent>();
+            timer.TimeLeft = data.Cooldown;
+            timer.Interval = data.Cooldown;
+
+            ref var request = ref entity.Get<ProjectileSpawnRequest>();
+            request.Data = data;
         }
     }
 }

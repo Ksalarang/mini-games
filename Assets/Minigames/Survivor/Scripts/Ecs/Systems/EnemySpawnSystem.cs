@@ -16,7 +16,7 @@ namespace Minigames.Survivor.Scripts.Ecs.Systems
         private readonly Transform worldTransform;
 
         private readonly EcsWorld world;
-        private readonly EcsFilter<Timer, EnemySpawnRequest, TimerExpiredEvent> spawnRequestFilter;
+        private readonly EcsFilter<TimerComponent, EnemySpawnRequest, TimerExpiredEvent> spawnRequestFilter;
         private readonly EcsFilter<PlayerTag> playerFilter;
 
         public EnemySpawnSystem(EnemySpawnConfig config, SurvivorSceneContainer sceneContainer)
@@ -48,7 +48,7 @@ namespace Minigames.Survivor.Scripts.Ecs.Systems
             ref var request = ref spawnEntity.Get<EnemySpawnRequest>();
             request.EnemyType = data.EnemyType;
 
-            ref var timer = ref spawnEntity.Get<Timer>();
+            ref var timer = ref spawnEntity.Get<TimerComponent>();
             timer.TimeLeft = data.SpawnIntervalSeconds;
             timer.Interval = data.SpawnIntervalSeconds;
         }

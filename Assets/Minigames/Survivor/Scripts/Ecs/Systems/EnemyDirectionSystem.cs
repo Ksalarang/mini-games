@@ -16,7 +16,7 @@ namespace Minigames.Survivor.Scripts.Ecs.Systems
             foreach (var i in enemyFilter)
             {
                 var entity = enemyFilter.GetEntity(i);
-                ref var direction = ref entity.Get<Direction>();
+                ref var direction = ref entity.Get<DirectionComponent>();
                 var position = entity.Get<Position>();
                 direction.Value = (playerPosition.Value - position.Value).normalized;
             }
