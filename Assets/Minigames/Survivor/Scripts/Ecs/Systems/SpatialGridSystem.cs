@@ -12,7 +12,7 @@ namespace Minigames.Survivor.Scripts.Ecs.Systems
         private readonly EcsWorld world;
         private readonly EcsFilter<Position, BoundsComponent> filter;
 
-        private readonly Dictionary<Vector2Int, List<int>> spatialGrid = new();
+        private readonly Dictionary<Vector2Int, List<EcsEntity>> spatialGrid = new();
 
         public void Init()
         {
@@ -34,11 +34,11 @@ namespace Minigames.Survivor.Scripts.Ecs.Systems
 
                 if (!spatialGrid.TryGetValue(key, out var bucket))
                 {
-                    bucket = new List<int>();
+                    bucket = new List<EcsEntity>();
                     spatialGrid.Add(key, bucket);
                 }
 
-                bucket.Add(i);
+                bucket.Add(filter.GetEntity(i));
             }
         }
     }

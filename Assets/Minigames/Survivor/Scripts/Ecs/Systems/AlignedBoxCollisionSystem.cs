@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace Minigames.Survivor.Scripts.Ecs.Systems
 {
-    public class CollisionSystem : IEcsInitSystem, IEcsRunSystem
+    public class AlignedBoxCollisionSystem : IEcsInitSystem, IEcsRunSystem
     {
         private static readonly Vector2Int[] forwardOffsets =
         {
@@ -17,7 +17,6 @@ namespace Minigames.Survivor.Scripts.Ecs.Systems
         };
 
         private readonly EcsWorld world;
-        private readonly EcsFilter<Position, BoundsComponent> filter;
         private readonly EcsFilter<SpatialGridComponent> spatialGridFilter;
         private readonly EcsFilter<PlayerTag> playerFilter;
 
@@ -34,16 +33,13 @@ namespace Minigames.Survivor.Scripts.Ecs.Systems
 
             foreach (var pair in spatialGrid)
             {
-                foreach (var i in pair.Value)
-                {
-                    foreach (var j in pair.Value)
-                    {
-                        if (j <= i)
-                        {
-                            continue;
-                        }
+                var cell = pair.Value;
 
-                        Resolve(i, j);
+                for (var i = 0; i < cell.Count; i++)
+                {
+                    for (var j = i + 1; j < cell.Count; j++)
+                    {
+                        Resolve(cell[i], cell[j]);
                     }
                 }
 
@@ -54,24 +50,29 @@ namespace Minigames.Survivor.Scripts.Ecs.Systems
                         continue;
                     }
 
-                    foreach (var i in pair.Value)
+                    foreach (var entity1 in cell)
                     {
-                        foreach (var j in forwardCell)
+                        foreach (var entity2 in forwardCell)
                         {
-                            Resolve(i, j);
+                            Resolve(entity1, entity2);
                         }
                     }
                 }
             }
         }
 
-        private void Resolve(int i, int j)
+        private void Resolve(EcsEntity entity1, EcsEntity entity2)
         {
-            ref var position1 = ref filter.Get1(i);
-            var bounds1 = filter.Get2(i);
+            if (entity1.Has<RotationComponent>() || entity2.Has<RotationComponent>())
+            {
+                return;
+            }
 
-            ref var position2 = ref filter.Get1(j);
-            var bounds2 = filter.Get2(j);
+            ref var position1 = ref entity1.Get<Position>();
+            var bounds1 = entity1.Get<BoundsComponent>();
+
+            ref var position2 = ref entity2.Get<Position>();
+            var bounds2 = entity2.Get<BoundsComponent>();
 
             var delta = position1.Value - position2.Value;
             var overlapX = bounds1.HalfSize.x + bounds2.HalfSize.x - Mathf.Abs(delta.x);
@@ -91,9 +92,6 @@ namespace Minigames.Survivor.Scripts.Ecs.Systems
             {
                 translationVector = new Vector2(0, delta.y < 0 ? -overlapY : overlapY);
             }
-
-            var entity1 = filter.GetEntity(i);
-            var entity2 = filter.GetEntity(j);
 
             if (player == entity1)
             {
