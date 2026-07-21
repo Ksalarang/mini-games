@@ -37,6 +37,7 @@ namespace Minigames.Survivor.Scripts.Ecs
                 .Add(objectResolver.Resolve<EnemySpawnSystem>())
                 .Add(objectResolver.Resolve<EnemyDirectionSystem>())
 
+                .Add(objectResolver.Resolve<SpatialGridSystem>())
                 .Add(objectResolver.Resolve<CollisionSystem>())
                 .Add(objectResolver.Resolve<VelocitySystem>())
                 .Add(objectResolver.Resolve<MoveSystem>())

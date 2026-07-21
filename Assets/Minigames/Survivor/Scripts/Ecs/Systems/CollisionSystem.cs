@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using Leopotam.Ecs;
+﻿using Leopotam.Ecs;
 using Minigames.Survivor.Scripts.Ecs.Components;
 using Minigames.Survivor.Scripts.Ecs.Components.Events;
 using Minigames.Survivor.Scripts.Ecs.Components.Player;
@@ -9,8 +8,6 @@ namespace Minigames.Survivor.Scripts.Ecs.Systems
 {
     public class CollisionSystem : IEcsInitSystem, IEcsRunSystem
     {
-        private const float CellSize = 4f;
-
         private static readonly Vector2Int[] forwardOffsets =
         {
             new (-1, 1),
@@ -21,9 +18,8 @@ namespace Minigames.Survivor.Scripts.Ecs.Systems
 
         private readonly EcsWorld world;
         private readonly EcsFilter<Position, BoundsComponent> filter;
+        private readonly EcsFilter<SpatialGridComponent> spatialGridFilter;
         private readonly EcsFilter<PlayerTag> playerFilter;
-
-        private readonly Dictionary<Vector2Int, List<int>> spatialGrid = new();
 
         private EcsEntity player;
 
@@ -34,24 +30,7 @@ namespace Minigames.Survivor.Scripts.Ecs.Systems
 
         public void Run()
         {
-            foreach (var bucket in spatialGrid.Values)
-            {
-                bucket.Clear();
-            }
-
-            foreach (var i in filter)
-            {
-                var position = filter.Get1(i);
-                var v = position.Value / CellSize;
-                var key = new Vector2Int(Mathf.FloorToInt(v.x), Mathf.FloorToInt(v.y));
-
-                if (!spatialGrid.ContainsKey(key))
-                {
-                    spatialGrid.Add(key, new List<int>());
-                }
-
-                spatialGrid[key].Add(i);
-            }
+            var spatialGrid = spatialGridFilter.Get1(0).SpatialGrid;
 
             foreach (var pair in spatialGrid)
             {
