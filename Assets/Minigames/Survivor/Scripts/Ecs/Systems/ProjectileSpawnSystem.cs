@@ -19,10 +19,10 @@ namespace Minigames.Survivor.Scripts.Ecs.Systems
 
         private readonly ObjectPool<GameObject> pool;
 
-        public ProjectileSpawnSystem(WeaponConfig config, SurvivorSceneContainer sceneContainer)
+        public ProjectileSpawnSystem(WeaponConfig config, SurvivorWorldContainer worldContainer)
         {
             pool = new ObjectPool<GameObject>(
-                createFunc: () => Object.Instantiate(config.WeaponPrefab, sceneContainer.World),
+                createFunc: () => Object.Instantiate(config.WeaponPrefab, worldContainer.Projectiles),
                 actionOnGet: go => go.SetActive(true),
                 actionOnRelease: go => go.SetActive(false),
                 actionOnDestroy: Object.Destroy,

@@ -1,34 +1,67 @@
-﻿using Leopotam.Ecs;
+﻿using System;
+using Leopotam.Ecs;
 using Minigames.Survivor.Scripts.Ecs.Components.Events;
 using Minigames.Survivor.Scripts.Ecs.Systems;
-using UnityEngine;
 using VContainer;
+using VContainer.Unity;
 
 namespace Minigames.Survivor.Scripts.Ecs
 {
-    public class EcsHandler : MonoBehaviour
+    public class EcsHandler : IEcsHandler, IStartable, ITickable, ILateTickable, IDisposable
     {
-        private IObjectResolver objectResolver;
+        private readonly IObjectResolver objectResolver;
 
         private EcsWorld world;
         private EcsSystems systems;
         private EcsSystems lateUpdateSystems;
 
-        [Inject]
-        public void Construct(IObjectResolver objectResolver)
+        public bool Active { get; set; }
+
+        public EcsHandler(IObjectResolver objectResolver)
         {
             this.objectResolver = objectResolver;
         }
 
-        private void Start()
+        void IStartable.Start()
+        {
+            Initialize();
+            Active = true;
+        }
+
+        void ITickable.Tick()
+        {
+            if (!Active)
+            {
+                return;
+            }
+
+            systems.Run();
+        }
+
+        void ILateTickable.LateTick()
+        {
+            if (!Active)
+            {
+                return;
+            }
+
+            lateUpdateSystems.Run();
+        }
+
+        void IDisposable.Dispose()
+        {
+            Destroy();
+        }
+
+        public void Initialize()
         {
             world = new EcsWorld();
-            systems = new EcsSystems(world, "Systems");
-            lateUpdateSystems = new EcsSystems(world, "LateUpdateSystems");
+            systems = new EcsSystems(world);
+            lateUpdateSystems = new EcsSystems(world);
 
-            systems.Add(objectResolver.Resolve<PlayerInitSystem>());
             systems.Add(objectResolver.Resolve<TimerSystem>());
 
+            systems.Add(objectResolver.Resolve<PlayerInitSystem>());
             systems.Add(objectResolver.Resolve<PlayerInputSystem>());
             systems.Add(objectResolver.Resolve<PlayerDirectionSystem>());
 
@@ -67,24 +100,14 @@ namespace Minigames.Survivor.Scripts.Ecs
 
             systems.Init();
 
-            lateUpdateSystems
-                .Add(objectResolver.Resolve<CameraFollowSystem>())
-                .Add(objectResolver.Resolve<CameraPositionSyncSystem>())
-                .Add(objectResolver.Resolve<InfiniteFloorSystem>())
-                .Init();
+            lateUpdateSystems.Add(objectResolver.Resolve<CameraFollowSystem>());
+            lateUpdateSystems.Add(objectResolver.Resolve<CameraPositionSyncSystem>());
+            lateUpdateSystems.Add(objectResolver.Resolve<InfiniteFloorSystem>());
+            lateUpdateSystems.Add(objectResolver.Resolve<GameOverSystem>());
+            lateUpdateSystems.Init();
         }
 
-        private void Update()
-        {
-            systems.Run();
-        }
-
-        private void LateUpdate()
-        {
-            lateUpdateSystems.Run();
-        }
-
-        private void OnDestroy()
+        public void Destroy()
         {
             systems.Destroy();
             lateUpdateSystems.Destroy();

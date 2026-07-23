@@ -16,7 +16,7 @@ MonoBehaviour:
   <Projectiles>k__BackingField:
   - Sprite: {fileID: 27982289, guid: 535d082cb5518d448bd0057c6592dbd9, type: 3}
     Damage: 20
-    Cooldown: 0.2
+    Cooldown: 1
     DirectionType: 0
     Speed: 10
     Lifetime: 5

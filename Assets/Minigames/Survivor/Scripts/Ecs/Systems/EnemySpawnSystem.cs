@@ -26,7 +26,7 @@ namespace Minigames.Survivor.Scripts.Ecs.Systems
             camera = sceneContainer.Camera;
 
             pool = new ObjectPool<GameObject>(
-                createFunc: () => Object.Instantiate(this.config.EnemyPrefab, sceneContainer.World),
+                createFunc: () => Object.Instantiate(this.config.EnemyPrefab, sceneContainer.WorldContainer.Enemies),
                 actionOnGet: go => go.SetActive(true),
                 actionOnRelease: go => go.SetActive(false),
                 actionOnDestroy: Object.Destroy,
