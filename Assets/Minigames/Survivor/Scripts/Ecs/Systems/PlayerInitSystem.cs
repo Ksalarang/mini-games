@@ -1,11 +1,10 @@
 ﻿using Leopotam.Ecs;
 using Minigames.Survivor.Scripts.Configs;
 using Minigames.Survivor.Scripts.Ecs.Components;
-using Minigames.Survivor.Scripts.Ecs.Components.Player;
 using Minigames.Survivor.Scripts.Ecs.Components.Requests;
 using Minigames.Survivor.Scripts.SceneObjects;
 
-namespace Minigames.Survivor.Scripts.Ecs.Systems.Player
+namespace Minigames.Survivor.Scripts.Ecs.Systems
 {
     public class PlayerInitSystem : IEcsInitSystem
     {

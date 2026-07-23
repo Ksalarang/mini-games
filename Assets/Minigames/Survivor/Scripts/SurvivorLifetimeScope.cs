@@ -1,7 +1,6 @@
 ﻿using Core.Common;
 using Minigames.Survivor.Scripts.Configs;
 using Minigames.Survivor.Scripts.Ecs.Systems;
-using Minigames.Survivor.Scripts.Ecs.Systems.Player;
 using Minigames.Survivor.Scripts.SceneObjects;
 using Minigames.Survivor.Scripts.Tools;
 using Minigames.Survivor.Scripts.UI;

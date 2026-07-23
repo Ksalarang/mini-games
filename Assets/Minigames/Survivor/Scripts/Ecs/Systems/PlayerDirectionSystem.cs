@@ -1,8 +1,7 @@
 ﻿using Leopotam.Ecs;
 using Minigames.Survivor.Scripts.Ecs.Components;
-using Minigames.Survivor.Scripts.Ecs.Components.Player;
 
-namespace Minigames.Survivor.Scripts.Ecs.Systems.Player
+namespace Minigames.Survivor.Scripts.Ecs.Systems
 {
     public class PlayerDirectionSystem : IEcsRunSystem
     {

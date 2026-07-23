@@ -1,4 +1,4 @@
-﻿namespace Minigames.Survivor.Scripts.Ecs.Components.Player
+﻿namespace Minigames.Survivor.Scripts.Ecs.Components
 {
     public struct PlayerMoveInput
     {

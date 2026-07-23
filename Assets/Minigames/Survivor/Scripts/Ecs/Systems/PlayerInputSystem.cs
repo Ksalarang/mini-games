@@ -1,10 +1,10 @@
 ﻿using Leopotam.Ecs;
-using Minigames.Survivor.Scripts.Ecs.Components.Player;
+using Minigames.Survivor.Scripts.Ecs.Components;
 using Minigames.Survivor.Scripts.Input;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-namespace Minigames.Survivor.Scripts.Ecs.Systems.Player
+namespace Minigames.Survivor.Scripts.Ecs.Systems
 {
     public class PlayerInputSystem : IEcsInitSystem, IEcsRunSystem, InputActions.IPlayerActions
     {

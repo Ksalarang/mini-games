@@ -1,7 +1,6 @@
 ﻿using Leopotam.Ecs;
 using Minigames.Survivor.Scripts.Ecs.Components.Events;
 using Minigames.Survivor.Scripts.Ecs.Systems;
-using Minigames.Survivor.Scripts.Ecs.Systems.Player;
 using UnityEngine;
 using VContainer;
 

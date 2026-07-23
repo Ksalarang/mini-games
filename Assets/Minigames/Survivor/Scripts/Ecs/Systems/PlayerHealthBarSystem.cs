@@ -1,7 +1,6 @@
 ﻿using Core.Tools.Extensions;
 using Leopotam.Ecs;
 using Minigames.Survivor.Scripts.Ecs.Components;
-using Minigames.Survivor.Scripts.Ecs.Components.Player;
 using Minigames.Survivor.Scripts.SceneObjects;
 using Minigames.Survivor.Scripts.UI;
 using UnityEngine;
