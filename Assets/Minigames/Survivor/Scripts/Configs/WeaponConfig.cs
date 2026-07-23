@@ -23,6 +23,7 @@ namespace Minigames.Survivor.Scripts.Configs
     {
         public ProjectileDirectionType DirectionType;
         public float Speed;
+        public float Lifetime;
     }
 
     public enum ProjectileDirectionType

@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using Minigames.Survivor.Scripts.Ecs.Components;
 using UnityEngine;
 
@@ -11,18 +13,9 @@ namespace Minigames.Survivor.Scripts.Configs
 
         [field: Space, SerializeField] public GameObject EnemyPrefab { get; private set; }
 
-        public EnemySpawnData GetData(EnemyType type)
-        {
-            foreach (var data in Data)
-            {
-                if (data.EnemyType == type)
-                {
-                    return data;
-                }
-            }
+        public Dictionary<EnemyType, EnemySpawnData> Dict => dict ??= Data.ToDictionary(d => d.EnemyType, d => d);
 
-            return null;
-        }
+        private Dictionary<EnemyType, EnemySpawnData> dict;
     }
 
     [Serializable]
@@ -33,5 +26,6 @@ namespace Minigames.Survivor.Scripts.Configs
         public int FramesPerSecond;
         public float SpawnIntervalSeconds;
         public float MoveSpeed;
+        public float Health;
     }
 }

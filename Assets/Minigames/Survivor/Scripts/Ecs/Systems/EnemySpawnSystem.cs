@@ -6,6 +6,7 @@ using Minigames.Survivor.Scripts.Ecs.Components.Events;
 using Minigames.Survivor.Scripts.Ecs.Components.Player;
 using Minigames.Survivor.Scripts.SceneObjects;
 using UnityEngine;
+using UnityEngine.Pool;
 
 namespace Minigames.Survivor.Scripts.Ecs.Systems
 {
@@ -13,17 +14,25 @@ namespace Minigames.Survivor.Scripts.Ecs.Systems
     {
         private readonly EnemySpawnConfig config;
         private readonly Camera camera;
-        private readonly Transform worldTransform;
 
         private readonly EcsWorld world;
         private readonly EcsFilter<TimerComponent, EnemySpawnRequest, TimerExpiredEvent> spawnRequestFilter;
         private readonly EcsFilter<PlayerTag> playerFilter;
 
+        private readonly ObjectPool<GameObject> pool;
+
         public EnemySpawnSystem(EnemySpawnConfig config, SurvivorSceneContainer sceneContainer)
         {
             this.config = config;
-            worldTransform = sceneContainer.World;
             camera = sceneContainer.Camera;
+
+            pool = new ObjectPool<GameObject>(
+                createFunc: () => Object.Instantiate(this.config.EnemyPrefab, sceneContainer.World),
+                actionOnGet: go => go.SetActive(true),
+                actionOnRelease: go => go.SetActive(false),
+                actionOnDestroy: Object.Destroy,
+                defaultCapacity: 100
+            );
         }
 
         public void Init()
@@ -32,13 +41,15 @@ namespace Minigames.Survivor.Scripts.Ecs.Systems
             {
                 AddSpawnRequest(data);
             }
+
+            world.NewEntity().Get<EnemyPoolComponent>().Value = pool;
         }
 
         public void Run()
         {
             foreach (var i in spawnRequestFilter)
             {
-                Spawn(spawnRequestFilter.Get2(i).EnemyType);
+                Spawn(spawnRequestFilter.Get2(i).Data);
             }
         }
 
@@ -46,30 +57,26 @@ namespace Minigames.Survivor.Scripts.Ecs.Systems
         {
             var spawnEntity = world.NewEntity();
             ref var request = ref spawnEntity.Get<EnemySpawnRequest>();
-            request.EnemyType = data.EnemyType;
+            request.Data = data;
 
             ref var timer = ref spawnEntity.Get<TimerComponent>();
             timer.TimeLeft = data.SpawnIntervalSeconds;
             timer.Interval = data.SpawnIntervalSeconds;
         }
 
-        private void Spawn(EnemyType enemyType)
+        private void Spawn(EnemySpawnData data)
         {
-            var data = config.GetData(enemyType)!;
-            var enemy = Object.Instantiate(config.EnemyPrefab, worldTransform).GetComponent<Enemy>();
-
+            var enemy = pool.Get().GetComponent<Enemy>();
             var entity = world.NewEntity();
-            ref var tag = ref entity.Get<EnemyTag>();
-            tag.Type = enemyType;
+
+            entity.Get<EnemyTag>().Type = data.EnemyType;
 
             ref var position = ref entity.Get<Position>();
             position.Value = GetRandomPositionAroundPlayer(playerFilter.GetEntity(0).Get<Position>().Value);
 
-            ref var speed = ref entity.Get<Speed>();
-            speed.Value = data.MoveSpeed;
-
-            ref var transformComponent = ref entity.Get<TransformComponent>();
-            transformComponent.Value = enemy.Transform;
+            entity.Get<Speed>().Value = data.MoveSpeed;
+            entity.Get<GameObjectComponent>().Value = enemy.gameObject;
+            entity.Get<TransformComponent>().Value = enemy.Transform;
 
             ref var spriteRendererComponent = ref entity.Get<SpriteRendererComponent>();
             spriteRendererComponent.Value = enemy.SpriteRenderer;
@@ -79,10 +86,10 @@ namespace Minigames.Survivor.Scripts.Ecs.Systems
             spriteAnimationComponent.Sprites = data.Sprites;
             spriteAnimationComponent.FramesPerSecond = data.FramesPerSecond;
 
-            ref var bounds = ref entity.Get<BoundsComponent>();
-            bounds.HalfSize = spriteRendererComponent.Value.bounds.size * 0.5f;
+            entity.Get<BoundsComponent>().HalfSize = spriteRendererComponent.Value.bounds.size * 0.5f;
 
-            entity.Get<Health>();
+            ref var health = ref entity.Get<Health>();
+            health.Value = health.MaxValue = data.Health;
         }
 
         private Vector2 GetRandomPositionAroundPlayer(Vector2 playerPosition)

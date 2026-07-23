@@ -90,11 +90,13 @@ namespace Minigames.Survivor.Scripts.Ecs.Systems
                 }
             }
 
-            world.NewEntity().Get<CollisionEvent>() = new CollisionEvent
+            var entity = world.NewEntity();
+            entity.Get<CollisionEvent>() = new CollisionEvent
             {
                 Entity1 = entity1,
                 Entity2 = entity2,
             };
+            entity.Get<OrientedBoxCollisionEvent>();
         }
 
         private static void GetAxes(EcsEntity entity, out Vector2 axisX, out Vector2 axisY)

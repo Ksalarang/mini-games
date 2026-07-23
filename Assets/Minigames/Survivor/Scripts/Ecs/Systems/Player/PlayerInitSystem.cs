@@ -28,19 +28,14 @@ namespace Minigames.Survivor.Scripts.Ecs.Systems.Player
 
             player.Get<PlayerTag>();
             player.Get<Position>();
-
-            ref var speed = ref player.Get<Speed>();
-            speed.Value = playerConfig.MoveSpeed;
-
-            ref var transformComponent = ref player.Get<TransformComponent>();
-            transformComponent.Value = playerContainer.Transform;
+            player.Get<Speed>().Value = playerConfig.MoveSpeed;
+            player.Get<GameObjectComponent>().Value = playerContainer.gameObject;
+            player.Get<TransformComponent>().Value = playerContainer.Transform;
 
             ref var spriteRenderer = ref player.Get<SpriteRendererComponent>();
             spriteRenderer.Value = playerContainer.SpriteRenderer;
 
-            ref var bounds = ref player.Get<BoundsComponent>();
-            bounds.HalfSize = spriteRenderer.Value.bounds.size * 0.5f;
-
+            player.Get<BoundsComponent>().HalfSize = spriteRenderer.Value.bounds.size * 0.5f;
             player.Get<MoveStateComponent>();
             player.Get<SpriteAnimationComponent>();
 

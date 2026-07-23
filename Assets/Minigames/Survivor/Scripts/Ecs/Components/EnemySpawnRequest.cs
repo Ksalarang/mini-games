@@ -1,7 +1,9 @@
-﻿namespace Minigames.Survivor.Scripts.Ecs.Components
+﻿using Minigames.Survivor.Scripts.Configs;
+
+namespace Minigames.Survivor.Scripts.Ecs.Components
 {
     public struct EnemySpawnRequest
     {
-        public EnemyType EnemyType;
+        public EnemySpawnData Data;
     }
 }

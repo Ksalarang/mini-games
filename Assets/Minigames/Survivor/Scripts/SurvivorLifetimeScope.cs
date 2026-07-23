@@ -57,8 +57,11 @@ namespace Minigames.Survivor.Scripts
             builder.Register<TransformRotationSyncSystem>(Lifetime.Singleton);
 
             builder.Register<EnemyContactDamageSystem>(Lifetime.Singleton);
+            builder.Register<PlayerProjectileDamageSystem>(Lifetime.Singleton);
             builder.Register<DamageSystem>(Lifetime.Singleton);
             builder.Register<PlayerHealthBarSystem>(Lifetime.Singleton);
+            builder.Register<EnemyReleaseSystem>(Lifetime.Singleton);
+            builder.Register<ProjectileReleaseSystem>(Lifetime.Singleton);
 
             builder.Register<SpriteDirectionSystem>(Lifetime.Singleton);
             builder.Register<MoveStateSystem>(Lifetime.Singleton);

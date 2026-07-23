@@ -7,23 +7,33 @@ using Minigames.Survivor.Scripts.Ecs.Components.Player;
 using Minigames.Survivor.Scripts.Ecs.Components.Requests;
 using Minigames.Survivor.Scripts.SceneObjects;
 using UnityEngine;
+using UnityEngine.Pool;
 using Object = UnityEngine.Object;
 
 namespace Minigames.Survivor.Scripts.Ecs.Systems
 {
-    public class ProjectileSpawnSystem : IEcsRunSystem
+    public class ProjectileSpawnSystem : IEcsInitSystem, IEcsRunSystem
     {
-        private readonly WeaponConfig config;
-        private readonly SurvivorSceneContainer sceneContainer;
-
         private readonly EcsWorld world;
         private readonly EcsFilter<TimerComponent, ProjectileSpawnRequest, TimerExpiredEvent> filter;
         private readonly EcsFilter<PlayerTag> playerFilter;
 
+        private readonly ObjectPool<GameObject> pool;
+
         public ProjectileSpawnSystem(WeaponConfig config, SurvivorSceneContainer sceneContainer)
         {
-            this.config = config;
-            this.sceneContainer = sceneContainer;
+            pool = new ObjectPool<GameObject>(
+                createFunc: () => Object.Instantiate(config.WeaponPrefab, sceneContainer.World),
+                actionOnGet: go => go.SetActive(true),
+                actionOnRelease: go => go.SetActive(false),
+                actionOnDestroy: Object.Destroy,
+                defaultCapacity: 100
+            );
+        }
+
+        public void Init()
+        {
+            world.NewEntity().Get<ProjectilePoolComponent>().Value = pool;
         }
 
         public void Run()
@@ -36,9 +46,10 @@ namespace Minigames.Survivor.Scripts.Ecs.Systems
 
         private void Spawn(ProjectileData data)
         {
-            var projectile = Object.Instantiate(config.WeaponPrefab, sceneContainer.World);
-
+            var projectile = pool.Get();
             var entity = world.NewEntity();
+            entity.Get<ProjectileTag>();
+            entity.Get<GameObjectComponent>().Value = projectile;
             entity.Get<TransformComponent>().Value = projectile.transform;
 
             ref var spriteRendererComponent = ref entity.Get<SpriteRendererComponent>();
@@ -77,6 +88,9 @@ namespace Minigames.Survivor.Scripts.Ecs.Systems
             }
 
             entity.Get<RotationComponent>().RotateTowardsDirection = true;
+
+            ref var timer = ref entity.Get<TimerComponent>();
+            timer.TimeLeft = data.Lifetime;
         }
     }
 }
