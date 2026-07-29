@@ -33,6 +33,7 @@ namespace Core.MinigameSelectionScene
                     minigameSelectionView.Container);
 
                 minigameButtonView.Label.text = minigameConfig.Name;
+                minigameButtonView.Button.image.sprite = minigameConfig.Icon;
                 minigameButtonView.Button.onClick.AddListener(() =>
                 {
                     minigameButtonView.Button.onClick.RemoveAllListeners();

@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: FlappyBirdConfig
   m_EditorClassIdentifier: 
   <Name>k__BackingField: Flappy Bird
+  <Icon>k__BackingField: {fileID: 21300000, guid: d8be8686ca99bf94cb0fb07c5f85ff81, type: 3}
   <SceneParams>k__BackingField:
     Key: FlappyBirdScene
     OrientationParams:
