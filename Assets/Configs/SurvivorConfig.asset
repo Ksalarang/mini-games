@@ -17,7 +17,7 @@ MonoBehaviour:
   <SceneParams>k__BackingField:
     Key: SurvivorScene
     OrientationParams:
-      Orientation: 1
+      Orientation: 5
       AutoRotateToPortrait: 1
       AutoRotateToPortraitUpsideDown: 1
       AutoRotateToLandscapeLeft: 1
