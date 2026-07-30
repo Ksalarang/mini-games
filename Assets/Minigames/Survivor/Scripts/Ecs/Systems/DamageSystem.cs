@@ -7,6 +7,7 @@ namespace Minigames.Survivor.Scripts.Ecs.Systems
 {
     public class DamageSystem : IEcsRunSystem
     {
+        private readonly EcsWorld world;
         private readonly EcsFilter<DamageEvent> filter;
 
         public void Run()
@@ -16,6 +17,11 @@ namespace Minigames.Survivor.Scripts.Ecs.Systems
                 var damage = filter.Get1(i);
                 ref var health = ref damage.Target.Get<Health>();
                 health.Value = Mathf.Max(0f, health.Value - damage.Value);
+
+                if (health.Value == 0f)
+                {
+                    world.NewEntity().Get<DeathEvent>().Entity = damage.Target;
+                }
             }
         }
     }

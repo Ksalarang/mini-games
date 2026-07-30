@@ -5218,7 +5218,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 0x72_DungeonTilesetII_v1.7_242
+      name: potion_blue
       rect:
         serializedVersion: 2
         x: 307
@@ -6558,7 +6558,6 @@ TextureImporter:
       0x72_DungeonTilesetII_v1.7_24: 1046262898
       0x72_DungeonTilesetII_v1.7_240: 1987582745
       0x72_DungeonTilesetII_v1.7_241: -2128178016
-      0x72_DungeonTilesetII_v1.7_242: -1979624389
       0x72_DungeonTilesetII_v1.7_243: -378025704
       0x72_DungeonTilesetII_v1.7_244: -343587948
       0x72_DungeonTilesetII_v1.7_245: 847362862
@@ -6690,6 +6689,7 @@ TextureImporter:
       muddy_run_1: -1841660232
       muddy_run_2: 1955921088
       muddy_run_3: -996175858
+      potion_blue: -1979624389
       redknight_hit_0: 1397579565
       redknight_idle_0: 2004954995
       redknight_idle_1: 6392336

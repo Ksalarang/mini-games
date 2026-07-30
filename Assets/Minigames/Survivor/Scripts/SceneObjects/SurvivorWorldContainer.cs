@@ -6,5 +6,6 @@ namespace Minigames.Survivor.Scripts.SceneObjects
     {
         [field: SerializeField] public Transform Enemies { get; private set; }
         [field: SerializeField] public Transform Projectiles { get; private set; }
+        [field: SerializeField] public Transform ExpItems { get; private set; }
     }
 }

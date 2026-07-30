@@ -76,17 +76,19 @@ namespace Minigames.Survivor.Scripts.Ecs
 
             systems.Add(objectResolver.Resolve<VelocitySystem>());
             systems.Add(objectResolver.Resolve<MoveSystem>());
-            systems.Add(objectResolver.Resolve<TransformPositionSyncSystem>());
 
             systems.Add(objectResolver.Resolve<RotateTowardsDirectionSystem>());
-            systems.Add(objectResolver.Resolve<TransformRotationSyncSystem>());
 
             systems.Add(objectResolver.Resolve<EnemyContactDamageSystem>());
             systems.Add(objectResolver.Resolve<PlayerProjectileDamageSystem>());
             systems.Add(objectResolver.Resolve<DamageSystem>());
+            systems.Add(objectResolver.Resolve<ExpItemSpawnSystem>());
             systems.Add(objectResolver.Resolve<PlayerHealthBarSystem>());
             systems.Add(objectResolver.Resolve<EnemyReleaseSystem>());
             systems.Add(objectResolver.Resolve<ProjectileReleaseSystem>());
+
+            systems.Add(objectResolver.Resolve<TransformPositionSyncSystem>());
+            systems.Add(objectResolver.Resolve<TransformRotationSyncSystem>());
 
             systems.Add(objectResolver.Resolve<SpriteDirectionSystem>());
             systems.Add(objectResolver.Resolve<MoveStateSystem>());
@@ -97,6 +99,7 @@ namespace Minigames.Survivor.Scripts.Ecs
             systems.OneFrame<CollisionEvent>();
             systems.OneFrame<OrientedBoxCollisionEvent>();
             systems.OneFrame<DamageEvent>();
+            systems.OneFrame<DeathEvent>();
 
             systems.Init();
 

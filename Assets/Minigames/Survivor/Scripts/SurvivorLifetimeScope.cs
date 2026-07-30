@@ -32,6 +32,7 @@ namespace Minigames.Survivor.Scripts
             builder.RegisterComponent(gameConfig.EnemySpawnConfig);
             builder.RegisterComponent(gameConfig.EnemyDamageConfig);
             builder.RegisterComponent(gameConfig.WeaponConfig);
+            builder.RegisterComponent(gameConfig.ExpItemConfig);
 
             builder.Register<GameTimeService>(Lifetime.Singleton);
 
@@ -52,17 +53,19 @@ namespace Minigames.Survivor.Scripts
 
             builder.Register<VelocitySystem>(Lifetime.Transient);
             builder.Register<MoveSystem>(Lifetime.Transient);
-            builder.Register<TransformPositionSyncSystem>(Lifetime.Transient);
 
             builder.Register<RotateTowardsDirectionSystem>(Lifetime.Transient);
-            builder.Register<TransformRotationSyncSystem>(Lifetime.Transient);
 
             builder.Register<EnemyContactDamageSystem>(Lifetime.Transient);
             builder.Register<PlayerProjectileDamageSystem>(Lifetime.Transient);
             builder.Register<DamageSystem>(Lifetime.Transient);
+            builder.Register<ExpItemSpawnSystem>(Lifetime.Transient);
             builder.Register<PlayerHealthBarSystem>(Lifetime.Transient);
             builder.Register<EnemyReleaseSystem>(Lifetime.Transient);
             builder.Register<ProjectileReleaseSystem>(Lifetime.Transient);
+
+            builder.Register<TransformPositionSyncSystem>(Lifetime.Transient);
+            builder.Register<TransformRotationSyncSystem>(Lifetime.Transient);
 
             builder.Register<SpriteDirectionSystem>(Lifetime.Transient);
             builder.Register<MoveStateSystem>(Lifetime.Transient);

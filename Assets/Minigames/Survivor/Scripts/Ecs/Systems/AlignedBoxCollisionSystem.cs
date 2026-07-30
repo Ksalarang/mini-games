@@ -102,9 +102,12 @@ namespace Minigames.Survivor.Scripts.Ecs.Systems
             }
             else
             {
-                translationVector *= 0.5f;
-                position1.Value += translationVector;
-                position2.Value -= translationVector;
+                if (!entity1.Has<NonRigidComponent>() && !entity2.Has<NonRigidComponent>())
+                {
+                    translationVector *= 0.5f;
+                    position1.Value += translationVector;
+                    position2.Value -= translationVector;
+                }
             }
 
             world.NewEntity().Get<CollisionEvent>() = new CollisionEvent
