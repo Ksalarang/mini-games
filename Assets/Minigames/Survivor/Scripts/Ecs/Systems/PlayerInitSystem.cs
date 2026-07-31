@@ -35,6 +35,7 @@ namespace Minigames.Survivor.Scripts.Ecs.Systems
             spriteRenderer.Value = playerContainer.SpriteRenderer;
 
             player.Get<BoundsComponent>().HalfSize = spriteRenderer.Value.bounds.size * 0.5f;
+            player.Get<RigidBodyComponent>();
             player.Get<MoveStateComponent>();
             player.Get<SpriteAnimationComponent>();
 

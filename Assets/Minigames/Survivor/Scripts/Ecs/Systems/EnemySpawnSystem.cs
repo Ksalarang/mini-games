@@ -86,6 +86,7 @@ namespace Minigames.Survivor.Scripts.Ecs.Systems
             spriteAnimationComponent.FramesPerSecond = data.FramesPerSecond;
 
             entity.Get<BoundsComponent>().HalfSize = spriteRendererComponent.Value.bounds.size * 0.5f;
+            entity.Get<RigidBodyComponent>();
 
             ref var health = ref entity.Get<Health>();
             health.Value = health.MaxValue = data.Health;

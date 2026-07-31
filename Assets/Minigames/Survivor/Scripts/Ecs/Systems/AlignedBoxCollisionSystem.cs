@@ -92,17 +92,17 @@ namespace Minigames.Survivor.Scripts.Ecs.Systems
                 translationVector = new Vector2(0, delta.y < 0 ? -overlapY : overlapY);
             }
 
-            if (player == entity1)
+            if (entity1.Has<RigidBodyComponent>() && entity2.Has<RigidBodyComponent>())
             {
-                position2.Value -= translationVector;
-            }
-            else if (player == entity2)
-            {
-                position1.Value += translationVector;
-            }
-            else
-            {
-                if (!entity1.Has<NonRigidComponent>() && !entity2.Has<NonRigidComponent>())
+                if (player == entity1)
+                {
+                    position2.Value -= translationVector;
+                }
+                else if (player == entity2)
+                {
+                    position1.Value += translationVector;
+                }
+                else
                 {
                     translationVector *= 0.5f;
                     position1.Value += translationVector;

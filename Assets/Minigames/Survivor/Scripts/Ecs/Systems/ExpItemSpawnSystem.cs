@@ -61,7 +61,6 @@ namespace Minigames.Survivor.Scripts.Ecs.Systems
             entity.Get<SpriteRendererComponent>().Value = spriteObject.SpriteRenderer;
             entity.Get<BoundsComponent>().HalfSize = spriteObject.SpriteRenderer.bounds.size * 0.5f;
             entity.Get<ExpItemComponent>().Value = 1;
-            entity.Get<NonRigidComponent>();
         }
     }
 }
