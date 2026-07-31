@@ -86,6 +86,8 @@ namespace Minigames.Survivor.Scripts.Ecs
 
             systems.Add(objectResolver.Resolve<ExpItemSpawnSystem>());
             systems.Add(objectResolver.Resolve<ExpSystem>());
+            systems.Add(objectResolver.Resolve<LevelExpSystem>());
+            systems.Add(objectResolver.Resolve<PlayerExpBarSystem>());
 
             systems.Add(objectResolver.Resolve<ExpItemDestroySystem>());
             systems.Add(objectResolver.Resolve<EnemyDestroySystem>());

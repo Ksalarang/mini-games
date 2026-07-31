@@ -9,7 +9,7 @@ namespace Minigames.Survivor.Scripts.Ecs.Systems
 {
     public class PlayerHealthBarSystem : IEcsRunSystem
     {
-        private readonly ProgressBarView healthBar;
+        private readonly ProgressBar healthBar;
 
         private readonly EcsFilter<PlayerTag, Health> filter;
 

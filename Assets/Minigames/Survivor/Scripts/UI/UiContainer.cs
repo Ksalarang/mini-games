@@ -7,5 +7,6 @@ namespace Minigames.Survivor.Scripts.UI
     {
         [field: SerializeField] public Button BackButton { get; private set; }
         [field: SerializeField] public SurvivorGameOverScreen GameOverScreen { get; private set; }
+        [field: SerializeField] public ProgressBarView ExpProgressBar { get; private set; }
     }
 }

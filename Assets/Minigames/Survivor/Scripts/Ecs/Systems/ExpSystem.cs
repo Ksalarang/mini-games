@@ -27,7 +27,7 @@ namespace Minigames.Survivor.Scripts.Ecs.Systems
                     if (entity1.Has<PlayerTag>() && entity2.Has<ExpItemComponent>())
                     {
                         ref var playerExp = ref entity1.Get<PlayerExpComponent>();
-                        playerExp.Value += entity2.Get<ExpItemComponent>().Value;
+                        playerExp.CurrentValue += entity2.Get<ExpItemComponent>().Value;
 
                         entity2.Get<DestroyRequest>();
                         break;

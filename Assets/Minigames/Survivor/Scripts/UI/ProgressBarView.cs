@@ -4,14 +4,13 @@ namespace Minigames.Survivor.Scripts.UI
 {
     public class ProgressBarView : MonoBehaviour
     {
-        [field: SerializeField] public Transform BackGroundTransform { get; private set; }
-        [field: SerializeField] public Transform FillTransform { get; private set; }
+        [SerializeField] private RectTransform fill;
 
-        public float MaxFillWidth { get; private set; }
-
-        private void Awake()
+        public void SetProgress(float value)
         {
-            MaxFillWidth = FillTransform.localScale.x;
+            var anchorMax = fill.anchorMax;
+            anchorMax.x = Mathf.Clamp01(value);
+            fill.anchorMax = anchorMax;
         }
     }
 }

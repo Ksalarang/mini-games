@@ -63,6 +63,8 @@ namespace Minigames.Survivor.Scripts
 
             builder.Register<ExpItemSpawnSystem>(Lifetime.Transient);
             builder.Register<ExpSystem>(Lifetime.Transient);
+            builder.Register<LevelExpSystem>(Lifetime.Transient);
+            builder.Register<PlayerExpBarSystem>(Lifetime.Transient);
 
             builder.Register<ExpItemDestroySystem>(Lifetime.Transient);
             builder.Register<EnemyDestroySystem>(Lifetime.Transient);

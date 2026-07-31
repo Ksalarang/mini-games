@@ -2,6 +2,7 @@
 {
     public struct PlayerExpComponent
     {
-        public int Value;
+        public int CurrentValue;
+        public int NextLevelValue;
     }
 }

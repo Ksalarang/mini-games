@@ -7,6 +7,6 @@ namespace Minigames.Survivor.Scripts.SceneObjects
     {
         [field: SerializeField] public Transform Transform { get; private set; }
         [field: SerializeField] public SpriteRenderer SpriteRenderer { get; private set; }
-        [field: SerializeField] public ProgressBarView HealthBar { get; private set; }
+        [field: SerializeField] public ProgressBar HealthBar { get; private set; }
     }
 }
