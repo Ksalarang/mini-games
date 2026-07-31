@@ -59,10 +59,14 @@ namespace Minigames.Survivor.Scripts
             builder.Register<EnemyContactDamageSystem>(Lifetime.Transient);
             builder.Register<PlayerProjectileDamageSystem>(Lifetime.Transient);
             builder.Register<DamageSystem>(Lifetime.Transient);
-            builder.Register<ExpItemSpawnSystem>(Lifetime.Transient);
             builder.Register<PlayerHealthBarSystem>(Lifetime.Transient);
-            builder.Register<EnemyReleaseSystem>(Lifetime.Transient);
-            builder.Register<ProjectileReleaseSystem>(Lifetime.Transient);
+
+            builder.Register<ExpItemSpawnSystem>(Lifetime.Transient);
+            builder.Register<ExpSystem>(Lifetime.Transient);
+
+            builder.Register<ExpItemDestroySystem>(Lifetime.Transient);
+            builder.Register<EnemyDestroySystem>(Lifetime.Transient);
+            builder.Register<ProjectileDestroySystem>(Lifetime.Transient);
 
             builder.Register<TransformPositionSyncSystem>(Lifetime.Transient);
             builder.Register<TransformRotationSyncSystem>(Lifetime.Transient);

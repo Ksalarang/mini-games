@@ -53,6 +53,11 @@ namespace Minigames.Survivor.Scripts.Ecs.Systems
                 Object.Destroy(projectile.gameObject);
             }
 
+            foreach (Transform expItem in worldContainer.ExpItems)
+            {
+                Object.Destroy(expItem.gameObject);
+            }
+
             ecsHandler.Destroy();
             ecsHandler.Initialize();
 

@@ -6,7 +6,7 @@ using UnityEngine.Pool;
 
 namespace Minigames.Survivor.Scripts.Ecs.Systems
 {
-    public class ProjectileReleaseSystem : IEcsInitSystem, IEcsRunSystem
+    public class ProjectileDestroySystem : IEcsInitSystem, IEcsRunSystem
     {
         private readonly EcsFilter<ProjectilePoolComponent> projectilePoolFilter;
         private readonly EcsFilter<ProjectileTag> projectileFilter;

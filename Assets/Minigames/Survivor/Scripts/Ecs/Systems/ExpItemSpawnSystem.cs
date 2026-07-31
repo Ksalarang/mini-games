@@ -8,7 +8,7 @@ using UnityEngine.Pool;
 
 namespace Minigames.Survivor.Scripts.Ecs.Systems
 {
-    public class ExpItemSpawnSystem : IEcsRunSystem
+    public class ExpItemSpawnSystem : IEcsInitSystem, IEcsRunSystem
     {
         private readonly ExpItemConfig config;
 
@@ -35,6 +35,11 @@ namespace Minigames.Survivor.Scripts.Ecs.Systems
             );
         }
 
+        public void Init()
+        {
+            world.NewEntity().Get<ExpItemPoolComponent>().Value = pool;
+        }
+
         public void Run()
         {
             foreach (var i in filter)
@@ -55,7 +60,7 @@ namespace Minigames.Survivor.Scripts.Ecs.Systems
             var spriteObject = pool.Get();
 
             var entity = world.NewEntity();
-            entity.Get<GameObjectComponent>().Value = spriteObject.gameObject;
+            entity.Get<SpriteObjectComponent>().Value = spriteObject;
             entity.Get<TransformComponent>().Value = spriteObject.Transform;
             entity.Get<Position>().Value = position;
             entity.Get<SpriteRendererComponent>().Value = spriteObject.SpriteRenderer;

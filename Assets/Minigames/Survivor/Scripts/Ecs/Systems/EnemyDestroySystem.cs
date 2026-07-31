@@ -5,7 +5,7 @@ using UnityEngine.Pool;
 
 namespace Minigames.Survivor.Scripts.Ecs.Systems
 {
-    public class EnemyReleaseSystem : IEcsInitSystem, IEcsRunSystem
+    public class EnemyDestroySystem : IEcsInitSystem, IEcsRunSystem
     {
         private readonly EcsWorld world;
         private readonly EcsFilter<EnemyTag> enemyFilter;

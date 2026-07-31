@@ -82,10 +82,14 @@ namespace Minigames.Survivor.Scripts.Ecs
             systems.Add(objectResolver.Resolve<EnemyContactDamageSystem>());
             systems.Add(objectResolver.Resolve<PlayerProjectileDamageSystem>());
             systems.Add(objectResolver.Resolve<DamageSystem>());
-            systems.Add(objectResolver.Resolve<ExpItemSpawnSystem>());
             systems.Add(objectResolver.Resolve<PlayerHealthBarSystem>());
-            systems.Add(objectResolver.Resolve<EnemyReleaseSystem>());
-            systems.Add(objectResolver.Resolve<ProjectileReleaseSystem>());
+
+            systems.Add(objectResolver.Resolve<ExpItemSpawnSystem>());
+            systems.Add(objectResolver.Resolve<ExpSystem>());
+
+            systems.Add(objectResolver.Resolve<ExpItemDestroySystem>());
+            systems.Add(objectResolver.Resolve<EnemyDestroySystem>());
+            systems.Add(objectResolver.Resolve<ProjectileDestroySystem>());
 
             systems.Add(objectResolver.Resolve<TransformPositionSyncSystem>());
             systems.Add(objectResolver.Resolve<TransformRotationSyncSystem>());
