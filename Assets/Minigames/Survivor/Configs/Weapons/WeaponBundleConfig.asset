@@ -10,13 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 437b588dbf6943f6bfedcbab3fa5e16f, type: 3}
-  m_Name: WeaponConfig
+  m_Name: WeaponBundleConfig
   m_EditorClassIdentifier: 
   <WeaponPrefab>k__BackingField: {fileID: 430485020536410615, guid: a5df1640c5e728644b99d3f2c5ce29f0, type: 3}
   <Projectiles>k__BackingField:
-  - Sprite: {fileID: 27982289, guid: 535d082cb5518d448bd0057c6592dbd9, type: 3}
-    Damage: 20
-    Cooldown: 1
-    DirectionType: 0
-    Speed: 10
-    Lifetime: 5
+  - {fileID: 11400000, guid: 45ce3c1aed48afe469e8a8d899bbcabe, type: 2}

@@ -22,5 +22,5 @@ MonoBehaviour:
     FramesPerSecond: 4
     SpawnIntervalSeconds: 1
     MoveSpeed: 1
-    Health: 20
+    Health: 10
   <EnemyPrefab>k__BackingField: {fileID: 2667757482269012895, guid: 8b5b838151d01254ab746fb82cc8da6d, type: 3}

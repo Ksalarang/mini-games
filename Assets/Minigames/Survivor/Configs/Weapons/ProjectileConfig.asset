@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9e97913da654b08a424e9d69d13a120, type: 3}
+  m_Name: ProjectileConfig
+  m_EditorClassIdentifier: 
+  <Sprite>k__BackingField: {fileID: 27982289, guid: 535d082cb5518d448bd0057c6592dbd9, type: 3}
+  <Damage>k__BackingField: 10
+  <Cooldown>k__BackingField: 1
+  <Type>k__BackingField: 0
+  <DirectionType>k__BackingField: 0
+  <Speed>k__BackingField: 10
+  <Lifetime>k__BackingField: 3

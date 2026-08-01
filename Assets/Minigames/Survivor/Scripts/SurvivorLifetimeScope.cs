@@ -33,7 +33,7 @@ namespace Minigames.Survivor.Scripts
             builder.RegisterComponent(gameConfig.SpriteAnimationConfig);
             builder.RegisterComponent(gameConfig.EnemySpawnConfig);
             builder.RegisterComponent(gameConfig.EnemyDamageConfig);
-            builder.RegisterComponent(gameConfig.WeaponConfig);
+            builder.RegisterComponent(gameConfig.WeaponBundleConfig);
             builder.RegisterComponent(gameConfig.ExpItemConfig);
             builder.RegisterComponent(gameConfig.UpgradeBundleConfig);
 

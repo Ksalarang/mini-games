@@ -1,7 +1,9 @@
-﻿using Leopotam.Ecs;
+﻿using System.Collections.Generic;
+using Leopotam.Ecs;
 using Minigames.Survivor.Scripts.Configs;
+using Minigames.Survivor.Scripts.Configs.Weapons;
 using Minigames.Survivor.Scripts.Ecs.Components;
-using Minigames.Survivor.Scripts.Ecs.Components.Requests;
+using Minigames.Survivor.Scripts.Ecs.Components.Weapons;
 using Minigames.Survivor.Scripts.SceneObjects;
 
 namespace Minigames.Survivor.Scripts.Ecs.Systems
@@ -10,15 +12,15 @@ namespace Minigames.Survivor.Scripts.Ecs.Systems
     {
         private readonly PlayerContainer playerContainer;
         private readonly PlayerConfig playerConfig;
-        private readonly WeaponConfig weaponConfig;
+        private readonly WeaponBundleConfig weaponBundleConfig;
 
         private readonly EcsWorld world;
 
-        public PlayerInitSystem(PlayerContainer playerContainer, PlayerConfig playerConfig, WeaponConfig weaponConfig)
+        public PlayerInitSystem(PlayerContainer playerContainer, PlayerConfig playerConfig, WeaponBundleConfig weaponBundleConfig)
         {
             this.playerContainer = playerContainer;
             this.playerConfig = playerConfig;
-            this.weaponConfig = weaponConfig;
+            this.weaponBundleConfig = weaponBundleConfig;
         }
 
         public void Init()
@@ -43,19 +45,11 @@ namespace Minigames.Survivor.Scripts.Ecs.Systems
             health.Value = playerConfig.Health;
             health.MaxValue = playerConfig.Health;
 
-            AddSpawnRequest(weaponConfig.Projectiles[0]);
-        }
+            ref var weaponInventory = ref player.Get<WeaponInventory>();
+            weaponInventory.Projectiles = new List<ProjectileWeapon>();
 
-        private void AddSpawnRequest(ProjectileData data)
-        {
-            var entity = world.NewEntity();
-
-            ref var timer = ref entity.Get<TimerComponent>();
-            timer.TimeLeft = data.Cooldown;
-            timer.Interval = data.Cooldown;
-
-            ref var request = ref entity.Get<ProjectileSpawnRequest>();
-            request.Data = data;
+            weaponBundleConfig.Projectiles[0].CreateWeaponEntity(world, out var entity);
+            weaponInventory.Projectiles.Add(entity.Get<ProjectileWeapon>());
         }
     }
 }
