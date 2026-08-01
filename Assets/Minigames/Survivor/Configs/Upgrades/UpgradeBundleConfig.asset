@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bb653ebb2f84ba0b3dfdf7a8a665b20, type: 3}
   m_Name: UpgradeBundleConfig
   m_EditorClassIdentifier: 
-  <Configs>k__BackingField:
+  <Upgrades>k__BackingField:
   - {fileID: 11400000, guid: 77290c7a742fbae4889a98e6f63db453, type: 2}
   - {fileID: 11400000, guid: 6c6f1c99fd119bf48964a67b56e2a1cf, type: 2}
   - {fileID: 11400000, guid: 8c9cd3e7795d21f43be4582de0412cd1, type: 2}

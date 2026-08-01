@@ -1,4 +1,6 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
+using Core.Tools;
 using Leopotam.Ecs;
 using Minigames.Survivor.Scripts.Configs.Upgrades;
 using Minigames.Survivor.Scripts.Ecs.Components;
@@ -39,9 +41,10 @@ namespace Minigames.Survivor.Scripts.Ecs.Systems
             {
                 ecsHandler.Active = false;
 
-                var upgrades = bundleConfig.Configs.Take(3).ToArray();
+                var upgrades = bundleConfig.Upgrades.ToList();
+                upgrades.Shuffle();
 
-                for (var i = 0; i < upgrades.Length; i++)
+                for (var i = 0; i < 3; i++)
                 {
                     var view = upgradeCardSelectionView.Cards[i];
                     var upgrade = upgrades[i];
