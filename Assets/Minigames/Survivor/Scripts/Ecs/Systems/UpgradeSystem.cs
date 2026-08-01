@@ -17,7 +17,6 @@ namespace Minigames.Survivor.Scripts.Ecs.Systems
         private readonly EcsFilter<PlayerTag> playerFilter;
 
         private EcsEntity player;
-        private bool isUpgrading;
 
         public UpgradeSystem(UpgradeBundleConfig bundleConfig, IEcsHandler ecsHandler, UiContainer uiContainer)
         {
@@ -34,16 +33,10 @@ namespace Minigames.Survivor.Scripts.Ecs.Systems
 
         public void Run()
         {
-            if (isUpgrading)
-            {
-                return;
-            }
-
             var playerExp = player.Get<PlayerExpComponent>();
 
             if (playerExp.CurrentValue >= playerExp.NextLevelValue)
             {
-                isUpgrading = true;
                 ecsHandler.Active = false;
 
                 var upgrades = bundleConfig.Configs.Take(3).ToArray();
@@ -71,7 +64,6 @@ namespace Minigames.Survivor.Scripts.Ecs.Systems
             playerExp.CurrentValue = 0;
             playerExp.NextLevelValue = (int)(playerExp.NextLevelValue * ExpMultiplier);
             ecsHandler.Active = true;
-            isUpgrading = false;
         }
     }
 }
