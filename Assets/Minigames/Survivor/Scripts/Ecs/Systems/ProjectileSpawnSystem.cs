@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using Leopotam.Ecs;
 using Minigames.Survivor.Scripts.Configs.Weapons;
 using Minigames.Survivor.Scripts.Ecs.Components;
@@ -20,6 +22,8 @@ namespace Minigames.Survivor.Scripts.Ecs.Systems
 
         private readonly ObjectPool<GameObject> pool;
 
+        private List<ProjectileWeapon> projectiles;
+
         public ProjectileSpawnSystem(WeaponBundleConfig bundleConfig, SurvivorWorldContainer worldContainer)
         {
             pool = new ObjectPool<GameObject>(
@@ -35,7 +39,7 @@ namespace Minigames.Survivor.Scripts.Ecs.Systems
         {
             world.NewEntity().Get<ProjectilePoolComponent>().Value = pool;
 
-            var projectiles = playerFilter.GetEntity(0).Get<WeaponInventory>().Projectiles;
+            projectiles = playerFilter.GetEntity(0).Get<WeaponInventory>().Projectiles;
 
             if (projectiles.Count > 0)
             {
@@ -47,9 +51,17 @@ namespace Minigames.Survivor.Scripts.Ecs.Systems
         {
             foreach (var i in filter)
             {
-                var projectile = filter.Get1(i).Projectile;
-                Spawn(projectile);
-                AddSpawnRequest(projectile);
+                var projectileType = filter.Get1(i).ProjectileType;
+
+                foreach (var projectile in projectiles)
+                {
+                    if (projectile.Type == projectileType)
+                    {
+                        Spawn(projectile);
+                        AddSpawnRequest(projectile);
+                        break;
+                    }
+                }
             }
         }
 
@@ -57,7 +69,7 @@ namespace Minigames.Survivor.Scripts.Ecs.Systems
         {
             var entity = world.NewEntity();
             entity.Get<TimerComponent>().TimeLeft = projectile.Cooldown;
-            entity.Get<ProjectileSpawnRequest>().Projectile = projectile;
+            entity.Get<ProjectileSpawnRequest>().ProjectileType = projectile.Type;
         }
 
         private void Spawn(ProjectileWeapon projectile)
