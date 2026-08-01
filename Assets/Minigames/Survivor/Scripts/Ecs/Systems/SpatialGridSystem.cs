@@ -16,7 +16,9 @@ namespace Minigames.Survivor.Scripts.Ecs.Systems
 
         public void Init()
         {
-            world.NewEntity().Get<SpatialGridComponent>().SpatialGrid = spatialGrid;
+            ref var spatialGridComponent = ref world.NewEntity().Get<SpatialGridComponent>();
+            spatialGridComponent.SpatialGrid = spatialGrid;
+            spatialGridComponent.CellSize = CellSize;
         }
 
         public void Run()

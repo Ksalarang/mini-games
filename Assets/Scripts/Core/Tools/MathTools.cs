@@ -12,5 +12,17 @@ namespace Core.Tools
 
             return new Vector2(x, y);
         }
+
+        public static float GetSquaredDistance(Vector2 a, Vector2 b)
+        {
+            var dx = a.x - b.x;
+            var dy = a.y - b.y;
+            return dx * dx + dy * dy;
+        }
+
+        public static Vector2 GetDirectionToTarget(Vector2 target, Vector2 source)
+        {
+            return (target - source).normalized;
+        }
     }
 }

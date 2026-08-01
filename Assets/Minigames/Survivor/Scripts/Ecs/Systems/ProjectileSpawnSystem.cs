@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using Leopotam.Ecs;
 using Minigames.Survivor.Scripts.Configs.Weapons;
 using Minigames.Survivor.Scripts.Ecs.Components;
@@ -89,32 +88,7 @@ namespace Minigames.Survivor.Scripts.Ecs.Systems
             entity.Get<BoundsComponent>().HalfSize = spriteRendererComponent.Value.bounds.size * 0.5f;
             entity.Get<Speed>().Value = projectile.Speed;
             entity.Get<DamageComponent>().Value = projectile.Damage;
-
-            switch (projectile.DirectionType)
-            {
-                case ProjectileDirectionType.Player:
-                    var playerDirection = player.Get<DirectionComponent>();
-                    Vector2 value;
-
-                    if (playerDirection.Value.x != 0f || playerDirection.Value.y != 0f)
-                    {
-                        value = playerDirection.Value;
-                    }
-                    else if (playerDirection.PrevValue.x != 0f || playerDirection.PrevValue.y != 0f)
-                    {
-                        value = playerDirection.PrevValue;
-                    }
-                    else
-                    {
-                        value = new Vector2(1f, 0f);
-                    }
-
-                    entity.Get<DirectionComponent>().Value = value;
-                    break;
-                default:
-                    throw new ArgumentOutOfRangeException();
-            }
-
+            entity.Get<ProjectileDirectionRequest>().DirectionType = projectile.DirectionType;
             entity.Get<RotationComponent>().RotateTowardsDirection = true;
 
             ref var timer = ref entity.Get<TimerComponent>();

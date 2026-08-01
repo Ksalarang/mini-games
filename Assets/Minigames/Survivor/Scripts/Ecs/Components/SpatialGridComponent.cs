@@ -7,5 +7,6 @@ namespace Minigames.Survivor.Scripts.Ecs.Components
     public struct SpatialGridComponent
     {
         public Dictionary<Vector2Int, List<EcsEntity>> SpatialGrid;
+        public float CellSize;
     }
 }

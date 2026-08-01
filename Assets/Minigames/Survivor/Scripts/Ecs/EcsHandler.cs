@@ -1,6 +1,7 @@
 ﻿using System;
 using Leopotam.Ecs;
 using Minigames.Survivor.Scripts.Ecs.Components.Events;
+using Minigames.Survivor.Scripts.Ecs.Components.Requests;
 using Minigames.Survivor.Scripts.Ecs.Systems;
 using VContainer;
 using VContainer.Unity;
@@ -74,6 +75,8 @@ namespace Minigames.Survivor.Scripts.Ecs
             systems.Add(objectResolver.Resolve<AlignedBoxCollisionSystem>());
             systems.Add(objectResolver.Resolve<OrientedBoxCollisionSystem>());
 
+            systems.Add(objectResolver.Resolve<ProjectileDirectionSystem>());
+
             systems.Add(objectResolver.Resolve<VelocitySystem>());
             systems.Add(objectResolver.Resolve<MoveSystem>());
 
@@ -106,6 +109,7 @@ namespace Minigames.Survivor.Scripts.Ecs
             systems.OneFrame<OrientedBoxCollisionEvent>();
             systems.OneFrame<DamageEvent>();
             systems.OneFrame<DeathEvent>();
+            systems.OneFrame<ProjectileDirectionRequest>();
 
             systems.Init();
 

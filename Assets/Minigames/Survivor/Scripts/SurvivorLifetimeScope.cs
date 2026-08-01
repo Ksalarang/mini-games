@@ -46,6 +46,7 @@ namespace Minigames.Survivor.Scripts
             builder.Register<PlayerDirectionSystem>(Lifetime.Transient);
 
             builder.Register<ProjectileSpawnSystem>(Lifetime.Transient);
+            builder.Register<ProjectileDirectionSystem>(Lifetime.Transient);
 
             builder.Register<EnemySpawnSystem>(Lifetime.Transient);
             builder.Register<EnemyDirectionSystem>(Lifetime.Transient);

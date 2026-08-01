@@ -30,10 +30,12 @@ namespace Minigames.Survivor.Scripts.Configs.Weapons
     public enum ProjectileType
     {
         Knife,
+        Fireball,
     }
 
     public enum ProjectileDirectionType
     {
-        Player,
+        PlayerDirection,
+        AutoTarget,
     }
 }
