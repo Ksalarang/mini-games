@@ -1,0 +1,77 @@
+﻿using System.Linq;
+using Leopotam.Ecs;
+using Minigames.Survivor.Scripts.Configs.Upgrades;
+using Minigames.Survivor.Scripts.Ecs.Components;
+using Minigames.Survivor.Scripts.UI;
+
+namespace Minigames.Survivor.Scripts.Ecs.Systems
+{
+    public class UpgradeSystem : IEcsInitSystem, IEcsRunSystem
+    {
+        private const float ExpMultiplier = 1.5f;
+
+        private readonly UpgradeBundleConfig bundleConfig;
+        private readonly IEcsHandler ecsHandler;
+        private readonly UpgradeCardSelectionView upgradeCardSelectionView;
+
+        private readonly EcsFilter<PlayerTag> playerFilter;
+
+        private EcsEntity player;
+        private bool isUpgrading;
+
+        public UpgradeSystem(UpgradeBundleConfig bundleConfig, IEcsHandler ecsHandler, UiContainer uiContainer)
+        {
+            this.bundleConfig = bundleConfig;
+            this.ecsHandler = ecsHandler;
+            upgradeCardSelectionView = uiContainer.UpgradeCardSelectionView;
+        }
+
+        public void Init()
+        {
+            player = playerFilter.GetEntity(0);
+            player.Get<PlayerExpComponent>().NextLevelValue = bundleConfig.FirstLevelExp;
+        }
+
+        public void Run()
+        {
+            if (isUpgrading)
+            {
+                return;
+            }
+
+            var playerExp = player.Get<PlayerExpComponent>();
+
+            if (playerExp.CurrentValue >= playerExp.NextLevelValue)
+            {
+                isUpgrading = true;
+                ecsHandler.Active = false;
+
+                var upgrades = bundleConfig.Configs.Take(3).ToArray();
+
+                for (var i = 0; i < upgrades.Length; i++)
+                {
+                    var view = upgradeCardSelectionView.Cards[i];
+                    var upgrade = upgrades[i];
+
+                    view.Title.text = string.Format(upgrade.Title, upgrade.Level);
+                    view.Description.text = string.Format(upgrade.Description, upgrade.Value);
+                    view.Button.onClick.RemoveAllListeners();
+                    view.Button.onClick.AddListener(() => OnUpgradeSelect(upgrade));
+                }
+
+                upgradeCardSelectionView.gameObject.SetActive(true);
+            }
+        }
+
+        private void OnUpgradeSelect(UpgradeConfig config)
+        {
+            upgradeCardSelectionView.gameObject.SetActive(false);
+            config.Apply(player);
+            ref var playerExp = ref player.Get<PlayerExpComponent>();
+            playerExp.CurrentValue = 0;
+            playerExp.NextLevelValue = (int)(playerExp.NextLevelValue * ExpMultiplier);
+            ecsHandler.Active = true;
+            isUpgrading = false;
+        }
+    }
+}

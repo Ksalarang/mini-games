@@ -24,7 +24,9 @@ namespace Minigames.Survivor.Scripts
             builder.RegisterComponent(sceneContainer.InfiniteFloor);
             builder.RegisterComponent(sceneContainer.WorldContainer);
             builder.RegisterComponent(sceneContainer.PlayerContainer);
+
             builder.RegisterComponent(uiContainer);
+            builder.RegisterComponent(uiContainer.UpgradeCardSelectionView);
 
             builder.RegisterComponent(gameConfig);
             builder.RegisterComponent(gameConfig.PlayerConfig);
@@ -33,6 +35,7 @@ namespace Minigames.Survivor.Scripts
             builder.RegisterComponent(gameConfig.EnemyDamageConfig);
             builder.RegisterComponent(gameConfig.WeaponConfig);
             builder.RegisterComponent(gameConfig.ExpItemConfig);
+            builder.RegisterComponent(gameConfig.UpgradeBundleConfig);
 
             builder.Register<GameTimeService>(Lifetime.Singleton);
 
@@ -63,7 +66,7 @@ namespace Minigames.Survivor.Scripts
 
             builder.Register<ExpItemSpawnSystem>(Lifetime.Transient);
             builder.Register<ExpSystem>(Lifetime.Transient);
-            builder.Register<LevelExpSystem>(Lifetime.Transient);
+            builder.Register<UpgradeSystem>(Lifetime.Transient);
             builder.Register<PlayerExpBarSystem>(Lifetime.Transient);
 
             builder.Register<ExpItemDestroySystem>(Lifetime.Transient);

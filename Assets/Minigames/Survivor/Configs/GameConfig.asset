@@ -18,3 +18,4 @@ MonoBehaviour:
   <EnemyDamageConfig>k__BackingField: {fileID: 11400000, guid: e940bb2874e329740a5e72c7a86fac32, type: 2}
   <WeaponConfig>k__BackingField: {fileID: 11400000, guid: 07835511fd49c7d45b728a680d8d998d, type: 2}
   <ExpItemConfig>k__BackingField: {fileID: 11400000, guid: 98440c4853b8c68429abd7bd5b157830, type: 2}
+  <UpgradeBundleConfig>k__BackingField: {fileID: 11400000, guid: 85f2e23b600844e4783009b80b721419, type: 2}

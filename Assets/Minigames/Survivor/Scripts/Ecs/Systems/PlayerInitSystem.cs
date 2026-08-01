@@ -43,8 +43,6 @@ namespace Minigames.Survivor.Scripts.Ecs.Systems
             health.Value = playerConfig.Health;
             health.MaxValue = playerConfig.Health;
 
-            player.Get<PlayerExpComponent>().NextLevelValue = 10;
-
             AddSpawnRequest(weaponConfig.Projectiles[0]);
         }
 

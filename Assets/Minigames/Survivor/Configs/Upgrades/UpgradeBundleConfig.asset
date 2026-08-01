@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4bb653ebb2f84ba0b3dfdf7a8a665b20, type: 3}
+  m_Name: UpgradeBundleConfig
+  m_EditorClassIdentifier: 
+  <Configs>k__BackingField:
+  - {fileID: 11400000, guid: 77290c7a742fbae4889a98e6f63db453, type: 2}
+  - {fileID: 11400000, guid: 6c6f1c99fd119bf48964a67b56e2a1cf, type: 2}
+  - {fileID: 11400000, guid: 8c9cd3e7795d21f43be4582de0412cd1, type: 2}
+  <FirstLevelExp>k__BackingField: 5

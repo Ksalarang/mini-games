@@ -20,7 +20,7 @@ MonoBehaviour:
     - {fileID: -2015762405, guid: 535d082cb5518d448bd0057c6592dbd9, type: 3}
     - {fileID: 2045032380, guid: 535d082cb5518d448bd0057c6592dbd9, type: 3}
     FramesPerSecond: 4
-    SpawnIntervalSeconds: 0.5
+    SpawnIntervalSeconds: 1
     MoveSpeed: 1
     Health: 20
   <EnemyPrefab>k__BackingField: {fileID: 2667757482269012895, guid: 8b5b838151d01254ab746fb82cc8da6d, type: 3}
