@@ -10,6 +10,8 @@ namespace Minigames.Survivor.Scripts.Configs.Upgrades
         [field: SerializeField] public int Level { get; private set; }
         [field: SerializeField] public float Value { get; private set; }
 
+        protected float NormalizedValue => Value / 100f;
+
         public abstract void Apply(EcsEntity player);
     }
 }

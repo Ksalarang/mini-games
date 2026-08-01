@@ -10,7 +10,7 @@ namespace Minigames.Survivor.Scripts.Configs.Upgrades
         public override void Apply(EcsEntity player)
         {
             ref var speed = ref player.Get<Speed>();
-            speed.Value *= 1f + Value / 100f;
+            speed.Value *= 1f + NormalizedValue;
         }
     }
 }

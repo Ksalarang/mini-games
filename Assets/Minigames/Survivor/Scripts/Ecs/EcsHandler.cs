@@ -112,6 +112,7 @@ namespace Minigames.Survivor.Scripts.Ecs
             lateUpdateSystems.Add(objectResolver.Resolve<CameraFollowSystem>());
             lateUpdateSystems.Add(objectResolver.Resolve<CameraPositionSyncSystem>());
             lateUpdateSystems.Add(objectResolver.Resolve<InfiniteFloorSystem>());
+
             lateUpdateSystems.Add(objectResolver.Resolve<GameOverSystem>());
             lateUpdateSystems.Init();
         }
