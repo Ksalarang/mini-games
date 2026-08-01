@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: WeaponBundleConfig
   m_EditorClassIdentifier: 
   <WeaponPrefab>k__BackingField: {fileID: 430485020536410615, guid: a5df1640c5e728644b99d3f2c5ce29f0, type: 3}
+  <StartingWeapon>k__BackingField: {fileID: 11400000, guid: 45ce3c1aed48afe469e8a8d899bbcabe, type: 2}
   <Projectiles>k__BackingField:
   - {fileID: 11400000, guid: 45ce3c1aed48afe469e8a8d899bbcabe, type: 2}
