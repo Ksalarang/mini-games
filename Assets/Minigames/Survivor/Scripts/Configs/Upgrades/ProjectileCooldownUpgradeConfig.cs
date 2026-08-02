@@ -5,10 +5,11 @@ using UnityEngine;
 
 namespace Minigames.Survivor.Scripts.Configs.Upgrades
 {
-    [CreateAssetMenu(fileName = "KnifeFireRateUpgradeConfig", menuName = "Minigames/Survivor/Upgrades/KnifeFireRateUpgradeConfig", order = 0)]
-    public class KnifeFireRateUpgradeConfig : UpgradeConfig
+    [CreateAssetMenu(fileName = "ProjectileCooldownUpgradeConfig", menuName = "Minigames/Survivor/Upgrades/ProjectileCooldownUpgradeConfig", order = 0)]
+    public class ProjectileCooldownUpgradeConfig : UpgradeConfig
     {
-        [field: SerializeField] public float MinCooldown { get; private set; }
+        [field: SerializeField] public ProjectileType Type { get; private set; }
+        [field: SerializeField] public float MinCooldown { get; private set; } = 0.1f;
 
         public override void Apply(EcsEntity player)
         {
@@ -18,12 +19,11 @@ namespace Minigames.Survivor.Scripts.Configs.Upgrades
             {
                 var projectile = projectiles[i];
 
-                if (projectile.Type is ProjectileType.Knife)
+                if (projectile.Type == Type)
                 {
-                    var value = projectile.Cooldown * (1f - NormalizedValue);
-                    projectile.Cooldown = Mathf.Max(MinCooldown, value);
+                    projectile.Cooldown = Mathf.Max(MinCooldown, projectile.Cooldown * (1 - NormalizedValue));
                     projectiles[i] = projectile;
-                    break;
+                    return;
                 }
             }
         }

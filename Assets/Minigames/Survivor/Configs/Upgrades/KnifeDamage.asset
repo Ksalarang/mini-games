@@ -9,11 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 98553748421f479baeb1dc509de5f6f4, type: 3}
-  m_Name: KnifeFireRateUpgradeConfig
+  m_Script: {fileID: 11500000, guid: 6b1ef408771d4bebacd0c1e5682e9b17, type: 3}
+  m_Name: KnifeDamage
   m_EditorClassIdentifier: 
-  <Title>k__BackingField: Knife Fire Rate {0}
-  <Description>k__BackingField: Increases knife fire rate by {0}%
+  <Title>k__BackingField: Knife Damage
+  <Description>k__BackingField: Increases Knife damage by {0}%
   <Level>k__BackingField: 1
   <Value>k__BackingField: 10
-  <MinCooldown>k__BackingField: 0.1
+  <Type>k__BackingField: 0

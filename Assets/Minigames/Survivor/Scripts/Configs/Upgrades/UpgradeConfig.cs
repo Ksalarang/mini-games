@@ -7,7 +7,7 @@ namespace Minigames.Survivor.Scripts.Configs.Upgrades
     {
         [field: SerializeField] public string Title { get; private set; }
         [field: SerializeField] public string Description { get; private set; }
-        [field: SerializeField] public int Level { get; private set; }
+        [field: SerializeField] public int Level { get; private set; } = 1;
         [field: SerializeField] public float Value { get; private set; }
 
         protected float NormalizedValue => Value / 100f;
