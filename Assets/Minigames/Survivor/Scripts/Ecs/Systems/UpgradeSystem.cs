@@ -1,9 +1,10 @@
-﻿using System;
+﻿using System.Collections.Generic;
 using System.Linq;
 using Core.Tools;
 using Leopotam.Ecs;
 using Minigames.Survivor.Scripts.Configs.Upgrades;
 using Minigames.Survivor.Scripts.Ecs.Components;
+using Minigames.Survivor.Scripts.Ecs.Components.Weapons;
 using Minigames.Survivor.Scripts.UI;
 
 namespace Minigames.Survivor.Scripts.Ecs.Systems
@@ -41,8 +42,7 @@ namespace Minigames.Survivor.Scripts.Ecs.Systems
             {
                 ecsHandler.Active = false;
 
-                var upgrades = bundleConfig.Upgrades.ToList();
-                upgrades.Shuffle();
+                var upgrades = GetUpgrades();
 
                 for (var i = 0; i < 3; i++)
                 {
@@ -57,6 +57,27 @@ namespace Minigames.Survivor.Scripts.Ecs.Systems
 
                 upgradeCardSelectionView.gameObject.SetActive(true);
             }
+        }
+
+        private List<UpgradeConfig> GetUpgrades()
+        {
+            var upgrades = bundleConfig.Upgrades.ToList();
+            var playerProjectiles = player.Get<WeaponInventory>().Projectiles.Select(p => p.Type).ToList();
+
+            for (var i = upgrades.Count - 1; i >= 0; i--)
+            {
+                var upgrade = upgrades[i];
+
+                if (upgrade is ProjectileUpgradeConfig projectileUpgrade
+                    && !playerProjectiles.Contains(projectileUpgrade.Type))
+                {
+                    upgrades.Remove(upgrade);
+                }
+            }
+
+            upgrades.Shuffle();
+
+            return upgrades;
         }
 
         private void OnUpgradeSelect(UpgradeConfig config)

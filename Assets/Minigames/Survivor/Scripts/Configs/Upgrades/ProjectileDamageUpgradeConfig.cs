@@ -1,15 +1,12 @@
 ﻿using Leopotam.Ecs;
-using Minigames.Survivor.Scripts.Configs.Weapons;
 using Minigames.Survivor.Scripts.Ecs.Components.Weapons;
 using UnityEngine;
 
 namespace Minigames.Survivor.Scripts.Configs.Upgrades
 {
     [CreateAssetMenu(fileName = "ProjectileDamageUpgradeConfig", menuName = "Minigames/Survivor/Upgrades/ProjectileDamageUpgradeConfig", order = 0)]
-    public class ProjectileDamageUpgradeConfig : UpgradeConfig
+    public class ProjectileDamageUpgradeConfig : ProjectileUpgradeConfig
     {
-        [field: SerializeField] public ProjectileType Type { get; private set; }
-
         public override void Apply(EcsEntity player)
         {
             var projectiles = player.Get<WeaponInventory>().Projectiles;
