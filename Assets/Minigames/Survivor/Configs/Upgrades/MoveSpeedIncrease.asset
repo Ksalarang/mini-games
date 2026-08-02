@@ -9,12 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 58d42fc130454ff4be49da9b943ebbef, type: 3}
-  m_Name: FireballFireRateUpgradeConfig
+  m_Script: {fileID: 11500000, guid: 4d3bdc0df3794a39af0f8c0857e4f106, type: 3}
+  m_Name: MoveSpeedIncrease
   m_EditorClassIdentifier: 
-  <Title>k__BackingField: Fireball Fire Rate
-  <Description>k__BackingField: Increases Fireball fire rate by {0}%
+  <Title>k__BackingField: Increase move speed {0}
+  <Description>k__BackingField: Increase move speed by {0}%
   <Level>k__BackingField: 1
   <Value>k__BackingField: 10
-  <Type>k__BackingField: 1
-  <MinCooldown>k__BackingField: 0.1
