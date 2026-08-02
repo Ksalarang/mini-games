@@ -10,7 +10,7 @@ namespace Minigames.Survivor.Scripts.Ecs.Systems
         private readonly EnemyDamageConfig config;
 
         private readonly EcsWorld world;
-        private readonly EcsFilter<CollisionEvent> filter;
+        private readonly EcsFilter<CollisionEvent> collisionFilter;
 
         private readonly EcsEntity[] collisionPair = new EcsEntity[2];
 
@@ -21,9 +21,9 @@ namespace Minigames.Survivor.Scripts.Ecs.Systems
 
         public void Run()
         {
-            foreach (var i in filter)
+            foreach (var i in collisionFilter)
             {
-                var collision = filter.Get1(i);
+                var collision = collisionFilter.Get1(i);
                 collisionPair[0] = collision.Entity1;
                 collisionPair[1] = collision.Entity2;
 

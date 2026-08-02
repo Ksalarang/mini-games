@@ -1,6 +1,7 @@
 ﻿using Leopotam.Ecs;
 using Minigames.Survivor.Scripts.Ecs.Components;
 using Minigames.Survivor.Scripts.Ecs.Components.Events;
+using UnityEngine;
 
 namespace Minigames.Survivor.Scripts.Ecs.Systems
 {
@@ -26,10 +27,12 @@ namespace Minigames.Survivor.Scripts.Ecs.Systems
 
                     if (entity1.Has<ProjectileTag>() && entity2.Has<EnemyTag>())
                     {
-                        entity1.Get<ProjectileTag>().Destroy = true;
                         ref var damageEvent = ref entity2.Get<DamageEvent>();
-                        damageEvent.Value = entity1.Get<DamageComponent>().Value;
+                        ref var damageComponent = ref entity1.Get<DamageComponent>();
+
+                        damageEvent.Value = damageComponent.Value;
                         damageEvent.Target = entity2;
+                        damageComponent.Value = Mathf.Max(0f, damageComponent.Value - entity2.Get<Health>().Value);
                     }
                 }
             }

@@ -9,7 +9,7 @@ namespace Minigames.Survivor.Scripts.Ecs.Systems
     public class ProjectileDestroySystem : IEcsInitSystem, IEcsRunSystem
     {
         private readonly EcsFilter<ProjectilePoolComponent> projectilePoolFilter;
-        private readonly EcsFilter<ProjectileTag> projectileFilter;
+        private readonly EcsFilter<ProjectileTag, DamageComponent> projectileFilter;
         private readonly EcsFilter<ProjectileTag, TimerExpiredEvent> timerExpiredFilter;
 
         private IObjectPool<GameObject> pool;
@@ -23,7 +23,7 @@ namespace Minigames.Survivor.Scripts.Ecs.Systems
         {
             foreach (var i in projectileFilter)
             {
-                if (projectileFilter.Get1(i).Destroy)
+                if (projectileFilter.Get2(i).Value <= 0f)
                 {
                     var entity = projectileFilter.GetEntity(i);
                     pool.Release(entity.Get<GameObjectComponent>().Value);

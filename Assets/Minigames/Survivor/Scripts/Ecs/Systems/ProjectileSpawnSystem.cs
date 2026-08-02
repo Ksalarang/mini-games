@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Leopotam.Ecs;
 using Minigames.Survivor.Scripts.Configs.Weapons;
 using Minigames.Survivor.Scripts.Ecs.Components;
@@ -16,7 +15,7 @@ namespace Minigames.Survivor.Scripts.Ecs.Systems
     public class ProjectileSpawnSystem : IEcsInitSystem, IEcsRunSystem
     {
         private readonly EcsWorld world;
-        private readonly EcsFilter<ProjectileSpawnRequest, TimerExpiredEvent> filter;
+        private readonly EcsFilter<ProjectileSpawnRequest, TimerExpiredEvent> spawnFilter;
         private readonly EcsFilter<PlayerTag> playerFilter;
 
         private readonly ObjectPool<GameObject> pool;
@@ -48,9 +47,9 @@ namespace Minigames.Survivor.Scripts.Ecs.Systems
 
         public void Run()
         {
-            foreach (var i in filter)
+            foreach (var i in spawnFilter)
             {
-                var projectileType = filter.Get1(i).ProjectileType;
+                var projectileType = spawnFilter.Get1(i).ProjectileType;
 
                 foreach (var projectile in projectiles)
                 {

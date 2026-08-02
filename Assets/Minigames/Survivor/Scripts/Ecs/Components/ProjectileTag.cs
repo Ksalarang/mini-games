@@ -2,6 +2,6 @@
 {
     public struct ProjectileTag
     {
-        public bool Destroy;
+
     }
 }
