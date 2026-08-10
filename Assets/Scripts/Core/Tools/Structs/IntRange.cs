@@ -3,9 +3,9 @@
 namespace Core.Tools.Structs
 {
     [Serializable]
-    public struct FloatRange
+    public struct IntRange
     {
-        public float Min;
-        public float Max;
+        public int Min;
+        public int Max;
     }
 }

@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c6b80ae5b894f43863b3c5aaaca59b1, type: 3}
+  m_Name: EnemySpawnMasterConfig
+  m_EditorClassIdentifier: 
+  <SmallEnemyConfigs>k__BackingField:
+  - {fileID: 11400000, guid: 19a5d371bd381a84c9be4f03642c22d8, type: 2}
+  <MediumEnemyConfigs>k__BackingField: []
+  <BigEnemyConfigs>k__BackingField: []
+  <EnemyPrefab>k__BackingField: {fileID: 2667757482269012895, guid: 8b5b838151d01254ab746fb82cc8da6d, type: 3}

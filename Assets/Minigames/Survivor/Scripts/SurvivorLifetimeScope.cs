@@ -31,15 +31,18 @@ namespace Minigames.Survivor.Scripts
             builder.RegisterComponent(gameConfig);
             builder.RegisterComponent(gameConfig.PlayerConfig);
             builder.RegisterComponent(gameConfig.SpriteAnimationConfig);
-            builder.RegisterComponent(gameConfig.EnemySpawnConfig);
+            builder.RegisterComponent(gameConfig.EnemySpawnMasterConfig);
             builder.RegisterComponent(gameConfig.EnemyDamageConfig);
             builder.RegisterComponent(gameConfig.WeaponBundleConfig);
             builder.RegisterComponent(gameConfig.ExpItemConfig);
             builder.RegisterComponent(gameConfig.UpgradeBundleConfig);
+            builder.RegisterComponent(gameConfig.DifficultyConfig);
 
             builder.Register<GameTimeService>(Lifetime.Singleton);
 
             builder.Register<TimerSystem>(Lifetime.Transient);
+            builder.Register<SessionTimeSystem>(Lifetime.Transient);
+            builder.Register<DifficultySystem>(Lifetime.Transient);
 
             builder.Register<PlayerInitSystem>(Lifetime.Transient);
             builder.Register<PlayerInputSystem>(Lifetime.Transient);
@@ -48,6 +51,7 @@ namespace Minigames.Survivor.Scripts
             builder.Register<ProjectileSpawnSystem>(Lifetime.Transient);
             builder.Register<ProjectileDirectionSystem>(Lifetime.Transient);
 
+            builder.Register<SmallEnemySpawnRequestSystem>(Lifetime.Transient);
             builder.Register<EnemySpawnSystem>(Lifetime.Transient);
             builder.Register<EnemyDirectionSystem>(Lifetime.Transient);
 

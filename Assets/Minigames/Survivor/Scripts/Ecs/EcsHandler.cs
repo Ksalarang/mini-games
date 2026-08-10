@@ -61,6 +61,8 @@ namespace Minigames.Survivor.Scripts.Ecs
             lateUpdateSystems = new EcsSystems(world);
 
             systems.Add(objectResolver.Resolve<TimerSystem>());
+            systems.Add(objectResolver.Resolve<SessionTimeSystem>());
+            systems.Add(objectResolver.Resolve<DifficultySystem>());
 
             systems.Add(objectResolver.Resolve<PlayerInitSystem>());
             systems.Add(objectResolver.Resolve<PlayerInputSystem>());
@@ -68,6 +70,7 @@ namespace Minigames.Survivor.Scripts.Ecs
 
             systems.Add(objectResolver.Resolve<ProjectileSpawnSystem>());
 
+            systems.Add(objectResolver.Resolve<SmallEnemySpawnRequestSystem>());
             systems.Add(objectResolver.Resolve<EnemySpawnSystem>());
             systems.Add(objectResolver.Resolve<EnemyDirectionSystem>());
 
@@ -110,6 +113,7 @@ namespace Minigames.Survivor.Scripts.Ecs
             systems.OneFrame<DamageEvent>();
             systems.OneFrame<DeathEvent>();
             systems.OneFrame<ProjectileDirectionRequest>();
+            systems.OneFrame<SmallEnemyReplaceRequest>();
 
             systems.Init();
 

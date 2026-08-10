@@ -1,9 +1,9 @@
-﻿using Minigames.Survivor.Scripts.Configs;
+﻿using Minigames.Survivor.Scripts.Configs.Enemies;
 
 namespace Minigames.Survivor.Scripts.Ecs.Components
 {
     public struct EnemySpawnRequest
     {
-        public EnemySpawnData Data;
+        public EnemySpawnConfig Config;
     }
 }

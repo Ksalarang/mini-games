@@ -2,6 +2,8 @@
 {
     public enum EnemyType
     {
-        Chort,
+        Imp = 0,
+        Chort = 10,
+        Demon = 20,
     }
 }

@@ -9,10 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 51f72fdff7314cf5a1930643c3b5be83, type: 3}
-  m_Name: EnemyDamageConfig
+  m_Script: {fileID: 11500000, guid: f45b0e5b69fe4f13904f5f34a16297bf, type: 3}
+  m_Name: DifficultyConfig
   m_EditorClassIdentifier: 
-  <Data>k__BackingField:
-  - Type: 0
-    Damage: 5
-    Interval: 1
+  <InitialEnemySpanRate>k__BackingField: 0.5
+  <MaxEnemyCount>k__BackingField: 50
+  <SessionDurationMinutes>k__BackingField: 5

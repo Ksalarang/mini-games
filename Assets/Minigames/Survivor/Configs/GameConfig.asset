@@ -14,8 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <PlayerConfig>k__BackingField: {fileID: 11400000, guid: 62755bc16ef5d4e4586cb724728fd2f6, type: 2}
   <SpriteAnimationConfig>k__BackingField: {fileID: 11400000, guid: 8ebfaab2830947e4a9ba5c107fd06036, type: 2}
-  <EnemySpawnConfig>k__BackingField: {fileID: 11400000, guid: 468ac788c6ef3294f822b039225d999e, type: 2}
+  <EnemySpawnMasterConfig>k__BackingField: {fileID: 11400000, guid: 94c908f7613901d44927e4c2febfb56c, type: 2}
   <EnemyDamageConfig>k__BackingField: {fileID: 11400000, guid: e940bb2874e329740a5e72c7a86fac32, type: 2}
   <WeaponBundleConfig>k__BackingField: {fileID: 11400000, guid: 07835511fd49c7d45b728a680d8d998d, type: 2}
   <ExpItemConfig>k__BackingField: {fileID: 11400000, guid: 98440c4853b8c68429abd7bd5b157830, type: 2}
   <UpgradeBundleConfig>k__BackingField: {fileID: 11400000, guid: 85f2e23b600844e4783009b80b721419, type: 2}
+  <DifficultyConfig>k__BackingField: {fileID: 11400000, guid: e5f61f00948c09a44a15c057b807f9ce, type: 2}

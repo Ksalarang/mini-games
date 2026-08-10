@@ -1375,7 +1375,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 0x72_DungeonTilesetII_v1.7_59
+      name: imp_run_0
       rect:
         serializedVersion: 2
         x: 436
@@ -1396,7 +1396,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 0x72_DungeonTilesetII_v1.7_60
+      name: imp_run_1
       rect:
         serializedVersion: 2
         x: 451
@@ -1417,7 +1417,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 0x72_DungeonTilesetII_v1.7_61
+      name: imp_run_2
       rect:
         serializedVersion: 2
         x: 468
@@ -1438,7 +1438,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 0x72_DungeonTilesetII_v1.7_62
+      name: imp_run_3
       rect:
         serializedVersion: 2
         x: 484
@@ -6636,10 +6636,6 @@ TextureImporter:
       0x72_DungeonTilesetII_v1.7_56: -497740496
       0x72_DungeonTilesetII_v1.7_57: 1726287520
       0x72_DungeonTilesetII_v1.7_58: -1018534497
-      0x72_DungeonTilesetII_v1.7_59: 1546932700
-      0x72_DungeonTilesetII_v1.7_60: -2102413512
-      0x72_DungeonTilesetII_v1.7_61: 884703242
-      0x72_DungeonTilesetII_v1.7_62: -1151684332
       0x72_DungeonTilesetII_v1.7_63: 247628434
       0x72_DungeonTilesetII_v1.7_64: 975865959
       0x72_DungeonTilesetII_v1.7_65: -1548258491
@@ -6683,6 +6679,10 @@ TextureImporter:
       elf_f_run_1: 170250508
       elf_f_run_2: -832275822
       elf_f_run_3: 1456261207
+      imp_run_0: 1546932700
+      imp_run_1: -2102413512
+      imp_run_2: 884703242
+      imp_run_3: -1151684332
       knife: 27982289
       knight: -2097686056
       muddy_run_0: -454601969
