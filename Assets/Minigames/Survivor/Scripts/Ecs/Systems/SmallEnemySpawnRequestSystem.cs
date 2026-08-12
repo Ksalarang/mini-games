@@ -35,11 +35,12 @@ namespace Minigames.Survivor.Scripts.Ecs.Systems
         {
             foreach (var i in enemySpawnRequestFilter)
             {
-                AddSpawnRequest(enemySpawnRequestFilter.Get1(i).Config);
+                AddSpawnRequest(currentConfig);
             }
 
             foreach (var i in replaceRequestFilter)
             {
+                replaceRequestFilter.GetEntity(0).Del<SmallEnemyReplaceRequest>();
                 currentConfig = configs[Random.Range(0, configs.Length)];
                 AddReplaceRequest(currentConfig.ReplacePeriodSeconds);
             }

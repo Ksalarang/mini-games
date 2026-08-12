@@ -113,7 +113,6 @@ namespace Minigames.Survivor.Scripts.Ecs
             systems.OneFrame<DamageEvent>();
             systems.OneFrame<DeathEvent>();
             systems.OneFrame<ProjectileDirectionRequest>();
-            systems.OneFrame<SmallEnemyReplaceRequest>();
 
             systems.Init();
 

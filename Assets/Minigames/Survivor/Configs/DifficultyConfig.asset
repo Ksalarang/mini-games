@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f45b0e5b69fe4f13904f5f34a16297bf, type: 3}
   m_Name: DifficultyConfig
   m_EditorClassIdentifier: 
-  <InitialEnemySpanRate>k__BackingField: 0.5
+  <InitialEnemySpanRate>k__BackingField: 1
   <MaxEnemyCount>k__BackingField: 50
   <SessionDurationMinutes>k__BackingField: 5

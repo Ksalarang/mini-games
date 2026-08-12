@@ -16,3 +16,9 @@ MonoBehaviour:
   - Type: 0
     Damage: 5
     Interval: 1
+  - Type: 1
+    Damage: 10
+    Interval: 1
+  - Type: 2
+    Damage: 10
+    Interval: 1

@@ -430,7 +430,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 0x72_DungeonTilesetII_v1.7_14
+      name: tiny_zombie_run_0
       rect:
         serializedVersion: 2
         x: 436
@@ -451,7 +451,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 0x72_DungeonTilesetII_v1.7_15
+      name: tiny_zombie_run_1
       rect:
         serializedVersion: 2
         x: 451
@@ -472,7 +472,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 0x72_DungeonTilesetII_v1.7_16
+      name: tiny_zombie_run_2
       rect:
         serializedVersion: 2
         x: 468
@@ -493,7 +493,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 0x72_DungeonTilesetII_v1.7_17
+      name: tiny_zombie_run_3
       rect:
         serializedVersion: 2
         x: 484
@@ -934,7 +934,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 0x72_DungeonTilesetII_v1.7_38
+      name: goblin_run_0
       rect:
         serializedVersion: 2
         x: 436
@@ -955,7 +955,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 0x72_DungeonTilesetII_v1.7_39
+      name: goblin_run_1
       rect:
         serializedVersion: 2
         x: 451
@@ -976,7 +976,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 0x72_DungeonTilesetII_v1.7_40
+      name: goblin_run_2
       rect:
         serializedVersion: 2
         x: 468
@@ -997,7 +997,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 0x72_DungeonTilesetII_v1.7_41
+      name: goblin_run_3
       rect:
         serializedVersion: 2
         x: 484
@@ -6449,7 +6449,6 @@ TextureImporter:
       0x72_DungeonTilesetII_v1.7_137: 2045942676
       0x72_DungeonTilesetII_v1.7_138: -1802820890
       0x72_DungeonTilesetII_v1.7_139: 2068752715
-      0x72_DungeonTilesetII_v1.7_14: -2100652775
       0x72_DungeonTilesetII_v1.7_140: -1801771605
       0x72_DungeonTilesetII_v1.7_141: 310609872
       0x72_DungeonTilesetII_v1.7_142: -375782153
@@ -6460,7 +6459,6 @@ TextureImporter:
       0x72_DungeonTilesetII_v1.7_147: 1638292472
       0x72_DungeonTilesetII_v1.7_148: 2005749959
       0x72_DungeonTilesetII_v1.7_149: 1474319937
-      0x72_DungeonTilesetII_v1.7_15: -137023341
       0x72_DungeonTilesetII_v1.7_150: 420081218
       0x72_DungeonTilesetII_v1.7_151: 844794665
       0x72_DungeonTilesetII_v1.7_152: 521009825
@@ -6471,7 +6469,6 @@ TextureImporter:
       0x72_DungeonTilesetII_v1.7_157: 1988764969
       0x72_DungeonTilesetII_v1.7_158: 1270844998
       0x72_DungeonTilesetII_v1.7_159: 877376921
-      0x72_DungeonTilesetII_v1.7_16: 854534878
       0x72_DungeonTilesetII_v1.7_160: -2134671447
       0x72_DungeonTilesetII_v1.7_161: 561244803
       0x72_DungeonTilesetII_v1.7_162: -1166514658
@@ -6482,7 +6479,6 @@ TextureImporter:
       0x72_DungeonTilesetII_v1.7_167: -1251871304
       0x72_DungeonTilesetII_v1.7_168: 1247979821
       0x72_DungeonTilesetII_v1.7_169: -118957621
-      0x72_DungeonTilesetII_v1.7_17: 1970355807
       0x72_DungeonTilesetII_v1.7_170: 1065192912
       0x72_DungeonTilesetII_v1.7_171: 653073643
       0x72_DungeonTilesetII_v1.7_172: 1198092265
@@ -6624,10 +6620,6 @@ TextureImporter:
       0x72_DungeonTilesetII_v1.7_35: -248712670
       0x72_DungeonTilesetII_v1.7_36: 949923528
       0x72_DungeonTilesetII_v1.7_37: -870549422
-      0x72_DungeonTilesetII_v1.7_38: 208682901
-      0x72_DungeonTilesetII_v1.7_39: -1669171916
-      0x72_DungeonTilesetII_v1.7_40: -1150044416
-      0x72_DungeonTilesetII_v1.7_41: -1412421955
       0x72_DungeonTilesetII_v1.7_51: 978010217
       0x72_DungeonTilesetII_v1.7_52: -1631323600
       0x72_DungeonTilesetII_v1.7_53: -2142939019
@@ -6679,6 +6671,10 @@ TextureImporter:
       elf_f_run_1: 170250508
       elf_f_run_2: -832275822
       elf_f_run_3: 1456261207
+      goblin_run_0: 208682901
+      goblin_run_1: -1669171916
+      goblin_run_2: -1150044416
+      goblin_run_3: -1412421955
       imp_run_0: 1546932700
       imp_run_1: -2102413512
       imp_run_2: 884703242
@@ -6703,6 +6699,10 @@ TextureImporter:
       swampy_run_1: -1360010312
       swampy_run_2: 1927080111
       swampy_run_3: -545137379
+      tiny_zombie_run_0: -2100652775
+      tiny_zombie_run_1: -137023341
+      tiny_zombie_run_2: 854534878
+      tiny_zombie_run_3: 1970355807
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
