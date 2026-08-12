@@ -72,6 +72,7 @@ namespace Minigames.Survivor.Scripts.Ecs
 
             systems.Add(objectResolver.Resolve<SmallEnemySpawnRequestSystem>());
             systems.Add(objectResolver.Resolve<EnemySpawnSystem>());
+            systems.Add(objectResolver.Resolve<EnemySpawnRequestDeleteSystem>());
             systems.Add(objectResolver.Resolve<EnemyDirectionSystem>());
 
             systems.Add(objectResolver.Resolve<SpatialGridSystem>());

@@ -3,6 +3,7 @@ using Leopotam.Ecs;
 using Minigames.Survivor.Scripts.Configs.Enemies;
 using Minigames.Survivor.Scripts.Ecs.Components;
 using Minigames.Survivor.Scripts.Ecs.Components.Events;
+using Minigames.Survivor.Scripts.Ecs.Components.Requests;
 using Minigames.Survivor.Scripts.SceneObjects;
 using UnityEngine;
 using UnityEngine.Pool;
