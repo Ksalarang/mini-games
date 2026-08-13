@@ -6,7 +6,7 @@ namespace Minigames.Survivor.Scripts.Configs.Enemies
     public class EnemySpawnMasterConfig : ScriptableObject
     {
         [field: SerializeField] public SmallEnemySpawnConfig[] SmallEnemyConfigs { get; private set; }
-        [field: SerializeField] public EnemySpawnConfig[] MediumEnemyConfigs { get; private set; }
+        [field: SerializeField] public MediumEnemySpawnConfig[] MediumEnemyConfigs { get; private set; }
         [field: SerializeField] public EnemySpawnConfig[] BigEnemyConfigs { get; private set; }
 
         [field: Space, SerializeField] public GameObject EnemyPrefab { get; private set; }

@@ -3895,7 +3895,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 0x72_DungeonTilesetII_v1.7_179
+      name: necromancer_run_0
       rect:
         serializedVersion: 2
         x: 369
@@ -3916,7 +3916,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 0x72_DungeonTilesetII_v1.7_180
+      name: necromancer_run_1
       rect:
         serializedVersion: 2
         x: 386
@@ -3937,7 +3937,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 0x72_DungeonTilesetII_v1.7_181
+      name: necromancer_run_2
       rect:
         serializedVersion: 2
         x: 401
@@ -3958,7 +3958,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 0x72_DungeonTilesetII_v1.7_182
+      name: necromancer_run_3
       rect:
         serializedVersion: 2
         x: 416
@@ -5008,7 +5008,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 0x72_DungeonTilesetII_v1.7_232
+      name: pumpkin_head_0
       rect:
         serializedVersion: 2
         x: 433
@@ -5029,7 +5029,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 0x72_DungeonTilesetII_v1.7_233
+      name: pumpkin_head_1
       rect:
         serializedVersion: 2
         x: 449
@@ -5050,7 +5050,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 0x72_DungeonTilesetII_v1.7_234
+      name: pumpkin_head_2
       rect:
         serializedVersion: 2
         x: 465
@@ -5071,7 +5071,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 0x72_DungeonTilesetII_v1.7_235
+      name: pumpkin_head_3
       rect:
         serializedVersion: 2
         x: 480
@@ -6488,11 +6488,7 @@ TextureImporter:
       0x72_DungeonTilesetII_v1.7_176: -2001708533
       0x72_DungeonTilesetII_v1.7_177: 679108484
       0x72_DungeonTilesetII_v1.7_178: -326889747
-      0x72_DungeonTilesetII_v1.7_179: -815516181
       0x72_DungeonTilesetII_v1.7_18: -1742971238
-      0x72_DungeonTilesetII_v1.7_180: -516824742
-      0x72_DungeonTilesetII_v1.7_181: -1940785275
-      0x72_DungeonTilesetII_v1.7_182: 62117506
       0x72_DungeonTilesetII_v1.7_183: 1784693433
       0x72_DungeonTilesetII_v1.7_184: -1913251286
       0x72_DungeonTilesetII_v1.7_185: -764699929
@@ -6543,10 +6539,6 @@ TextureImporter:
       0x72_DungeonTilesetII_v1.7_23: -768614136
       0x72_DungeonTilesetII_v1.7_230: -361823623
       0x72_DungeonTilesetII_v1.7_231: 1311301895
-      0x72_DungeonTilesetII_v1.7_232: 1263269741
-      0x72_DungeonTilesetII_v1.7_233: -1528102371
-      0x72_DungeonTilesetII_v1.7_234: -431878561
-      0x72_DungeonTilesetII_v1.7_235: -349648631
       0x72_DungeonTilesetII_v1.7_236: -1456007986
       0x72_DungeonTilesetII_v1.7_237: 331345698
       0x72_DungeonTilesetII_v1.7_238: -777194682
@@ -6685,7 +6677,15 @@ TextureImporter:
       muddy_run_1: -1841660232
       muddy_run_2: 1955921088
       muddy_run_3: -996175858
+      necromancer_run_0: -815516181
+      necromancer_run_1: -516824742
+      necromancer_run_2: -1940785275
+      necromancer_run_3: 62117506
       potion_blue: -1979624389
+      pumpkin_head_0: 1263269741
+      pumpkin_head_1: -1528102371
+      pumpkin_head_2: -431878561
+      pumpkin_head_3: -349648631
       redknight_hit_0: 1397579565
       redknight_idle_0: 2004954995
       redknight_idle_1: 6392336

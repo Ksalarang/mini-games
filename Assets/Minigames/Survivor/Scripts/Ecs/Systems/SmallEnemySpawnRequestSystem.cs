@@ -35,7 +35,10 @@ namespace Minigames.Survivor.Scripts.Ecs.Systems
         {
             foreach (var i in enemySpawnRequestFilter)
             {
-                AddSpawnRequest(currentConfig);
+                if (enemySpawnRequestFilter.Get1(i).Config is SmallEnemySpawnConfig)
+                {
+                    AddSpawnRequest(currentConfig);
+                }
             }
 
             foreach (var i in replaceRequestFilter)

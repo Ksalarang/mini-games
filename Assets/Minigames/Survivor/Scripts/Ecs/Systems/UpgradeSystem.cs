@@ -87,6 +87,7 @@ namespace Minigames.Survivor.Scripts.Ecs.Systems
             ref var playerExp = ref player.Get<PlayerExpComponent>();
             playerExp.CurrentValue = 0;
             playerExp.NextLevelValue = (int)(playerExp.NextLevelValue * ExpMultiplier);
+            playerExp.Level++;
             ecsHandler.Active = true;
         }
     }

@@ -1,5 +1,6 @@
 ﻿using System;
 using Leopotam.Ecs;
+using Minigames.Survivor.Scripts.Ecs.Components;
 using Minigames.Survivor.Scripts.Ecs.Components.Events;
 using Minigames.Survivor.Scripts.Ecs.Components.Requests;
 using Minigames.Survivor.Scripts.Ecs.Systems;
@@ -71,6 +72,7 @@ namespace Minigames.Survivor.Scripts.Ecs
             systems.Add(objectResolver.Resolve<ProjectileSpawnSystem>());
 
             systems.Add(objectResolver.Resolve<SmallEnemySpawnRequestSystem>());
+            systems.Add(objectResolver.Resolve<MediumEnemySpawnRequestSystem>());
             systems.Add(objectResolver.Resolve<EnemySpawnSystem>());
             systems.Add(objectResolver.Resolve<EnemySpawnRequestDeleteSystem>());
             systems.Add(objectResolver.Resolve<EnemyDirectionSystem>());

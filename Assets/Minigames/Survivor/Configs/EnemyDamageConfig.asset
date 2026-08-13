@@ -22,3 +22,6 @@ MonoBehaviour:
   - Type: 2
     Damage: 10
     Interval: 1
+  - Type: 10
+    Damage: 20
+    Interval: 1

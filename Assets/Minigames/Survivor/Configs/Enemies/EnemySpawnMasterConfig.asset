@@ -16,6 +16,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 19a5d371bd381a84c9be4f03642c22d8, type: 2}
   - {fileID: 11400000, guid: e8675ba506867fc4786d0328996a564d, type: 2}
   - {fileID: 11400000, guid: 01033cfe2f99c0842b46f2606aca85cf, type: 2}
-  <MediumEnemyConfigs>k__BackingField: []
+  <MediumEnemyConfigs>k__BackingField:
+  - {fileID: 11400000, guid: 0c38fdc2ce479764795d71e93cf45fad, type: 2}
   <BigEnemyConfigs>k__BackingField: []
   <EnemyPrefab>k__BackingField: {fileID: 2667757482269012895, guid: 8b5b838151d01254ab746fb82cc8da6d, type: 3}

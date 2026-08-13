@@ -10,5 +10,6 @@ namespace Minigames.Survivor.Scripts.Configs.Enemies
         [field: SerializeField] public int FramesPerSecond { get; private set; } = 4;
         [field: SerializeField] public float MoveSpeed { get; private set; } = 2f;
         [field: SerializeField] public float Health { get; private set; }
+        [field: SerializeField] public int MinPlayerLevel { get; private set; }
     }
 }

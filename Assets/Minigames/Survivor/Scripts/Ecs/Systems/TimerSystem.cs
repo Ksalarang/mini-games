@@ -5,15 +5,24 @@ using Minigames.Survivor.Scripts.Tools;
 
 namespace Minigames.Survivor.Scripts.Ecs.Systems
 {
-    public class TimerSystem : IEcsRunSystem
+    public class TimerSystem : IEcsInitSystem, IEcsRunSystem
     {
         private readonly GameTimeService timeService;
 
+        private readonly EcsWorld world;
         private readonly EcsFilter<TimerComponent> filter;
 
         public TimerSystem(GameTimeService timeService)
         {
             this.timeService = timeService;
+        }
+
+        public void Init()
+        {
+            var entity = world.NewEntity();
+            entity.Get<OneSecondTimerEvent>();
+            ref var timer = ref entity.Get<TimerComponent>();
+            timer.TimeLeft = timer.Interval = 1f;
         }
 
         public void Run()

@@ -4,5 +4,6 @@
     {
         public int CurrentValue;
         public int NextLevelValue;
+        public int Level;
     }
 }
