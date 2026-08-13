@@ -110,6 +110,8 @@ namespace Minigames.Survivor.Scripts.Ecs
             systems.Add(objectResolver.Resolve<AnimationSpriteSystem>());
             systems.Add(objectResolver.Resolve<SpriteAnimationSystem>());
 
+            systems.Add(objectResolver.Resolve<SessionTimeLabelUpdateSystem>());
+
             systems.OneFrame<TimerExpiredEvent>();
             systems.OneFrame<CollisionEvent>();
             systems.OneFrame<OrientedBoxCollisionEvent>();

@@ -88,6 +88,8 @@ namespace Minigames.Survivor.Scripts
             builder.Register<AnimationSpriteSystem>(Lifetime.Transient);
             builder.Register<SpriteAnimationSystem>(Lifetime.Transient);
 
+            builder.Register<SessionTimeLabelUpdateSystem>(Lifetime.Transient);
+
             builder.Register<CameraFollowSystem>(Lifetime.Transient);
             builder.Register<CameraPositionSyncSystem>(Lifetime.Transient);
             builder.Register<InfiniteFloorSystem>(Lifetime.Transient);
