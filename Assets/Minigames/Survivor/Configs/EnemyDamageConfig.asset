@@ -15,13 +15,19 @@ MonoBehaviour:
   <Data>k__BackingField:
   - Type: 0
     Damage: 5
-    Interval: 1
+    Interval: 0.5
   - Type: 1
     Damage: 10
     Interval: 1
   - Type: 2
-    Damage: 10
-    Interval: 1
+    Damage: 15
+    Interval: 1.5
   - Type: 10
     Damage: 20
+    Interval: 1
+  - Type: 21
+    Damage: 30
+    Interval: 1
+  - Type: 22
+    Damage: 40
     Interval: 1

@@ -7,5 +7,7 @@
         TinyZombie = 2,
         Chort = 10,
         Demon = 20,
+        Necromancer = 21,
+        PumpkinHead = 22,
     }
 }
