@@ -4,7 +4,6 @@ using Core.Tools;
 using Leopotam.Ecs;
 using Minigames.Survivor.Scripts.Configs.Upgrades;
 using Minigames.Survivor.Scripts.Ecs.Components;
-using Minigames.Survivor.Scripts.Ecs.Components.Weapons;
 using Minigames.Survivor.Scripts.UI;
 
 namespace Minigames.Survivor.Scripts.Ecs.Systems
@@ -17,6 +16,7 @@ namespace Minigames.Survivor.Scripts.Ecs.Systems
         private readonly IEcsHandler ecsHandler;
         private readonly UpgradeCardSelectionView upgradeCardSelectionView;
 
+        private readonly EcsWorld world;
         private readonly EcsFilter<PlayerTag> playerFilter;
 
         private EcsEntity player;
@@ -62,14 +62,12 @@ namespace Minigames.Survivor.Scripts.Ecs.Systems
         private List<UpgradeConfig> GetUpgrades()
         {
             var upgrades = bundleConfig.Upgrades.ToList();
-            var playerProjectiles = player.Get<WeaponInventory>().Projectiles.Select(p => p.Type).ToList();
 
             for (var i = upgrades.Count - 1; i >= 0; i--)
             {
                 var upgrade = upgrades[i];
 
-                if (upgrade is ProjectileUpgradeConfig projectileUpgrade
-                    && !playerProjectiles.Contains(projectileUpgrade.Type))
+                if (!upgrade.IsApplicableTo(player))
                 {
                     upgrades.Remove(upgrade);
                 }
@@ -83,7 +81,7 @@ namespace Minigames.Survivor.Scripts.Ecs.Systems
         private void OnUpgradeSelect(UpgradeConfig config)
         {
             upgradeCardSelectionView.gameObject.SetActive(false);
-            config.Apply(player);
+            config.Apply(player, world);
             ref var playerExp = ref player.Get<PlayerExpComponent>();
             playerExp.CurrentValue = 0;
             playerExp.NextLevelValue = (int)(playerExp.NextLevelValue * ExpMultiplier);

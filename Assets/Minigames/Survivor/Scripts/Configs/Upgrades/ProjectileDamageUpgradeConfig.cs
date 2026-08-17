@@ -7,7 +7,7 @@ namespace Minigames.Survivor.Scripts.Configs.Upgrades
     [CreateAssetMenu(fileName = "ProjectileDamageUpgradeConfig", menuName = "Minigames/Survivor/Upgrades/ProjectileDamageUpgradeConfig", order = 0)]
     public class ProjectileDamageUpgradeConfig : ProjectileUpgradeConfig
     {
-        public override void Apply(EcsEntity player)
+        public override void Apply(EcsEntity player, EcsWorld world)
         {
             var projectiles = player.Get<WeaponInventory>().Projectiles;
 

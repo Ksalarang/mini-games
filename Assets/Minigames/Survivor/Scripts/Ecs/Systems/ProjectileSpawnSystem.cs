@@ -38,11 +38,7 @@ namespace Minigames.Survivor.Scripts.Ecs.Systems
             world.NewEntity().Get<ProjectilePoolComponent>().Value = pool;
 
             projectiles = playerFilter.GetEntity(0).Get<WeaponInventory>().Projectiles;
-
-            if (projectiles.Count > 0)
-            {
-                AddSpawnRequest(projectiles[0]);
-            }
+            AddSpawnRequest(projectiles[0]);
         }
 
         public void Run()

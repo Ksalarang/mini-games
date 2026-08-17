@@ -9,6 +9,6 @@ namespace Minigames.Survivor.Scripts.Configs.Weapons
         [field: SerializeField] public float Damage { get; private set; }
         [field: SerializeField] public float Cooldown { get; private set; }
 
-        public abstract void CreateWeaponEntity(ref EcsEntity ecsEntity);
+        public abstract void AddWeaponComponentTo(ref EcsEntity ecsEntity);
     }
 }

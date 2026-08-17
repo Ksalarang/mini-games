@@ -12,7 +12,7 @@ namespace Minigames.Survivor.Scripts.Configs.Weapons
         [field: SerializeField] public float Speed { get; private set; }
         [field: SerializeField] public float Lifetime { get; private set; }
 
-        public override void CreateWeaponEntity(ref EcsEntity entity)
+        public override void AddWeaponComponentTo(ref EcsEntity entity)
         {
             entity.Get<ProjectileWeapon>() = new ProjectileWeapon
             {

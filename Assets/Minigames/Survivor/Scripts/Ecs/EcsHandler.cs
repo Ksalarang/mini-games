@@ -1,6 +1,5 @@
 ﻿using System;
 using Leopotam.Ecs;
-using Minigames.Survivor.Scripts.Ecs.Components;
 using Minigames.Survivor.Scripts.Ecs.Components.Events;
 using Minigames.Survivor.Scripts.Ecs.Components.Requests;
 using Minigames.Survivor.Scripts.Ecs.Systems;

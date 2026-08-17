@@ -9,7 +9,7 @@ namespace Minigames.Survivor.Scripts.Configs.Upgrades
     {
         [field: SerializeField] public float MinCooldown { get; private set; } = 0.1f;
 
-        public override void Apply(EcsEntity player)
+        public override void Apply(EcsEntity player, EcsWorld world)
         {
             var projectiles = player.Get<WeaponInventory>().Projectiles;
 

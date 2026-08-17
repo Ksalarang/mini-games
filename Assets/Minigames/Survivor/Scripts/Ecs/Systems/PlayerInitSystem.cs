@@ -49,7 +49,7 @@ namespace Minigames.Survivor.Scripts.Ecs.Systems
             weaponInventory.Projectiles = new List<ProjectileWeapon>();
 
             var weaponEntity = world.NewEntity();
-            weaponBundleConfig.StartingWeapon.CreateWeaponEntity(ref weaponEntity);
+            weaponBundleConfig.StartingWeapon.AddWeaponComponentTo(ref weaponEntity);
             weaponInventory.Projectiles.Add(weaponEntity.Get<ProjectileWeapon>());
         }
     }

@@ -20,4 +20,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 4999b2f8b62f55544a1429449f63720a, type: 2}
   - {fileID: 11400000, guid: 6e7e0239027e90042bfa29d20a5796fa, type: 2}
   - {fileID: 11400000, guid: 221770bfc4cc94d47acea9b9a645e881, type: 2}
+  - {fileID: 11400000, guid: 2aaad24fea6af0d45a2947db19cfaa16, type: 2}
+  - {fileID: 11400000, guid: b428093ad31773c4688999e7255e622c, type: 2}
   <FirstLevelExp>k__BackingField: 2
