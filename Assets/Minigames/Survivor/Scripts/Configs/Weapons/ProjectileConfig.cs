@@ -1,5 +1,5 @@
 ﻿using Leopotam.Ecs;
-using Minigames.Survivor.Scripts.Ecs.Components.Weapons;
+using Minigames.Survivor.Scripts.Ecs.Components;
 using UnityEngine;
 
 namespace Minigames.Survivor.Scripts.Configs.Weapons
@@ -7,35 +7,13 @@ namespace Minigames.Survivor.Scripts.Configs.Weapons
     [CreateAssetMenu(fileName = "ProjectileConfig", menuName = "Minigames/Survivor/Weapons/ProjectileConfig", order = 0)]
     public class ProjectileConfig : WeaponConfig
     {
-        [field: SerializeField] public ProjectileType Type { get; private set; }
-        [field: SerializeField] public ProjectileDirectionType DirectionType { get; private set; }
         [field: SerializeField] public float Speed { get; private set; }
         [field: SerializeField] public float Lifetime { get; private set; }
 
-        public override void AddWeaponComponentTo(ref EcsEntity entity)
+        protected override void OnComponentsAdded(ref EcsEntity weapon)
         {
-            entity.Get<ProjectileWeapon>() = new ProjectileWeapon
-            {
-                Sprite = Sprite,
-                Damage = Damage,
-                Cooldown = Cooldown,
-                Type = Type,
-                DirectionType = DirectionType,
-                Speed = Speed,
-                Lifetime = Lifetime,
-            };
+            weapon.Get<SpeedComponent>().Value = Speed;
+            weapon.Get<LifetimeComponent>().Value = Lifetime;
         }
-    }
-
-    public enum ProjectileType
-    {
-        Knife,
-        Fireball,
-    }
-
-    public enum ProjectileDirectionType
-    {
-        PlayerDirection,
-        AutoTarget,
     }
 }

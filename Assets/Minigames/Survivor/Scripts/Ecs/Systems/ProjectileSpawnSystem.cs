@@ -1,10 +1,8 @@
-﻿using System.Collections.Generic;
-using Leopotam.Ecs;
+﻿using Leopotam.Ecs;
 using Minigames.Survivor.Scripts.Configs.Weapons;
 using Minigames.Survivor.Scripts.Ecs.Components;
 using Minigames.Survivor.Scripts.Ecs.Components.Events;
 using Minigames.Survivor.Scripts.Ecs.Components.Requests;
-using Minigames.Survivor.Scripts.Ecs.Components.Weapons;
 using Minigames.Survivor.Scripts.SceneObjects;
 using UnityEngine;
 using UnityEngine.Pool;
@@ -17,10 +15,9 @@ namespace Minigames.Survivor.Scripts.Ecs.Systems
         private readonly EcsWorld world;
         private readonly EcsFilter<ProjectileSpawnRequest, TimerExpiredEvent> spawnFilter;
         private readonly EcsFilter<PlayerTag> playerFilter;
+        private readonly EcsFilter<WeaponComponent> weaponFilter;
 
         private readonly ObjectPool<GameObject> pool;
-
-        private List<ProjectileWeapon> projectiles;
 
         public ProjectileSpawnSystem(WeaponBundleConfig bundleConfig, SurvivorWorldContainer worldContainer)
         {
@@ -36,58 +33,57 @@ namespace Minigames.Survivor.Scripts.Ecs.Systems
         public void Init()
         {
             world.NewEntity().Get<ProjectilePoolComponent>().Value = pool;
-
-            projectiles = playerFilter.GetEntity(0).Get<WeaponInventory>().Projectiles;
-            AddSpawnRequest(projectiles[0]);
+            AddSpawnRequest(weaponFilter.GetEntity(0));
         }
 
         public void Run()
         {
             foreach (var i in spawnFilter)
             {
-                var projectileType = spawnFilter.Get1(i).ProjectileType;
+                var projectileId = spawnFilter.Get1(i).ProjectileId;
 
-                foreach (var projectile in projectiles)
+                foreach (var j in weaponFilter)
                 {
-                    if (projectile.Type == projectileType)
+                    if (weaponFilter.Get1(j).Id == projectileId)
                     {
-                        Spawn(projectile);
-                        AddSpawnRequest(projectile);
+                        var weapon = weaponFilter.GetEntity(j);
+                        Spawn(weapon);
+                        AddSpawnRequest(weapon);
                         break;
                     }
                 }
             }
         }
 
-        private void AddSpawnRequest(ProjectileWeapon projectile)
+        private void AddSpawnRequest(EcsEntity weapon)
         {
             var entity = world.NewEntity();
-            entity.Get<TimerComponent>().TimeLeft = projectile.Cooldown;
-            entity.Get<ProjectileSpawnRequest>().ProjectileType = projectile.Type;
+            entity.Get<TimerComponent>().TimeLeft = weapon.Get<CooldownComponent>().Value;
+            entity.Get<ProjectileSpawnRequest>().ProjectileId = weapon.Get<WeaponComponent>().Id;
         }
 
-        private void Spawn(ProjectileWeapon projectile)
+        private void Spawn(EcsEntity weapon)
         {
             var gameObject = pool.Get();
-            var entity = world.NewEntity();
-            entity.Get<ProjectileTag>();
-            entity.Get<GameObjectComponent>().Value = gameObject;
-            entity.Get<TransformComponent>().Value = gameObject.transform;
+            var projectile = world.NewEntity();
+            projectile.Get<ProjectileTag>();
+            projectile.Get<GameObjectComponent>().Value = gameObject;
+            projectile.Get<TransformComponent>().Value = gameObject.transform;
 
-            ref var spriteRendererComponent = ref entity.Get<SpriteRendererComponent>();
+            ref var spriteRendererComponent = ref projectile.Get<SpriteRendererComponent>();
             spriteRendererComponent.Value = gameObject.GetComponent<SpriteRenderer>();
-            spriteRendererComponent.Value.sprite = projectile.Sprite;
+            spriteRendererComponent.Value.sprite = weapon.Get<SpriteComponent>().Value;
 
             var player = playerFilter.GetEntity(0);
-            entity.Get<Position>().Value = player.Get<Position>().Value;
-            entity.Get<BoundsComponent>().HalfSize = spriteRendererComponent.Value.bounds.size * 0.5f;
-            entity.Get<Speed>().Value = projectile.Speed;
-            entity.Get<DamageComponent>().Value = projectile.Damage;
-            entity.Get<ProjectileDirectionRequest>().DirectionType = projectile.DirectionType;
-            entity.Get<RotationComponent>().RotateTowardsDirection = true;
+            projectile.Get<Position>().Value = player.Get<Position>().Value;
+            projectile.Get<BoundsComponent>().HalfSize = spriteRendererComponent.Value.bounds.size * 0.5f;
+            projectile.Get<Speed>().Value = weapon.Get<SpeedComponent>().Value;
+            projectile.Get<DamageComponent>().Value = weapon.Get<DamageComponent>().Value;
+            projectile.Get<ProjectileDirectionRequest>().TargetingType = weapon.Get<WeaponComponent>().TargetingType;
+            projectile.Get<RotationComponent>().RotateTowardsDirection = true;
 
-            ref var timer = ref entity.Get<TimerComponent>();
-            timer.TimeLeft = projectile.Lifetime;
+            ref var timer = ref projectile.Get<TimerComponent>();
+            timer.TimeLeft = weapon.Get<LifetimeComponent>().Value;
         }
     }
 }

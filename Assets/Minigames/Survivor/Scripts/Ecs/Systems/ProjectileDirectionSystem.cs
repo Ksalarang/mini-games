@@ -20,12 +20,12 @@ namespace Minigames.Survivor.Scripts.Ecs.Systems
             {
                 var projectile = requestFilter.GetEntity(i);
 
-                switch (requestFilter.Get1(i).DirectionType)
+                switch (requestFilter.Get1(i).TargetingType)
                 {
-                    case ProjectileDirectionType.PlayerDirection:
+                    case WeaponTargetingType.PlayerDirection:
                         DirectTowardsPlayerDirection(projectile);
                         break;
-                    case ProjectileDirectionType.AutoTarget:
+                    case WeaponTargetingType.TargetClosestEnemy:
                         DirectTowardsClosestEnemy(projectile);
                         break;
                     default:

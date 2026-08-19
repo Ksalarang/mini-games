@@ -1,9 +1,10 @@
 ﻿using Minigames.Survivor.Scripts.Configs.Weapons;
 
-namespace Minigames.Survivor.Scripts.Ecs.Components.Requests
+namespace Minigames.Survivor.Scripts.Ecs.Components
 {
-    public struct ProjectileDirectionRequest
+    public struct WeaponComponent
     {
+        public WeaponId Id;
         public WeaponTargetingType TargetingType;
     }
 }

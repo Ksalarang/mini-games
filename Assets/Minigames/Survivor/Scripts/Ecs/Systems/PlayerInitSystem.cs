@@ -46,11 +46,11 @@ namespace Minigames.Survivor.Scripts.Ecs.Systems
             health.MaxValue = playerConfig.Health;
 
             ref var weaponInventory = ref player.Get<WeaponInventory>();
-            weaponInventory.Projectiles = new List<ProjectileWeapon>();
+            weaponInventory.Weapons = new List<EcsEntity>();
 
             var weaponEntity = world.NewEntity();
-            weaponBundleConfig.StartingWeapon.AddWeaponComponentTo(ref weaponEntity);
-            weaponInventory.Projectiles.Add(weaponEntity.Get<ProjectileWeapon>());
+            weaponBundleConfig.StartingWeapon.AddComponentsTo(ref weaponEntity);
+            weaponInventory.Weapons.Add(weaponEntity);
         }
     }
 }
