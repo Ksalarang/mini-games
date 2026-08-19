@@ -63,7 +63,7 @@ namespace Minigames.Survivor.Scripts.Ecs.Systems
             ref var position = ref entity.Get<Position>();
             position.Value = GetRandomPositionAroundPlayer(playerFilter.GetEntity(0).Get<Position>().Value);
 
-            entity.Get<Speed>().Value = config.MoveSpeed;
+            entity.Get<SpeedComponent>().Value = config.MoveSpeed;
             entity.Get<GameObjectComponent>().Value = enemy.gameObject;
             entity.Get<TransformComponent>().Value = enemy.Transform;
 

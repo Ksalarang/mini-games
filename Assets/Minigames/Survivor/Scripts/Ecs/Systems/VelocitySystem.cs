@@ -8,7 +8,7 @@ namespace Minigames.Survivor.Scripts.Ecs.Systems
     {
         private readonly GameTimeService timeService;
 
-        private readonly EcsFilter<DirectionComponent, Speed> filter;
+        private readonly EcsFilter<DirectionComponent, SpeedComponent> filter;
 
         public VelocitySystem(GameTimeService timeService)
         {

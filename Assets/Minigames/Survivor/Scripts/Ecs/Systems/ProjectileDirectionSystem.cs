@@ -5,6 +5,7 @@ using Minigames.Survivor.Scripts.Configs.Weapons;
 using Minigames.Survivor.Scripts.Ecs.Components;
 using Minigames.Survivor.Scripts.Ecs.Components.Requests;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace Minigames.Survivor.Scripts.Ecs.Systems
 {
@@ -27,6 +28,9 @@ namespace Minigames.Survivor.Scripts.Ecs.Systems
                         break;
                     case WeaponTargetingType.TargetClosestEnemy:
                         DirectTowardsClosestEnemy(projectile);
+                        break;
+                    case WeaponTargetingType.Random:
+                        DirectInRandomDirection(projectile);
                         break;
                     default:
                         throw new ArgumentOutOfRangeException();
@@ -114,6 +118,12 @@ namespace Minigames.Survivor.Scripts.Ecs.Systems
             projectile.Get<DirectionComponent>().Value = targetFound
                 ? MathTools.GetDirectionToTarget(enemyPosition, playerPosition)
                 : Vector2.right;
+        }
+
+        private void DirectInRandomDirection(EcsEntity projectile)
+        {
+            var direction = new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f));
+            projectile.Get<DirectionComponent>().Value = direction.normalized;
         }
     }
 }

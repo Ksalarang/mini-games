@@ -49,6 +49,7 @@ namespace Minigames.Survivor.Scripts
             builder.Register<PlayerDirectionSystem>(Lifetime.Transient);
 
             builder.Register<ProjectileSpawnSystem>(Lifetime.Transient);
+            builder.Register<PayloadProjectileSpawnSystem>(Lifetime.Transient);
             builder.Register<ProjectileDirectionSystem>(Lifetime.Transient);
 
             builder.Register<SmallEnemySpawnRequestSystem>(Lifetime.Transient);
@@ -68,6 +69,7 @@ namespace Minigames.Survivor.Scripts
 
             builder.Register<EnemyContactDamageSystem>(Lifetime.Transient);
             builder.Register<PlayerProjectileDamageSystem>(Lifetime.Transient);
+            builder.Register<PayloadProjectileDamageSystem>(Lifetime.Transient);
             builder.Register<DamageSystem>(Lifetime.Transient);
             builder.Register<PlayerHealthBarSystem>(Lifetime.Transient);
 
@@ -79,6 +81,7 @@ namespace Minigames.Survivor.Scripts
             builder.Register<ExpItemDestroySystem>(Lifetime.Transient);
             builder.Register<EnemyDestroySystem>(Lifetime.Transient);
             builder.Register<ProjectileDestroySystem>(Lifetime.Transient);
+            builder.Register<PayloadProjectileDestroySystem>(Lifetime.Transient);
 
             builder.Register<TransformPositionSyncSystem>(Lifetime.Transient);
             builder.Register<TransformRotationSyncSystem>(Lifetime.Transient);

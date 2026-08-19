@@ -1,7 +1,7 @@
 ﻿namespace Minigames.Survivor.Scripts.Ecs.Components
 {
-    public struct ContainerComponent<T>
+    public struct PayloadProjectileTag
     {
-        public T[] Items;
+        
     }
 }

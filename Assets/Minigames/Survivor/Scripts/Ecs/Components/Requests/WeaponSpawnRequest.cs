@@ -2,8 +2,9 @@
 
 namespace Minigames.Survivor.Scripts.Ecs.Components.Requests
 {
-    public struct ProjectileSpawnRequest
+    public struct WeaponSpawnRequest
     {
-        public WeaponId ProjectileId;
+        public WeaponType WeaponType;
+        public WeaponId WeaponId;
     }
 }

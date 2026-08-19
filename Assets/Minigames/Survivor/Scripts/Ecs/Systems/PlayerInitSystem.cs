@@ -3,7 +3,7 @@ using Leopotam.Ecs;
 using Minigames.Survivor.Scripts.Configs;
 using Minigames.Survivor.Scripts.Configs.Weapons;
 using Minigames.Survivor.Scripts.Ecs.Components;
-using Minigames.Survivor.Scripts.Ecs.Components.Weapons;
+using Minigames.Survivor.Scripts.Ecs.Components.Requests;
 using Minigames.Survivor.Scripts.SceneObjects;
 
 namespace Minigames.Survivor.Scripts.Ecs.Systems
@@ -29,7 +29,7 @@ namespace Minigames.Survivor.Scripts.Ecs.Systems
 
             player.Get<PlayerTag>();
             player.Get<Position>();
-            player.Get<Speed>().Value = playerConfig.MoveSpeed;
+            player.Get<SpeedComponent>().Value = playerConfig.MoveSpeed;
             player.Get<GameObjectComponent>().Value = playerContainer.gameObject;
             player.Get<TransformComponent>().Value = playerContainer.Transform;
 
@@ -51,6 +51,19 @@ namespace Minigames.Survivor.Scripts.Ecs.Systems
             var weaponEntity = world.NewEntity();
             weaponBundleConfig.StartingWeapon.AddComponentsTo(ref weaponEntity);
             weaponInventory.Weapons.Add(weaponEntity);
+            AddSpawnRequest(weaponEntity);
+        }
+
+        private void AddSpawnRequest(EcsEntity weapon)
+        {
+            var entity = world.NewEntity();
+            var weaponComponent = weapon.Get<WeaponComponent>();
+            entity.Get<TimerComponent>().TimeLeft = weapon.Get<CooldownComponent>().Value;
+            entity.Get<WeaponSpawnRequest>() = new WeaponSpawnRequest
+            {
+                WeaponType = weaponComponent.Type,
+                WeaponId = weaponComponent.Id,
+            };
         }
     }
 }

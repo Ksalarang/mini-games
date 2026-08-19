@@ -3,7 +3,6 @@ using Leopotam.Ecs;
 using Minigames.Survivor.Scripts.Configs.Weapons;
 using Minigames.Survivor.Scripts.Ecs.Components;
 using Minigames.Survivor.Scripts.Ecs.Components.Requests;
-using Minigames.Survivor.Scripts.Ecs.Components.Weapons;
 using UnityEngine;
 
 namespace Minigames.Survivor.Scripts.Configs.Upgrades
@@ -26,8 +25,12 @@ namespace Minigames.Survivor.Scripts.Configs.Upgrades
             player.Get<WeaponInventory>().Weapons.Add(projectile);
 
             var spawnRequest = world.NewEntity();
-            spawnRequest.Get<TimerComponent>().TimeLeft = projectile.Get<CooldownComponent>().Value;
-            spawnRequest.Get<ProjectileSpawnRequest>().ProjectileId = projectile.Get<WeaponComponent>().Id;
+            spawnRequest.Get<TimerComponent>().TimeLeft = config.Cooldown;
+            spawnRequest.Get<WeaponSpawnRequest>() = new WeaponSpawnRequest
+            {
+                WeaponType = config.Type,
+                WeaponId = config.Id,
+            };
         }
     }
 }

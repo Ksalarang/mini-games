@@ -1,6 +1,6 @@
 ﻿namespace Minigames.Survivor.Scripts.Ecs.Components
 {
-    public struct Speed
+    public struct ImpactRadiusComponent
     {
         public float Value;
     }

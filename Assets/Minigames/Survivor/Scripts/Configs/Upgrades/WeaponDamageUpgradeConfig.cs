@@ -1,6 +1,5 @@
 ﻿using Leopotam.Ecs;
 using Minigames.Survivor.Scripts.Ecs.Components;
-using Minigames.Survivor.Scripts.Ecs.Components.Weapons;
 using UnityEngine;
 
 namespace Minigames.Survivor.Scripts.Configs.Upgrades

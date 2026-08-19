@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using Leopotam.Ecs;
 
-namespace Minigames.Survivor.Scripts.Ecs.Components.Weapons
+namespace Minigames.Survivor.Scripts.Ecs.Components
 {
     public struct WeaponInventory
     {

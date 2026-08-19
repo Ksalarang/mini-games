@@ -5,41 +5,30 @@ using Minigames.Survivor.Scripts.Ecs.Components.Events;
 using Minigames.Survivor.Scripts.Ecs.Components.Requests;
 using Minigames.Survivor.Scripts.SceneObjects;
 using UnityEngine;
-using UnityEngine.Pool;
-using Object = UnityEngine.Object;
 
 namespace Minigames.Survivor.Scripts.Ecs.Systems
 {
-    public class ProjectileSpawnSystem : IEcsInitSystem, IEcsRunSystem
+    public class PayloadProjectileSpawnSystem : IEcsRunSystem
     {
+        private readonly WeaponBundleConfig bundleConfig;
+        private readonly SurvivorWorldContainer worldContainer;
+
         private readonly EcsWorld world;
         private readonly EcsFilter<WeaponSpawnRequest, TimerExpiredEvent> spawnFilter;
         private readonly EcsFilter<PlayerTag> playerFilter;
         private readonly EcsFilter<WeaponComponent> weaponFilter;
 
-        private readonly ObjectPool<GameObject> pool;
-
-        public ProjectileSpawnSystem(WeaponBundleConfig bundleConfig, SurvivorWorldContainer worldContainer)
+        public PayloadProjectileSpawnSystem(WeaponBundleConfig bundleConfig, SurvivorWorldContainer worldContainer)
         {
-            pool = new ObjectPool<GameObject>(
-                createFunc: () => Object.Instantiate(bundleConfig.WeaponPrefab, worldContainer.Projectiles),
-                actionOnGet: go => go.SetActive(true),
-                actionOnRelease: go => go.SetActive(false),
-                actionOnDestroy: Object.Destroy,
-                defaultCapacity: 100
-            );
-        }
-
-        public void Init()
-        {
-            world.NewEntity().Get<ProjectilePoolComponent>().Value = pool;
+            this.bundleConfig = bundleConfig;
+            this.worldContainer = worldContainer;
         }
 
         public void Run()
         {
             foreach (var i in spawnFilter)
             {
-                if (spawnFilter.Get1(i).WeaponType != WeaponType.Projectile)
+                if (spawnFilter.Get1(i).WeaponType != WeaponType.PayloadProjectile)
                 {
                     continue;
                 }
@@ -73,9 +62,10 @@ namespace Minigames.Survivor.Scripts.Ecs.Systems
 
         private void Spawn(EcsEntity weapon)
         {
-            var gameObject = pool.Get();
+            var gameObject = Object.Instantiate(bundleConfig.WeaponPrefab, worldContainer.Projectiles);
             var projectile = world.NewEntity();
-            projectile.Get<ProjectileTag>();
+
+            projectile.Get<PayloadProjectileTag>();
             projectile.Get<GameObjectComponent>().Value = gameObject;
             projectile.Get<TransformComponent>().Value = gameObject.transform;
 
@@ -88,10 +78,12 @@ namespace Minigames.Survivor.Scripts.Ecs.Systems
             projectile.Get<SpeedComponent>().Value = weapon.Get<SpeedComponent>().Value;
             projectile.Get<DamageComponent>().Value = weapon.Get<DamageComponent>().Value;
             projectile.Get<ProjectileDirectionRequest>().TargetingType = weapon.Get<WeaponComponent>().TargetingType;
-            projectile.Get<RotationComponent>().RotateTowardsDirection = true;
 
             ref var timer = ref projectile.Get<TimerComponent>();
-            timer.TimeLeft = weapon.Get<LifetimeComponent>().Value;
+            var lifetime = weapon.Get<LifetimeRangeComponent>().Value;
+            timer.TimeLeft = Random.Range(lifetime.Min, lifetime.Max);
+
+            projectile.Get<ImpactRadiusComponent>() = weapon.Get<ImpactRadiusComponent>();
         }
     }
 }

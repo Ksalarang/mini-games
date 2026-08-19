@@ -6,6 +6,7 @@ namespace Minigames.Survivor.Scripts.Configs.Weapons
 {
     public abstract class WeaponConfig : ScriptableObject
     {
+        [field: SerializeField] public WeaponType Type { get; private set; }
         [field: SerializeField] public WeaponId Id { get; private set; }
         [field: SerializeField] public WeaponTargetingType TargetingType { get; private set; }
         [field: SerializeField] public Sprite Sprite { get; private set; }
@@ -16,6 +17,7 @@ namespace Minigames.Survivor.Scripts.Configs.Weapons
         {
             weapon.Get<WeaponComponent>() = new WeaponComponent
             {
+                Type = Type,
                 Id = Id,
                 TargetingType = TargetingType,
             };
@@ -27,6 +29,12 @@ namespace Minigames.Survivor.Scripts.Configs.Weapons
         }
 
         protected abstract void OnComponentsAdded(ref EcsEntity weapon);
+    }
+
+    public enum WeaponType
+    {
+        Projectile,
+        PayloadProjectile,
     }
 
     public enum WeaponId

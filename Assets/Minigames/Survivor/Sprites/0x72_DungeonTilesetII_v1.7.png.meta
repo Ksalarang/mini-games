@@ -4882,7 +4882,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 0x72_DungeonTilesetII_v1.7_226
+      name: bomb_1
       rect:
         serializedVersion: 2
         x: 304
@@ -6532,7 +6532,6 @@ TextureImporter:
       0x72_DungeonTilesetII_v1.7_223: -2090375902
       0x72_DungeonTilesetII_v1.7_224: -1312457005
       0x72_DungeonTilesetII_v1.7_225: -97765414
-      0x72_DungeonTilesetII_v1.7_226: 128609244
       0x72_DungeonTilesetII_v1.7_227: -680230258
       0x72_DungeonTilesetII_v1.7_228: -236054503
       0x72_DungeonTilesetII_v1.7_229: -1183317551
@@ -6650,6 +6649,7 @@ TextureImporter:
       0x72_DungeonTilesetII_v1.7_97: 88295164
       0x72_DungeonTilesetII_v1.7_98: 692519301
       0x72_DungeonTilesetII_v1.7_99: 2141482823
+      bomb_1: 128609244
       chort_run_0: 1515730915
       chort_run_1: 1853508688
       chort_run_2: -2015762405
