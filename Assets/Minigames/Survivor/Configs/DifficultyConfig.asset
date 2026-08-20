@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: DifficultyConfig
   m_EditorClassIdentifier: 
   <InitialEnemySpanRate>k__BackingField: 1
-  <MaxEnemyCount>k__BackingField: 50
-  <SessionDurationMinutes>k__BackingField: 5
+  <MaxEnemyCount>k__BackingField: 100
+  <SessionDurationMinutes>k__BackingField: 10

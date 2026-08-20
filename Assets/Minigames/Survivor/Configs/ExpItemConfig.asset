@@ -13,5 +13,8 @@ MonoBehaviour:
   m_Name: ExpItemConfig
   m_EditorClassIdentifier: 
   <Prefab>k__BackingField: {fileID: 4511600774007422494, guid: aa23fb80b6be9b1458a7aa2f5d7706ff, type: 3}
-  <Sprite>k__BackingField: {fileID: -1979624389, guid: 535d082cb5518d448bd0057c6592dbd9, type: 3}
+  <Sprites>k__BackingField:
+  - {fileID: -378025704, guid: 535d082cb5518d448bd0057c6592dbd9, type: 3}
+  - {fileID: -1979624389, guid: 535d082cb5518d448bd0057c6592dbd9, type: 3}
+  - {fileID: -2128178016, guid: 535d082cb5518d448bd0057c6592dbd9, type: 3}
   <SpawnChance>k__BackingField: 1

@@ -12,12 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0bbacaa7c0e427e921b32354fb2fa09, type: 3}
   m_Name: ChortSpawnConfig
   m_EditorClassIdentifier: 
-  <EnemyType>k__BackingField: 10
+  <EnemyType>k__BackingField: 1
+  <EnemyId>k__BackingField: 0
   <Sprites>k__BackingField:
   - {fileID: 1515730915, guid: 535d082cb5518d448bd0057c6592dbd9, type: 3}
   - {fileID: 1853508688, guid: 535d082cb5518d448bd0057c6592dbd9, type: 3}
   - {fileID: -2015762405, guid: 535d082cb5518d448bd0057c6592dbd9, type: 3}
   - {fileID: 2045032380, guid: 535d082cb5518d448bd0057c6592dbd9, type: 3}
+  <SortingOrder>k__BackingField: 0
   <FramesPerSecond>k__BackingField: 4
   <MoveSpeed>k__BackingField: 2
   <Health>k__BackingField: 30

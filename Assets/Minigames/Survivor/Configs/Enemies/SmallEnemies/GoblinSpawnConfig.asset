@@ -12,15 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bfe57b608f284912a2c3ebfab71a64a8, type: 3}
   m_Name: GoblinSpawnConfig
   m_EditorClassIdentifier: 
-  <EnemyType>k__BackingField: 1
+  <EnemyType>k__BackingField: 0
+  <EnemyId>k__BackingField: 0
   <Sprites>k__BackingField:
   - {fileID: 208682901, guid: 535d082cb5518d448bd0057c6592dbd9, type: 3}
   - {fileID: -1669171916, guid: 535d082cb5518d448bd0057c6592dbd9, type: 3}
   - {fileID: -1150044416, guid: 535d082cb5518d448bd0057c6592dbd9, type: 3}
   - {fileID: -1412421955, guid: 535d082cb5518d448bd0057c6592dbd9, type: 3}
+  <SortingOrder>k__BackingField: 0
   <FramesPerSecond>k__BackingField: 8
   <MoveSpeed>k__BackingField: 2
   <Health>k__BackingField: 10
+  <MinPlayerLevel>k__BackingField: 0
   <ReplacePeriodMinutes>k__BackingField:
     Min: 0
     Max: 1

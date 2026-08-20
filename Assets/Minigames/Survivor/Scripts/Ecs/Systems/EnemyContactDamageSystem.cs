@@ -38,7 +38,7 @@ namespace Minigames.Survivor.Scripts.Ecs.Systems
 
                         if (timer.TimeLeft <= 0f)
                         {
-                            var data = config.Dict[entity1.Get<EnemyTag>().Type];
+                            var data = config.Dict[entity1.Get<EnemyTag>().Id];
 
                             world.NewEntity().Get<DamageEvent>() = new DamageEvent
                             {

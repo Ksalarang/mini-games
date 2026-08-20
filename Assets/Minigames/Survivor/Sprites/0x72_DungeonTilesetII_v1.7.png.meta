@@ -5197,7 +5197,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 0x72_DungeonTilesetII_v1.7_241
+      name: potion_red
       rect:
         serializedVersion: 2
         x: 291
@@ -5239,7 +5239,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 0x72_DungeonTilesetII_v1.7_243
+      name: potion_green
       rect:
         serializedVersion: 2
         x: 323
@@ -5260,7 +5260,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 0x72_DungeonTilesetII_v1.7_244
+      name: potion_yellow
       rect:
         serializedVersion: 2
         x: 339
@@ -6544,9 +6544,6 @@ TextureImporter:
       0x72_DungeonTilesetII_v1.7_239: 634473233
       0x72_DungeonTilesetII_v1.7_24: 1046262898
       0x72_DungeonTilesetII_v1.7_240: 1987582745
-      0x72_DungeonTilesetII_v1.7_241: -2128178016
-      0x72_DungeonTilesetII_v1.7_243: -378025704
-      0x72_DungeonTilesetII_v1.7_244: -343587948
       0x72_DungeonTilesetII_v1.7_245: 847362862
       0x72_DungeonTilesetII_v1.7_246: 364721106
       0x72_DungeonTilesetII_v1.7_247: 600012238
@@ -6682,6 +6679,9 @@ TextureImporter:
       necromancer_run_2: -1940785275
       necromancer_run_3: 62117506
       potion_blue: -1979624389
+      potion_green: -378025704
+      potion_red: -2128178016
+      potion_yellow: -343587948
       pumpkin_head_0: 1263269741
       pumpkin_head_1: -1528102371
       pumpkin_head_2: -431878561

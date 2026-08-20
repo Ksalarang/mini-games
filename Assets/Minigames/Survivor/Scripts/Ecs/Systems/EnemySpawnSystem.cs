@@ -51,7 +51,11 @@ namespace Minigames.Survivor.Scripts.Ecs.Systems
             var spriteObject = pool.Get();
             var entity = world.NewEntity();
 
-            entity.Get<EnemyTag>().Type = config.EnemyType;
+            entity.Get<EnemyTag>() = new EnemyTag
+            {
+                Type = config.EnemyType,
+                Id = config.EnemyId,
+            };
 
             ref var position = ref entity.Get<Position>();
             position.Value = GetRandomPositionAroundPlayer(playerFilter.GetEntity(0).Get<Position>().Value);

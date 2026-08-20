@@ -12,15 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bfe57b608f284912a2c3ebfab71a64a8, type: 3}
   m_Name: TinyZombieSpawnConfig
   m_EditorClassIdentifier: 
-  <EnemyType>k__BackingField: 2
+  <EnemyType>k__BackingField: 0
+  <EnemyId>k__BackingField: 0
   <Sprites>k__BackingField:
   - {fileID: -2100652775, guid: 535d082cb5518d448bd0057c6592dbd9, type: 3}
   - {fileID: -137023341, guid: 535d082cb5518d448bd0057c6592dbd9, type: 3}
   - {fileID: 854534878, guid: 535d082cb5518d448bd0057c6592dbd9, type: 3}
   - {fileID: 1970355807, guid: 535d082cb5518d448bd0057c6592dbd9, type: 3}
+  <SortingOrder>k__BackingField: 0
   <FramesPerSecond>k__BackingField: 6
   <MoveSpeed>k__BackingField: 1.5
   <Health>k__BackingField: 15
+  <MinPlayerLevel>k__BackingField: 0
   <ReplacePeriodMinutes>k__BackingField:
     Min: 0
     Max: 1

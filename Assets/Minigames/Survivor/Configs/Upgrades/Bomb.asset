@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Bomb
   m_EditorClassIdentifier: 
   <Title>k__BackingField: Bomb
-  <Description>k__BackingField: Flies in a random direction and deals damage in a
-    circular area
+  <Description>k__BackingField: Thrown in a random direction, deals AoE damage
   <Level>k__BackingField: 1
   <Value>k__BackingField: 1
+  <DescriptionValues>k__BackingField: []
   config: {fileID: 11400000, guid: 47b43228b7940f14b9eaa0ed1f12e458, type: 2}

@@ -1,4 +1,5 @@
-﻿using Minigames.Survivor.Scripts.Ecs.Components;
+﻿using Minigames.Survivor.Scripts.Common;
+using Minigames.Survivor.Scripts.Ecs.Components;
 using UnityEngine;
 
 namespace Minigames.Survivor.Scripts.Configs.Enemies
@@ -6,6 +7,7 @@ namespace Minigames.Survivor.Scripts.Configs.Enemies
     public abstract class EnemySpawnConfig : ScriptableObject
     {
         [field: SerializeField] public EnemyType EnemyType { get; private set; }
+        [field: SerializeField] public EnemyId EnemyId { get; private set; }
         [field: SerializeField] public Sprite[] Sprites { get; private set; }
         [field: SerializeField] public int SortingOrder { get; private set; }
         [field: SerializeField] public int FramesPerSecond { get; private set; } = 4;

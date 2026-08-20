@@ -13,14 +13,17 @@ MonoBehaviour:
   m_Name: ImpSpawnConfig
   m_EditorClassIdentifier: 
   <EnemyType>k__BackingField: 0
+  <EnemyId>k__BackingField: 0
   <Sprites>k__BackingField:
   - {fileID: 1546932700, guid: 535d082cb5518d448bd0057c6592dbd9, type: 3}
   - {fileID: -2102413512, guid: 535d082cb5518d448bd0057c6592dbd9, type: 3}
   - {fileID: 884703242, guid: 535d082cb5518d448bd0057c6592dbd9, type: 3}
   - {fileID: -1151684332, guid: 535d082cb5518d448bd0057c6592dbd9, type: 3}
+  <SortingOrder>k__BackingField: 0
   <FramesPerSecond>k__BackingField: 8
   <MoveSpeed>k__BackingField: 2
   <Health>k__BackingField: 10
+  <MinPlayerLevel>k__BackingField: 0
   <ReplacePeriodMinutes>k__BackingField:
     Min: 0
     Max: 1

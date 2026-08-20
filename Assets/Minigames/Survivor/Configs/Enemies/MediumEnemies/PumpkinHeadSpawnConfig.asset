@@ -12,12 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0bbacaa7c0e427e921b32354fb2fa09, type: 3}
   m_Name: PumpkinHeadSpawnConfig
   m_EditorClassIdentifier: 
-  <EnemyType>k__BackingField: 22
+  <EnemyType>k__BackingField: 1
+  <EnemyId>k__BackingField: 0
   <Sprites>k__BackingField:
   - {fileID: 1263269741, guid: 535d082cb5518d448bd0057c6592dbd9, type: 3}
   - {fileID: -1528102371, guid: 535d082cb5518d448bd0057c6592dbd9, type: 3}
   - {fileID: -431878561, guid: 535d082cb5518d448bd0057c6592dbd9, type: 3}
   - {fileID: -349648631, guid: 535d082cb5518d448bd0057c6592dbd9, type: 3}
+  <SortingOrder>k__BackingField: 0
   <FramesPerSecond>k__BackingField: 4
   <MoveSpeed>k__BackingField: 2
   <Health>k__BackingField: 70
