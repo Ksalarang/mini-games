@@ -73,10 +73,10 @@ namespace Minigames.Survivor.Scripts.Ecs.Systems
             spriteRendererComponent.Value = gameObject.GetComponent<SpriteRenderer>();
             spriteRendererComponent.Value.sprite = weapon.Get<SpriteComponent>().Value;
 
-            projectile.Get<Position>().Value = playerFilter.GetEntity(0).Get<Position>().Value;
+            projectile.Get<Position>() = playerFilter.GetEntity(0).Get<Position>();
             projectile.Get<BoundsComponent>().HalfSize = spriteRendererComponent.Value.bounds.size * 0.5f;
-            projectile.Get<SpeedComponent>().Value = weapon.Get<SpeedComponent>().Value;
-            projectile.Get<DamageComponent>().Value = weapon.Get<DamageComponent>().Value;
+            projectile.Get<SpeedComponent>() = weapon.Get<SpeedComponent>();
+            projectile.Get<DamageComponent>() = weapon.Get<DamageComponent>();
             projectile.Get<ProjectileDirectionRequest>().TargetingType = weapon.Get<WeaponComponent>().TargetingType;
 
             ref var timer = ref projectile.Get<TimerComponent>();
