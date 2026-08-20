@@ -5386,7 +5386,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 0x72_DungeonTilesetII_v1.7_250
+      name: vial_red
       rect:
         serializedVersion: 2
         x: 292
@@ -5407,7 +5407,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 0x72_DungeonTilesetII_v1.7_251
+      name: vial_blue
       rect:
         serializedVersion: 2
         x: 308
@@ -5428,7 +5428,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 0x72_DungeonTilesetII_v1.7_252
+      name: vial_green
       rect:
         serializedVersion: 2
         x: 324
@@ -5449,7 +5449,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 0x72_DungeonTilesetII_v1.7_253
+      name: vial_yellow
       rect:
         serializedVersion: 2
         x: 340
@@ -6550,10 +6550,6 @@ TextureImporter:
       0x72_DungeonTilesetII_v1.7_248: 1390219116
       0x72_DungeonTilesetII_v1.7_249: 1635941019
       0x72_DungeonTilesetII_v1.7_25: 624198063
-      0x72_DungeonTilesetII_v1.7_250: -306404235
-      0x72_DungeonTilesetII_v1.7_251: -1668554126
-      0x72_DungeonTilesetII_v1.7_252: 804003406
-      0x72_DungeonTilesetII_v1.7_253: -1494603822
       0x72_DungeonTilesetII_v1.7_254: -791887418
       0x72_DungeonTilesetII_v1.7_255: -1480960753
       0x72_DungeonTilesetII_v1.7_256: -606099315
@@ -6703,6 +6699,10 @@ TextureImporter:
       tiny_zombie_run_1: -137023341
       tiny_zombie_run_2: 854534878
       tiny_zombie_run_3: 1970355807
+      vial_blue: -1668554126
+      vial_green: 804003406
+      vial_red: -306404235
+      vial_yellow: -1494603822
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
