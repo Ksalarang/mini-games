@@ -14,10 +14,14 @@ namespace Minigames.Survivor.Scripts.Ecs.Systems
         public SpriteObjectPoolSystem(SurvivorWorldContainer worldContainer)
         {
             pool = new ObjectPool<SpriteObject>(
-                () => Object.Instantiate(worldContainer.SpriteObjectPrefab, worldContainer.Entities),
-                so => so.gameObject.SetActive(true),
-                so => so.gameObject.SetActive(false),
-                so => Object.Destroy(so.gameObject),
+                createFunc: () => Object.Instantiate(worldContainer.SpriteObjectPrefab, worldContainer.Entities),
+                actionOnGet: so =>
+                {
+                    so.Transform.localEulerAngles = Vector3.zero;
+                    so.gameObject.SetActive(true);
+                },
+                actionOnRelease: so => so.gameObject.SetActive(false),
+                actionOnDestroy: so => Object.Destroy(so.gameObject),
                 defaultCapacity: 200
             );
         }

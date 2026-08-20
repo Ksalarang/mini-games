@@ -4,9 +4,7 @@ using Minigames.Survivor.Scripts.Ecs.Components;
 using Minigames.Survivor.Scripts.Ecs.Components.Events;
 using Minigames.Survivor.Scripts.Ecs.Components.Requests;
 using Minigames.Survivor.Scripts.SceneObjects;
-using UnityEngine;
 using UnityEngine.Pool;
-using Object = UnityEngine.Object;
 
 namespace Minigames.Survivor.Scripts.Ecs.Systems
 {
@@ -16,23 +14,13 @@ namespace Minigames.Survivor.Scripts.Ecs.Systems
         private readonly EcsFilter<WeaponSpawnRequest, TimerExpiredEvent> spawnFilter;
         private readonly EcsFilter<PlayerTag> playerFilter;
         private readonly EcsFilter<WeaponComponent> weaponFilter;
+        private readonly EcsFilter<SpriteObjectPoolComponent> poolFilter;
 
-        private readonly ObjectPool<GameObject> pool;
-
-        public ProjectileSpawnSystem(WeaponBundleConfig bundleConfig, SurvivorWorldContainer worldContainer)
-        {
-            pool = new ObjectPool<GameObject>(
-                createFunc: () => Object.Instantiate(bundleConfig.WeaponPrefab, worldContainer.Projectiles),
-                actionOnGet: go => go.SetActive(true),
-                actionOnRelease: go => go.SetActive(false),
-                actionOnDestroy: Object.Destroy,
-                defaultCapacity: 100
-            );
-        }
+        private IObjectPool<SpriteObject> pool;
 
         public void Init()
         {
-            world.NewEntity().Get<ProjectilePoolComponent>().Value = pool;
+            pool = poolFilter.Get1(0).Value;
         }
 
         public void Run()
@@ -73,14 +61,14 @@ namespace Minigames.Survivor.Scripts.Ecs.Systems
 
         private void Spawn(EcsEntity weapon)
         {
-            var gameObject = pool.Get();
+            var spriteObject = pool.Get();
             var projectile = world.NewEntity();
             projectile.Get<ProjectileTag>();
-            projectile.Get<GameObjectComponent>().Value = gameObject;
-            projectile.Get<TransformComponent>().Value = gameObject.transform;
+            projectile.Get<SpriteObjectComponent>().Value = spriteObject;
+            projectile.Get<TransformComponent>().Value = spriteObject.Transform;
 
             ref var spriteRendererComponent = ref projectile.Get<SpriteRendererComponent>();
-            spriteRendererComponent.Value = gameObject.GetComponent<SpriteRenderer>();
+            spriteRendererComponent.Value = spriteObject.SpriteRenderer;
             spriteRendererComponent.Value.sprite = weapon.Get<SpriteComponent>().Value;
             spriteRendererComponent.Value.sortingOrder = weapon.Get<RenderOrderComponent>().SortingOrder;
 

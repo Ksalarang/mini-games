@@ -1,23 +1,14 @@
 ﻿using Leopotam.Ecs;
 using Minigames.Survivor.Scripts.Ecs.Components;
 using Minigames.Survivor.Scripts.Ecs.Components.Events;
-using UnityEngine;
-using UnityEngine.Pool;
+using Minigames.Survivor.Scripts.Ecs.Components.Requests;
 
 namespace Minigames.Survivor.Scripts.Ecs.Systems
 {
-    public class ProjectileDestroySystem : IEcsInitSystem, IEcsRunSystem
+    public class ProjectileDestroySystem : IEcsRunSystem
     {
-        private readonly EcsFilter<ProjectilePoolComponent> projectilePoolFilter;
         private readonly EcsFilter<ProjectileTag, DamageComponent> projectileFilter;
         private readonly EcsFilter<ProjectileTag, TimerExpiredEvent> timerExpiredFilter;
-
-        private IObjectPool<GameObject> pool;
-
-        public void Init()
-        {
-            pool = projectilePoolFilter.Get1(0).Value;
-        }
 
         public void Run()
         {
@@ -25,17 +16,13 @@ namespace Minigames.Survivor.Scripts.Ecs.Systems
             {
                 if (projectileFilter.Get2(i).Value <= 0f)
                 {
-                    var entity = projectileFilter.GetEntity(i);
-                    pool.Release(entity.Get<GameObjectComponent>().Value);
-                    entity.Destroy();
+                    projectileFilter.GetEntity(i).Get<DestroyRequest>();
                 }
             }
 
             foreach (var i in timerExpiredFilter)
             {
-                var entity = timerExpiredFilter.GetEntity(i);
-                pool.Release(entity.Get<GameObjectComponent>().Value);
-                entity.Destroy();
+                timerExpiredFilter.GetEntity(i).Get<DestroyRequest>();
             }
         }
     }
