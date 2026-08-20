@@ -15,6 +15,6 @@ MonoBehaviour:
   <Title>k__BackingField: Knife Fire Rate
   <Description>k__BackingField: Increases knife fire rate by {0}%
   <Level>k__BackingField: 1
-  <Value>k__BackingField: 10
-  <Type>k__BackingField: 0
-  <MinValue>k__BackingField: 0.1
+  <Value>k__BackingField: 15
+  <WeaponId>k__BackingField: 0
+  <MinCooldown>k__BackingField: 0.1

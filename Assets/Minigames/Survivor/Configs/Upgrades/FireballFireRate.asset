@@ -15,6 +15,6 @@ MonoBehaviour:
   <Title>k__BackingField: Fireball Fire Rate
   <Description>k__BackingField: Increases Fireball fire rate by {0}%
   <Level>k__BackingField: 1
-  <Value>k__BackingField: 10
+  <Value>k__BackingField: 15
   <WeaponId>k__BackingField: 1
   <MinCooldown>k__BackingField: 0.1

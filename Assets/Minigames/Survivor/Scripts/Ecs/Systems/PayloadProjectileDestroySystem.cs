@@ -1,7 +1,7 @@
 ﻿using Leopotam.Ecs;
 using Minigames.Survivor.Scripts.Ecs.Components;
 using Minigames.Survivor.Scripts.Ecs.Components.Events;
-using UnityEngine;
+using Minigames.Survivor.Scripts.Ecs.Components.Requests;
 
 namespace Minigames.Survivor.Scripts.Ecs.Systems
 {
@@ -13,9 +13,7 @@ namespace Minigames.Survivor.Scripts.Ecs.Systems
         {
             foreach (var i in filter)
             {
-                var entity = filter.GetEntity(i);
-                Object.Destroy(entity.Get<GameObjectComponent>().Value);
-                entity.Destroy();
+                filter.GetEntity(i).Get<DestroyRequest>();
             }
         }
     }

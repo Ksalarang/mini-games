@@ -5,23 +5,23 @@ using Minigames.Survivor.Scripts.Ecs.Components.Events;
 using Minigames.Survivor.Scripts.Ecs.Components.Requests;
 using Minigames.Survivor.Scripts.SceneObjects;
 using UnityEngine;
+using UnityEngine.Pool;
 
 namespace Minigames.Survivor.Scripts.Ecs.Systems
 {
-    public class PayloadProjectileSpawnSystem : IEcsRunSystem
+    public class PayloadProjectileSpawnSystem : IEcsInitSystem, IEcsRunSystem
     {
-        private readonly WeaponBundleConfig bundleConfig;
-        private readonly SurvivorWorldContainer worldContainer;
-
         private readonly EcsWorld world;
         private readonly EcsFilter<WeaponSpawnRequest, TimerExpiredEvent> spawnFilter;
         private readonly EcsFilter<PlayerTag> playerFilter;
         private readonly EcsFilter<WeaponComponent> weaponFilter;
+        private readonly EcsFilter<SpriteObjectPoolComponent> poolFilter;
 
-        public PayloadProjectileSpawnSystem(WeaponBundleConfig bundleConfig, SurvivorWorldContainer worldContainer)
+        private IObjectPool<SpriteObject> pool;
+
+        public void Init()
         {
-            this.bundleConfig = bundleConfig;
-            this.worldContainer = worldContainer;
+            pool = poolFilter.Get1(0).Value;
         }
 
         public void Run()
@@ -62,16 +62,17 @@ namespace Minigames.Survivor.Scripts.Ecs.Systems
 
         private void Spawn(EcsEntity weapon)
         {
-            var gameObject = Object.Instantiate(bundleConfig.WeaponPrefab, worldContainer.Projectiles);
+            var spriteObject = pool.Get();
             var projectile = world.NewEntity();
 
             projectile.Get<PayloadProjectileTag>();
-            projectile.Get<GameObjectComponent>().Value = gameObject;
-            projectile.Get<TransformComponent>().Value = gameObject.transform;
+            projectile.Get<SpriteObjectComponent>().Value = spriteObject;
+            projectile.Get<TransformComponent>().Value = spriteObject.Transform;
 
             ref var spriteRendererComponent = ref projectile.Get<SpriteRendererComponent>();
-            spriteRendererComponent.Value = gameObject.GetComponent<SpriteRenderer>();
+            spriteRendererComponent.Value = spriteObject.GetComponent<SpriteRenderer>();
             spriteRendererComponent.Value.sprite = weapon.Get<SpriteComponent>().Value;
+            spriteRendererComponent.Value.sortingOrder = weapon.Get<RenderOrderComponent>().SortingOrder;
 
             projectile.Get<Position>() = playerFilter.GetEntity(0).Get<Position>();
             projectile.Get<BoundsComponent>().HalfSize = spriteRendererComponent.Value.bounds.size * 0.5f;

@@ -19,25 +19,18 @@ namespace Minigames.Survivor.Scripts.Ecs.Systems
         private readonly EcsFilter<EnemySpawnRequest, TimerExpiredEvent> spawnRequestFilter;
         private readonly EcsFilter<PlayerTag> playerFilter;
         private readonly EcsFilter<EnemyTag> enemyFilter;
+        private readonly EcsFilter<SpriteObjectPoolComponent> poolFilter;
 
-        private readonly ObjectPool<GameObject> pool;
+        private IObjectPool<SpriteObject> pool;
 
-        public EnemySpawnSystem(EnemySpawnMasterConfig masterConfig, SurvivorSceneContainer sceneContainer)
+        public EnemySpawnSystem(SurvivorSceneContainer sceneContainer)
         {
             camera = sceneContainer.Camera;
-
-            pool = new ObjectPool<GameObject>(
-                createFunc: () => Object.Instantiate(masterConfig.EnemyPrefab, sceneContainer.WorldContainer.Enemies),
-                actionOnGet: go => go.SetActive(true),
-                actionOnRelease: go => go.SetActive(false),
-                actionOnDestroy: Object.Destroy,
-                defaultCapacity: 100
-            );
         }
 
         public void Init()
         {
-            world.NewEntity().Get<EnemyPoolComponent>().Value = pool;
+            pool = poolFilter.Get1(0).Value;
         }
 
         public void Run()
@@ -55,7 +48,7 @@ namespace Minigames.Survivor.Scripts.Ecs.Systems
 
         private void Spawn(EnemySpawnConfig config)
         {
-            var enemy = pool.Get().GetComponent<Enemy>();
+            var spriteObject = pool.Get();
             var entity = world.NewEntity();
 
             entity.Get<EnemyTag>().Type = config.EnemyType;
@@ -64,11 +57,11 @@ namespace Minigames.Survivor.Scripts.Ecs.Systems
             position.Value = GetRandomPositionAroundPlayer(playerFilter.GetEntity(0).Get<Position>().Value);
 
             entity.Get<SpeedComponent>().Value = config.MoveSpeed;
-            entity.Get<GameObjectComponent>().Value = enemy.gameObject;
-            entity.Get<TransformComponent>().Value = enemy.Transform;
+            entity.Get<SpriteObjectComponent>().Value = spriteObject;
+            entity.Get<TransformComponent>().Value = spriteObject.Transform;
 
             ref var spriteRendererComponent = ref entity.Get<SpriteRendererComponent>();
-            spriteRendererComponent.Value = enemy.SpriteRenderer;
+            spriteRendererComponent.Value = spriteObject.SpriteRenderer;
             spriteRendererComponent.Value.sprite = config.Sprites[0];
             spriteRendererComponent.Value.sortingOrder = config.SortingOrder;
 

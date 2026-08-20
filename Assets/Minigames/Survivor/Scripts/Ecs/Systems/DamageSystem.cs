@@ -18,7 +18,7 @@ namespace Minigames.Survivor.Scripts.Ecs.Systems
                 ref var health = ref damage.Target.Get<Health>();
                 health.Value = Mathf.Max(0f, health.Value - damage.Value);
 
-                if (health.Value == 0f)
+                if (health.Value <= 0f)
                 {
                     world.NewEntity().Get<DeathEvent>().Entity = damage.Target;
                 }
