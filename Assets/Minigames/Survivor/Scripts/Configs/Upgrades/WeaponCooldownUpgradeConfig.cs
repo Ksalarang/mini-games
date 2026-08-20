@@ -1,4 +1,5 @@
-﻿using Leopotam.Ecs;
+﻿using System.Linq;
+using Leopotam.Ecs;
 using Minigames.Survivor.Scripts.Ecs.Components;
 using UnityEngine;
 
@@ -8,6 +9,13 @@ namespace Minigames.Survivor.Scripts.Configs.Upgrades
     public class WeaponCooldownUpgradeConfig : WeaponUpgradeConfig
     {
         [field: SerializeField] public float MinCooldown { get; private set; } = 0.1f;
+
+        public override bool IsApplicableTo(EcsEntity player)
+        {
+            var weapons = player.Get<WeaponInventory>().Weapons;
+            var weapon = weapons.First(w => w.Get<WeaponComponent>().Id == WeaponId);
+            return base.IsApplicableTo(player) && weapon.Get<CooldownComponent>().Value > MinCooldown;
+        }
 
         public override void Apply(EcsEntity player, EcsWorld world)
         {
