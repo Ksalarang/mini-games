@@ -3,7 +3,7 @@ using UnityEngine.Pool;
 
 namespace Minigames.Survivor.Scripts.Ecs.Components
 {
-    public struct ExpItemPoolComponent
+    public struct SpriteObjectPoolComponent
     {
         public IObjectPool<SpriteObject> Value;
     }

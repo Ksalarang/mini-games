@@ -14,30 +14,18 @@ namespace Minigames.Survivor.Scripts.Ecs.Systems
 
         private readonly EcsWorld world;
         private readonly EcsFilter<DeathEvent> filter;
+        private readonly EcsFilter<SpriteObjectPoolComponent> poolFilter;
 
-        private readonly ObjectPool<SpriteObject> pool;
+        private IObjectPool<SpriteObject> pool;
 
-        public ExpItemSpawnSystem(ExpItemConfig config, SurvivorWorldContainer worldContainer)
+        public ExpItemSpawnSystem(ExpItemConfig config)
         {
             this.config = config;
-
-            pool = new ObjectPool<SpriteObject>(
-                () =>
-                {
-                    var so = Object.Instantiate(config.Prefab, worldContainer.ExpItems);
-                    so.SpriteRenderer.sprite = config.Sprite;
-                    return so;
-                },
-                so => so.gameObject.SetActive(true),
-                so => so.gameObject.SetActive(false),
-                so => Object.Destroy(so.gameObject),
-                defaultCapacity: 100
-            );
         }
 
         public void Init()
         {
-            world.NewEntity().Get<ExpItemPoolComponent>().Value = pool;
+            pool = poolFilter.Get1(0).Value;
         }
 
         public void Run()
@@ -58,6 +46,7 @@ namespace Minigames.Survivor.Scripts.Ecs.Systems
         private void SpawnExpItem(Vector2 position)
         {
             var spriteObject = pool.Get();
+            spriteObject.SpriteRenderer.sprite = config.Sprite;
 
             var entity = world.NewEntity();
             entity.Get<SpriteObjectComponent>().Value = spriteObject;

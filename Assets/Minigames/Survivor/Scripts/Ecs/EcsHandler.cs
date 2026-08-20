@@ -68,6 +68,8 @@ namespace Minigames.Survivor.Scripts.Ecs
             systems.Add(objectResolver.Resolve<PlayerInputSystem>());
             systems.Add(objectResolver.Resolve<PlayerDirectionSystem>());
 
+            systems.Add(objectResolver.Resolve<SpriteObjectPoolSystem>());
+
             systems.Add(objectResolver.Resolve<ProjectileSpawnSystem>());
             systems.Add(objectResolver.Resolve<PayloadProjectileSpawnSystem>());
 
@@ -99,10 +101,10 @@ namespace Minigames.Survivor.Scripts.Ecs
             systems.Add(objectResolver.Resolve<UpgradeSystem>());
             systems.Add(objectResolver.Resolve<PlayerExpBarSystem>());
 
-            systems.Add(objectResolver.Resolve<ExpItemDestroySystem>());
             systems.Add(objectResolver.Resolve<EnemyDestroySystem>());
             systems.Add(objectResolver.Resolve<ProjectileDestroySystem>());
             systems.Add(objectResolver.Resolve<PayloadProjectileDestroySystem>());
+            systems.Add(objectResolver.Resolve<SpriteObjectDestroySystem>());
 
             systems.Add(objectResolver.Resolve<TransformPositionSyncSystem>());
             systems.Add(objectResolver.Resolve<TransformRotationSyncSystem>());

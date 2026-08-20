@@ -6,10 +6,10 @@ using UnityEngine.Pool;
 
 namespace Minigames.Survivor.Scripts.Ecs.Systems
 {
-    public class ExpItemDestroySystem : IEcsInitSystem, IEcsRunSystem
+    public class SpriteObjectDestroySystem : IEcsInitSystem, IEcsRunSystem
     {
-        private readonly EcsFilter<ExpItemComponent, DestroyRequest> filter;
-        private readonly EcsFilter<ExpItemPoolComponent> poolFilter;
+        private readonly EcsFilter<SpriteObjectPoolComponent> poolFilter;
+        private readonly EcsFilter<SpriteObjectComponent, DestroyRequest> destroyFilter;
 
         private IObjectPool<SpriteObject> pool;
 
@@ -20,11 +20,10 @@ namespace Minigames.Survivor.Scripts.Ecs.Systems
 
         public void Run()
         {
-            foreach (var i in filter)
+            foreach (var i in destroyFilter)
             {
-                var entity = filter.GetEntity(i);
-                pool.Release(entity.Get<SpriteObjectComponent>().Value);
-                entity.Destroy();
+                pool.Release(destroyFilter.Get1(i).Value);
+                destroyFilter.GetEntity(i).Destroy();
             }
         }
     }
