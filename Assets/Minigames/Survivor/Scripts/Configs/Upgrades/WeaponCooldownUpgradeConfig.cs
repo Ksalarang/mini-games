@@ -12,9 +12,13 @@ namespace Minigames.Survivor.Scripts.Configs.Upgrades
 
         public override bool IsApplicableTo(EcsEntity player)
         {
-            var weapons = player.Get<WeaponInventory>().Weapons;
-            var weapon = weapons.First(w => w.Get<WeaponComponent>().Id == WeaponId);
-            return base.IsApplicableTo(player) && weapon.Get<CooldownComponent>().Value > MinCooldown;
+            var weapon = player.Get<WeaponInventory>().Weapons
+                .Where(w => w.Get<WeaponComponent>().Id == WeaponId)
+                .Select(w => (EcsEntity?)w)
+                .FirstOrDefault();
+
+            return base.IsApplicableTo(player)
+                   && weapon.HasValue && weapon.Value.Get<CooldownComponent>().Value > MinCooldown;
         }
 
         public override void Apply(EcsEntity player, EcsWorld world)
