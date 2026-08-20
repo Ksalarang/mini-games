@@ -83,7 +83,7 @@ namespace Minigames.Survivor.Scripts.Ecs.Systems
             upgradeCardSelectionView.gameObject.SetActive(false);
             config.Apply(player, world);
             ref var playerExp = ref player.Get<PlayerExpComponent>();
-            playerExp.CurrentValue = 0;
+            playerExp.CurrentValue -= playerExp.NextLevelValue;
             playerExp.NextLevelValue = (int)(playerExp.NextLevelValue * ExpMultiplier);
             playerExp.Level++;
             ecsHandler.Active = true;
