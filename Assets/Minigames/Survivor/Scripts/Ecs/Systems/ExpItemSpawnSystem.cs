@@ -53,6 +53,7 @@ namespace Minigames.Survivor.Scripts.Ecs.Systems
             var spriteObject = pool.Get();
             var enemyTag = enemy.Get<EnemyTag>();
             spriteObject.SpriteRenderer.sprite = config.Sprites[(int)enemyTag.Type];
+            spriteObject.SpriteRenderer.sortingOrder = config.SortingOrder;
 
             var entity = world.NewEntity();
             entity.Get<SpriteObjectComponent>().Value = spriteObject;

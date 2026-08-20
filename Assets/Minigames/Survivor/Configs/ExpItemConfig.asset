@@ -17,4 +17,5 @@ MonoBehaviour:
   - {fileID: 804003406, guid: 535d082cb5518d448bd0057c6592dbd9, type: 3}
   - {fileID: -1668554126, guid: 535d082cb5518d448bd0057c6592dbd9, type: 3}
   - {fileID: -306404235, guid: 535d082cb5518d448bd0057c6592dbd9, type: 3}
+  <SortingOrder>k__BackingField: 0
   <SpawnChance>k__BackingField: 1

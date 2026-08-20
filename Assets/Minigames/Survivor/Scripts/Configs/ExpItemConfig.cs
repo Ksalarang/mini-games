@@ -8,6 +8,7 @@ namespace Minigames.Survivor.Scripts.Configs
     {
         [field: SerializeField] public SpriteObject Prefab { get; private set; }
         [field: SerializeField] public Sprite[] Sprites { get; private set; }
+        [field: SerializeField] public int SortingOrder { get; private set; }
         [field: SerializeField, Range(0f, 1f)] public float SpawnChance { get; private set; }
     }
 }

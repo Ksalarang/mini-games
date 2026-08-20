@@ -19,7 +19,7 @@ MonoBehaviour:
   - {fileID: 1853508688, guid: 535d082cb5518d448bd0057c6592dbd9, type: 3}
   - {fileID: -2015762405, guid: 535d082cb5518d448bd0057c6592dbd9, type: 3}
   - {fileID: 2045032380, guid: 535d082cb5518d448bd0057c6592dbd9, type: 3}
-  <SortingOrder>k__BackingField: 0
+  <SortingOrder>k__BackingField: 1
   <FramesPerSecond>k__BackingField: 4
   <MoveSpeed>k__BackingField: 2
   <Health>k__BackingField: 30

@@ -16,6 +16,7 @@ MonoBehaviour:
   <Id>k__BackingField: 2
   <TargetingType>k__BackingField: 2
   <Sprite>k__BackingField: {fileID: 128609244, guid: 535d082cb5518d448bd0057c6592dbd9, type: 3}
+  <SortingOrder>k__BackingField: 3
   <Damage>k__BackingField: 50
   <Cooldown>k__BackingField: 5
   <Speed>k__BackingField: 5

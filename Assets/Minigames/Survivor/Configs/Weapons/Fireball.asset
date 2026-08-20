@@ -12,9 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9e97913da654b08a424e9d69d13a120, type: 3}
   m_Name: Fireball
   m_EditorClassIdentifier: 
+  <Type>k__BackingField: 0
   <Id>k__BackingField: 1
   <TargetingType>k__BackingField: 1
   <Sprite>k__BackingField: {fileID: 21300000, guid: 07f896dcfd0242a468336704cd0da3f3, type: 3}
+  <SortingOrder>k__BackingField: 3
   <Damage>k__BackingField: 15
   <Cooldown>k__BackingField: 1
   <Speed>k__BackingField: 8
