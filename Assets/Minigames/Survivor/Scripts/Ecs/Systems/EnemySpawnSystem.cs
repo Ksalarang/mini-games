@@ -70,6 +70,7 @@ namespace Minigames.Survivor.Scripts.Ecs.Systems
             ref var spriteRendererComponent = ref entity.Get<SpriteRendererComponent>();
             spriteRendererComponent.Value = enemy.SpriteRenderer;
             spriteRendererComponent.Value.sprite = config.Sprites[0];
+            spriteRendererComponent.Value.sortingOrder = config.SortingOrder;
 
             ref var spriteAnimationComponent = ref entity.Get<SpriteAnimationComponent>();
             spriteAnimationComponent.Sprites = config.Sprites;

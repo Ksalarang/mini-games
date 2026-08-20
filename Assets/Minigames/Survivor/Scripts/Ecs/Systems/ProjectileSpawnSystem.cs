@@ -82,6 +82,7 @@ namespace Minigames.Survivor.Scripts.Ecs.Systems
             ref var spriteRendererComponent = ref projectile.Get<SpriteRendererComponent>();
             spriteRendererComponent.Value = gameObject.GetComponent<SpriteRenderer>();
             spriteRendererComponent.Value.sprite = weapon.Get<SpriteComponent>().Value;
+            spriteRendererComponent.Value.sortingOrder = weapon.Get<RenderOrderComponent>().SortingOrder;
 
             projectile.Get<Position>().Value = playerFilter.GetEntity(0).Get<Position>().Value;
             projectile.Get<BoundsComponent>().HalfSize = spriteRendererComponent.Value.bounds.size * 0.5f;
